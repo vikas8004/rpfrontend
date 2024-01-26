@@ -1,0 +1,59 @@
+.mainnav {
+  position: absolute;
+  width: 100%;
+  top: 0px;
+}
+
+.error {
+  display: block;
+  text-align: left;
+  width: 80%;
+  color: red;
+}
+
+.result th,
+td {
+  border: 1px solid black;
+}
+
+.regestration {
+  > div {
+    > div,
+    input {
+      border-color: blue;
+      > select,
+      checkbox,
+      input {
+        border-color: blue;
+      }
+    }
+  }
+}
+
+.admitcard {
+  border: none;
+  > tbody {
+    > tr {
+      border: none;
+
+      > th {
+        border: none;
+      }
+      > td {
+        border: none;
+      }
+    }
+  }
+}
+#heart{
+  font-size: 20px;
+}
+
+@media print {
+  .mainnav {
+    visibility: hidden;
+  }
+  .printResult {
+    visibility: hidden;
+  }
+}
