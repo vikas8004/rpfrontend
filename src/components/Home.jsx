@@ -36,14 +36,6 @@ const Home = () => {
             </Box>
             <Box>
               <Image src={img5} alt="img1" height={["40vh", "70vh"]} />
-
-              <Image src={img3} alt="img1" height={["50", "80vh"]} />
-            </Box>
-            <Box>
-              <Image src={img4} alt="img1" height={["50", "80vh"]} />
-            </Box>
-            <Box>
-              <Image src={img5} alt="img1" height={["50", "80vh"]} />
             </Box>
           </Carousel>
         </Box>
