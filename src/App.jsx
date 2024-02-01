@@ -12,7 +12,7 @@ import AddResult from "./components/Results/add result/AddResult.jsx";
 import UnitTest from "./components/Results/add result/UnitTest.jsx";
 import AllResult from "./components/Results/add result/AllResult.jsx";
 import Login from "./components/Login.jsx";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { tokenContext } from "./context.jsx";
 import ResultDemo from "./components/Results/ResultDemo.jsx";
 import RegistrationForm from "./components/Admission.jsx";
@@ -76,9 +76,8 @@ function App() {
             path="/student/show-admit-card"
             element={<ShowConditionallyAdmitCard Component={AdmitCard} />}
           />
-          <Route path="/contact" element={<Contact/>}/>
+          <Route path="/contact" element={<Contact />} />
         </Routes>
-       
       </tokenContext.Provider>
     </>
   );

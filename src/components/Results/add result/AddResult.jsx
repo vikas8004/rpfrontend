@@ -13,13 +13,13 @@ const AddResult = () => {
           height={"80vh"}
         >
           <Box width={["56%", "40%"]} mb={5}>
-            <Link to={"add-all-result"}>
+            <Link to={"/result/addresult/add-all-result"}>
               <Button width={"100%"}>Add All Result</Button>
             </Link>
           </Box>
 
           <Box width={["56%", "40%"]} mb={5}>
-            <Link to={"add-unit-test-result"}>
+            <Link to={"/result/addresult/add-unit-test-result"}>
               <Button width={"100%"}>Add Unit Test Result</Button>
             </Link>
           </Box>

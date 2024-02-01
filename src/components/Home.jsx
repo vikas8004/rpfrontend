@@ -21,26 +21,44 @@ const Home = () => {
       <VStack justifyContent={"center"}>
         <Box
           display={"flex"}
-          width={"90vw"}
+<<<<<<< HEAD
+          width={"95vw"}
           mx="auto"
           justifyContent={"center"}
           alignItems={"center"}
-          mt={100}
+          mt={"75"}
+=======
+          width={"100vw"}
+          mx="auto"
+          justifyContent={"center"}
+          alignItems={"center"}
+          mt={80}
+>>>>>>> af4f9651ddea0ffe3ea012d7cc16c6847d23fc25
         >
-          <Carousel infiniteLoop autoPlay showThumbs={false}>
+          <Carousel infiniteLoop autoPlay showThumbs={false} width={"100%"}>
             <Box>
+<<<<<<< HEAD
+              <Image src={img3} alt="img1" height={["40vh", "70vh"]} />
+            </Box>
+            <Box>
+              <Image src={img4} alt="img1" height={["40vh", "70vh"]} />
+            </Box>
+            <Box>
+              <Image src={img5} alt="img1" height={["40vh", "70vh"]} />
+=======
               <Image
                 src={img3}
                 alt="img1"
                 
-                height={"70vh"}
+                height={["50","80vh"]}
               />
             </Box>
             <Box>
-              <Image src={img4} alt="img1" height={"70vh"} />
+              <Image src={img4} alt="img1" height={["50","80vh"]} />
             </Box>
             <Box>
-              <Image src={img5} alt="img1" height={"70vh"} />
+              <Image src={img5} alt="img1" height={["50","80vh"]} />
+>>>>>>> af4f9651ddea0ffe3ea012d7cc16c6847d23fc25
             </Box>
           </Carousel>
         </Box>
@@ -115,7 +133,7 @@ const Home = () => {
           (Principal)
         </Text>
       </VStack>
-      <Footer/>
+      <Footer />
     </>
   );
 };

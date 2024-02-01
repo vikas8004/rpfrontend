@@ -2,9 +2,8 @@ import React, { useContext, useState } from "react";
 import { VStack, Button, Text, Input, Box, useToast } from "@chakra-ui/react";
 import { Field, ErrorMessage, Form, Formik } from "formik";
 import * as Yup from "yup";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import {tokenContext} from "../context";
+import { tokenContext } from "../context";
 const Login = () => {
   const { token, setToken } = useContext(tokenContext);
   const toast = useToast();
@@ -18,13 +17,20 @@ const Login = () => {
     password: Yup.string().required("password is required"),
   });
   const onSubmit = async (values, opt) => {
-    setLoading(true)
-    const res = await axios.post("/api/v1/admin/login", values);
-    if (res) {
-  
+    setLoading(true);
+    const res = await fetch("/api/v1/admin/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(values),
+    });
+    if (res.ok) {
+      const data = await res.json();
+      console.log(data);
       opt.resetForm();
-      setToken(res.data.data.accessToken);
-      const msg = res.data.data.message;
+      setToken(data.data.accessToken);
+      const msg = data.data.message;
       toast({
         title: "Logged In",
         description: msg,
@@ -32,14 +38,22 @@ const Login = () => {
         duration: 3000,
         isClosable: true,
         position: "top-right",
-        
       });
       navigate("/");
-      setLoading(false)
+      setLoading(false);
+    } else {
+      toast({
+        title: "Log In",
+        description: "invalid credentials",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+        position: "top-right",
+      });
+      setLoading(false);
     }
-   
   };
-  const [loading,setLoading]=useState(false)
+  const [loading, setLoading] = useState(false);
   return (
     <>
       <VStack>
@@ -122,7 +136,13 @@ const Login = () => {
                 justifyContent={"center"}
                 alignItems={"center"}
               >
-                <Button type="submit" width={"50%"} bg={"tomato"} isLoading={loading} loadingText="logging">
+                <Button
+                  type="submit"
+                  width={"50%"}
+                  bg={"tomato"}
+                  isLoading={loading}
+                  loadingText="logging"
+                >
                   Login As Admin
                 </Button>
               </Box>

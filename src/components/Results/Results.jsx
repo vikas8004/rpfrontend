@@ -14,22 +14,22 @@ const Results = () => {
           height={"80vh"}
         >
           <Box width={"50%"} mb={5}>
-            <Link to={"quaterlyresult"}>
+            <Link to={"/result/results/quaterlyresult"}>
               <Button width={"100%"}>Quaterly Result</Button>
             </Link>
           </Box>
           <Box width={"50%"} mb={5}>
-            <Link to={"halfyearlyresult"}>
+            <Link to={"/result/results/halfyearlyresult"}>
               <Button width={"100%"}>Halfyearly Result</Button>
             </Link>
           </Box>
           <Box width={"50%"} mb={5}>
-            <Link to={"annuallyresult"}>
+            <Link to={"/result/results/annuallyresult"}>
               <Button width={"100%"}>Annual Result</Button>
             </Link>
           </Box>
           <Box width={"50%"} mb={5}>
-            <Link to={"finalresult"}>
+            <Link to={"/result/results/finalresult"}>
               <Button width={"100%"} isDisabled={token?false:true}>Final Result</Button>
             </Link>
           </Box>

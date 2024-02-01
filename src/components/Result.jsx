@@ -15,12 +15,12 @@ const Result = () => {
           height={"50vh"}
         >
           <Box width={"50%"} mb={10}>
-            <Link to={"results"}>
+            <Link to={"/result/results"}>
               <Button width={"100%"}>View Result</Button>
             </Link>
           </Box>
           <Box width={"50%"}>
-            <Link to={"addresult"}>
+            <Link to={"/result/addresult"}>
               <Button width={"100%"} isDisabled={token?false:true}>Add Result</Button>
             </Link>
           </Box>
