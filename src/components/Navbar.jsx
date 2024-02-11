@@ -22,16 +22,22 @@ import logo from "../assests/logo.jpg";
 import { Link } from "react-router-dom";
 
 import axios from "axios";
-import {tokenContext} from "../context.jsx";
+import { tokenContext } from "../context.jsx";
+import { baseUrl } from "../utils/constnats.jsx";
 const Navbar = () => {
   const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { token, setToken } = useContext(tokenContext);
   const logOutHandler = async () => {
     setToken("");
-    const res = await axios.post("/api/v1/admin/logout");
-    if (res) {
-      const statusMsg = res.data.status;
+    const res = await fetch(`${baseUrl}/api/v1/admin/logout`, {
+      method: "POST",
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    // console.log(res);
+    if (res.ok) {
+      const data = await res.json();
+      const statusMsg = data.status;
       toast({
         title: "Logout",
         description: statusMsg,
@@ -64,7 +70,7 @@ const Navbar = () => {
             <DrawerOverlay backdropFilter={"blur(10px)"} />
             <DrawerContent>
               <DrawerHeader>
-               <Image src={logo} boxSize={12}/>
+                <Image src={logo} boxSize={12} />
                 <DrawerCloseButton mt={"14px"} bg={"tomato"}>
                   <RxCross2 fontSize={"25px"} />
                 </DrawerCloseButton>

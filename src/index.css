@@ -3,3 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+#root{
+  /* background-color: rgb(159, 243, 243); */
+  min-height: 100vh;
+}

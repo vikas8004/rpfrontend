@@ -4,6 +4,7 @@ import { Field, ErrorMessage, Form, Formik } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { tokenContext } from "../context";
+import { baseUrl } from "../utils/constnats.jsx";
 const Login = () => {
   const { token, setToken } = useContext(tokenContext);
   const toast = useToast();
@@ -18,16 +19,17 @@ const Login = () => {
   });
   const onSubmit = async (values, opt) => {
     setLoading(true);
-    const res = await fetch("/api/v1/admin/login", {
+    const res = await fetch(`${baseUrl}/api/v1/admin/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+      
       },
       body: JSON.stringify(values),
     });
     if (res.ok) {
       const data = await res.json();
-      console.log(data);
+      // console.log(data);
       opt.resetForm();
       setToken(data.data.accessToken);
       const msg = data.data.message;

@@ -20,8 +20,9 @@ import {
 import { Formik, Field, ErrorMessage, Form } from "formik";
 import { doFirstLetterCapital } from "../utils/doFirstLetterCapital.jsx";
 import * as Yup from "yup";
-import axios from "axios";
+
 import Footer from "./Footer.jsx";
+import { baseUrl } from "../utils/constnats.jsx";
 const RegistrationForm = () => {
   const toast = useToast();
   const initialValues = {
@@ -93,7 +94,7 @@ const RegistrationForm = () => {
     formData.append("studentSignature", values.studentSignature);
     formData.append("subjects", values.subjects);
     formData.append("gender", values.gender);
-    const res = await fetch("/api/v1/student/registration", {
+    const res = await fetch(`${baseUrl}/api/v1/student/registration`, {
       body: formData,
       method: "POST",
     });
@@ -152,12 +153,7 @@ const RegistrationForm = () => {
   return (
     <>
       <VStack>
-        <VStack
-          mt={20}
-          width={["100%", "70%"]}
-          justifyContent={"flex-start"}
-          
-        >
+        <VStack mt={20} width={["100%", "70%"]} justifyContent={"flex-start"}>
           <Heading fontSize={"20px"} mb={1} color={"grey"} letterSpacing={2}>
             Regestration Form
           </Heading>
@@ -837,13 +833,7 @@ const RegistrationForm = () => {
                 />
               </Box>
               {/* button */}
-              <Box
-                width={"100%"}
-                display={"flex"}
-                
-                mt={6}
-                mb={8}
-              >
+              <Box width={"100%"} display={"flex"} mt={6} mb={8}>
                 <Button
                   type="submit"
                   width={"50%"}
@@ -859,7 +849,7 @@ const RegistrationForm = () => {
           </Formik>
         </VStack>
       </VStack>
-      <Footer/>
+      <Footer />
     </>
   );
 };

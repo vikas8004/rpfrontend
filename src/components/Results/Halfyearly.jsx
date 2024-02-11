@@ -12,6 +12,7 @@ import { Formik, Field, ErrorMessage, Form } from "formik";
 import * as Yup from "yup";
 import { tokenContext } from "../../context.jsx";
 import { useNavigate } from "react-router-dom";
+import { baseUrl } from "../../utils/constnats.jsx";
 const Halfyearly = () => {
   const initialValues = {
     resultType: "halfyearly",
@@ -28,7 +29,7 @@ const Halfyearly = () => {
     console.log(values);
 
     setLoading(true);
-    const res = await fetch("/api/v1/student/showresult", {
+    const res = await fetch(`${baseUrl}/api/v1/student/showresult`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

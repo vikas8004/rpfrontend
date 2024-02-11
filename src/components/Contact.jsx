@@ -12,6 +12,7 @@ import { Formik, Field, ErrorMessage, Form } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import Footer from "./Footer";
+import { baseUrl } from "../utils/constnats.jsx";
 const Contact = () => {
   const initialValues = {
     email: "",
@@ -28,7 +29,7 @@ const Contact = () => {
   const onSubmit = async (values, opt) => {
     console.log(values);
     setLoading(true);
-    const res = await fetch("/api/v1/feedback", {
+    const res = await fetch(`${baseUrl}/api/v1/feedback`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
