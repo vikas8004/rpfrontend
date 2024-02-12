@@ -97,11 +97,11 @@ const Navbar = () => {
                     Admit Card
                   </Button>
                 </Link>{" "}
-                <Link to={"/id-card"}>
+                {/* <Link to={"/id-card"}>
                   <Button variant={"ghost"} onClick={onClose}>
                     Id Card
                   </Button>
-                </Link>
+                </Link> */}
                 <Link to={"/contact"}>
                   <Button variant={"ghost"} onClick={onClose}>
                     Contact Us
