@@ -3,7 +3,7 @@ import { Formik, Form, ErrorMessage, Field } from "formik";
 import { VStack, Box, Select, Input, Button ,useToast} from "@chakra-ui/react";
 import * as Yup from "yup";
 import axios from "axios";
-
+import {baseUrl} from "../../../utils/constnats.jsx"
 const UnitTest = () => {
   const toast=useToast()
   const initialValues = {
@@ -71,7 +71,7 @@ const UnitTest = () => {
   const onSubmit = async (values, opt) => {
     // console.log(values);
     const res = await axios.post(
-      "/api/v1/result/addresult/add-unit-test-result",
+      `${baseUrl}/api/v1/result/addresult/add-unit-test-result`,
       values
     );
     if (res) {

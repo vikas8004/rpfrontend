@@ -3,7 +3,7 @@ import { Formik, Form, ErrorMessage, Field } from "formik";
 import { VStack, Box, Select, Input, Button, useToast } from "@chakra-ui/react";
 import * as Yup from "yup";
 import axios from "axios";
-
+import {baseUrl} from "../../../utils/constnats.jsx"
 const AllResult = () => {
   const toast = useToast();
   const initialValues = {
@@ -72,7 +72,7 @@ const AllResult = () => {
     // console.log(values);
     setLoading(true);
     const res = await axios.post(
-      "/api/v1/result/addresult/add-all-result",
+      `${baseUrl}/api/v1/result/addresult/add-all-result`,
       values
     );
     if (res) {

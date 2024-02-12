@@ -12,6 +12,7 @@ import {
   Image,
   Tfoot,
   Button,
+  Box
 } from "@chakra-ui/react";
 import { sum } from "../../utils/sum.jsx";
 import { tokenContext } from "../../context.jsx";
@@ -88,11 +89,13 @@ const ResultDemo = () => {
                     {doFirstLetterCapital(resultData.StudentInfo[0].fullName)}
                   </Td>
                   <Td rowSpan={2} justifyContent={"center"}>
+                    <Box width={"100%"} display={"flex"} justifyContent={"center"}>
                     <Image
                       display={"flex"}
                       src={resultData.StudentInfo[0].image.secure_url}
                       boxSize={20}
                     />
+                    </Box>
                   </Td>
                 </Tr>
                 <Tr>
