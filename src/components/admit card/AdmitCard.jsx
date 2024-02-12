@@ -53,11 +53,7 @@ const AdmitCard = () => {
                 />
               </VStack>
               <VStack width={"80%"} alignItems={"center"}>
-<<<<<<< HEAD
-                <Heading fontSize={"15px"} >
-=======
                 <Heading fontSize={"15px"}>
->>>>>>> cd21e05d792ca3bb625fc0fc9dd069457c65f84b
                   {admitCard?.schoolName === "rp adarsh inter college"
                     ? "R P ADARSH INTER COLLEGE REHAR BASTI"
                     : " Ram Belas Memorial Public Convent School Bahdeela Charkaila Basti"}

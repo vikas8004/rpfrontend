@@ -22,7 +22,6 @@ import AdmitCard from "./components/admit card/AdmitCard.jsx";
 import AdmitCardForm from "./components/admit card/AdmitCardForm.jsx";
 import ShowConditionallyAdmitCard from "./components/auth/ShowConditionallyAdmitCard.jsx";
 import Contact from "./components/Contact.jsx";
-import IdCard from "./components/IdCard.jsx";
 
 function App() {
   const [token, setToken] = useState("");
@@ -37,7 +36,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/result" element={<Result />} />
-          <Route path="/id-card" element={<IdCard />} />
           <Route path="/result/results" element={<Results />} />
           <Route
             path="/result/results/quaterlyresult"
