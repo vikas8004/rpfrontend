@@ -12,7 +12,7 @@ import { Formik, Field, ErrorMessage, Form } from "formik";
 import * as Yup from "yup";
 import { tokenContext } from "../../context.jsx";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import {baseUrl} from "../../utils/constnats.jsx"
 const AdmitCardForm = () => {
   const initialValues = {
     admitCardType: "",
@@ -29,7 +29,7 @@ const AdmitCardForm = () => {
   const onSubmit = async (values, opt) => {
     console.log(values);
     setLoading(true);
-    const res = await fetch("/api/v1/student/show-admit-card", {
+    const res = await fetch(`${baseUrl}/api/v1/student/show-admit-card`, {
       method: "POST",
       body: JSON.stringify(values),
       headers: {
