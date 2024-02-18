@@ -21,12 +21,12 @@ const FinalResult = () => {
   };
   return (
     <>
-      <VStack>
+     
         <VStack
-          mt={78}
           width={["100%", "60%"]}
-          justifyContent={"center"}
+          // justifyContent={"center"}
           height={"80vh"}
+          mt={3}
         >
           <Formik
             initialValues={initialValues}
@@ -148,7 +148,7 @@ const FinalResult = () => {
             </Form>
           </Formik>
         </VStack>
-      </VStack>
+      
     </>
   );
 };

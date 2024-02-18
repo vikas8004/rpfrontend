@@ -20,89 +20,82 @@ import {
 import { Formik, Field, ErrorMessage, Form } from "formik";
 import { doFirstLetterCapital } from "../utils/doFirstLetterCapital.jsx";
 import * as Yup from "yup";
-
+import axios from "axios";
 import { baseUrl } from "../utils/constnats.jsx";
-const RegistrationForm = () => {
+const TeacherRegistrationForm = () => {
   const toast = useToast();
   const initialValues = {
     schoolName: "",
-    standard: "",
     year: "",
     fullName: "",
-    rollno: "",
-    regestrationNo: "",
     fatherName: "",
-    fatherOccupation: "",
-    motherName: "",
     address: "",
     category: "",
-    relegion: "",
     dob: "",
-    lastSchool: "",
     aadharNo: "",
     mobileNo: "",
     image: "",
-    studentSignature: "",
     subjects: [],
     gender: "",
+    qualification: "",
+    position: "",
+    joiningDate: "",
   };
   const validationSchema = Yup.object({
     schoolName: Yup.string().required("required"),
     fullName: Yup.string().required("required"),
-    rollno: Yup.string().required("required"),
-    standard: Yup.string().required("required"),
+    position: Yup.string().required("required"),
+    joiningDate: Yup.date().required("required"),
     year: Yup.string().required("required"),
-    regestrationNo: Yup.string(),
+    qualification: Yup.string().required("required"),
     fatherName: Yup.string().required("required"),
-    fatherOccupation: Yup.string().required("required"),
-    motherName: Yup.string().required("required"),
     address: Yup.string().required("required"),
     category: Yup.string().required("required"),
-    relegion: Yup.string().required("required"),
+
     dob: Yup.date().required("required"),
-    lastSchool: Yup.string(),
-    // aadharNo: Yup.number().required("required"),
+    aadharNo: Yup.number().required("required"),
     mobileNo: Yup.number()
       .min(1000000000, "enter a valid mobile number")
       .max(9999999999, "enter a valid mobile number")
       .required("required"),
     image: Yup.mixed().required("required"),
-    studentSignature: Yup.mixed().required("required"),
     subjects: Yup.array().min(1, "atlest one subject is required"),
     gender: Yup.string().required("required"),
   });
   const onSubmit = async (values, opt) => {
     console.log(values);
     setLoading(true);
-
+setLoading(false)
     const formData = new FormData();
     formData.append("schoolName", values.schoolName);
-    formData.append("standard", values.standard);
     formData.append("fullName", values.fullName);
-    formData.append("rollno", values.rollno);
-    formData.append("regestrationNo", values.regestrationNo);
     formData.append("year", values.year);
     formData.append("fatherName", values.fatherName);
-    formData.append("fatherOccupation", values.fatherOccupation);
-    formData.append("motherName", values.motherName);
     formData.append("address", values.address);
     formData.append("category", values.category);
-    formData.append("relegion", values.relegion);
     formData.append("dob", values.dob);
-    formData.append("lastSchool", values.lastSchool);
     formData.append("aadharNo", values.aadharNo);
     formData.append("mobileNo", values.mobileNo);
     formData.append("image", values.image);
-    formData.append("studentSignature", values.studentSignature);
     formData.append("subjects", values.subjects);
     formData.append("gender", values.gender);
-    const res = await fetch(`${baseUrl}/api/v1/student/registration`, {
-      body: formData,
+    formData.append("joiningDate", values.joiningDate);
+    formData.append("qualification", values.qualification);
+    formData.append("position", values.position);
+    const res = await fetch(`${baseUrl}/api/v1/teacher/registration`, {
       method: "POST",
+      // headers:{
+      //   "Content-Type":"application/json"
+      // },
+      // body: JSON.stringify(values),
+      body: formData,
     });
-    if (res.ok) {
+    // const res = await axios.post(
+    //   `${baseUrl}/api/v1/teacher/registration`,
+    //   formData
+    // );
+    if (res?.ok) {
       toast({
-        title: "Registration",
         description: `${values.fullName} is successfully registered`,
         status: "success",
         duration: 3000,
@@ -114,11 +107,9 @@ const RegistrationForm = () => {
       setLoading(false);
       opt.resetForm();
       setAvatar(null);
-      setSign(null);
     } else {
       setLoading(false);
       toast({
-        title: "Registration",
         description: `something went wrong`,
         status: "error",
         duration: 3000,
@@ -126,6 +117,7 @@ const RegistrationForm = () => {
         position: "top-right",
       });
     }
+    setLoading("false")
   };
   const subjects = [
     "Hindi",
@@ -158,7 +150,15 @@ const RegistrationForm = () => {
     11,
     12,
   ];
-  const year = ["2023-2024", "2024-2025"];
+  const position = [
+    "Head Teacher",
+    "Assistant Teacher",
+    "Lecturer",
+    "Principal",
+    "Vice-Principal",
+    "Registrar",
+  ];
+  const year = ["2023", "2024"];
   const category = ["SC", "GEN", "OBC", "ST"];
   const [avatar, setAvatar] = useState();
   const [sign, setSign] = useState();
@@ -169,7 +169,7 @@ const RegistrationForm = () => {
       <VStack>
         <VStack mt={1} width={["100%", "70%"]} justifyContent={"flex-start"}>
           <Heading fontSize={"20px"} mb={1} color={"grey"} letterSpacing={2}>
-            Regestration Form
+            Add Teacher
           </Heading>
           <Formik
             initialValues={initialValues}
@@ -254,45 +254,6 @@ const RegistrationForm = () => {
                 <ErrorMessage name="year" component={"div"} className="error" />
               </Box>
               <Box
-                flexDir={"column"}
-                width={"100%"}
-                display={"flex"}
-                justifyContent={"center"}
-                alignItems={"center"}
-                mb={5}
-              >
-                <FormLabel textAlign={"left"} width={"80%"} color={"grey"}>
-                  Class
-                </FormLabel>
-                <Field name="standard">
-                  {(props) => {
-                    const { form, meta, field } = props;
-                    return (
-                      <>
-                        <Select
-                          placeholder="Select Class"
-                          {...field}
-                          name="standard"
-                          width={"80%"}
-                          fontSize={"16px"}
-                        >
-                          {classes.map((ele, i) => (
-                            <option key={i} value={ele}>
-                              {ele}
-                            </option>
-                          ))}
-                        </Select>
-                      </>
-                    );
-                  }}
-                </Field>
-                <ErrorMessage
-                  name="standard"
-                  component={"div"}
-                  className="error"
-                />
-              </Box>
-              <Box
                 flexDirection={"column"}
                 width={"100%"}
                 display={"flex"}
@@ -301,7 +262,7 @@ const RegistrationForm = () => {
                 mb={5}
               >
                 <FormLabel textAlign={"left"} width={"80%"} color={"grey"}>
-                  Student Name
+                  Teacher Name
                 </FormLabel>
                 <Field name="fullName">
                   {(props) => {
@@ -323,68 +284,7 @@ const RegistrationForm = () => {
                   className="error"
                 />
               </Box>
-              <Box
-                flexDirection={"column"}
-                width={"100%"}
-                display={"flex"}
-                justifyContent={"center"}
-                alignItems={"center"}
-                mb={5}
-              >
-                <FormLabel textAlign={"left"} width={"80%"} color={"grey"}>
-                  Roll No
-                </FormLabel>
-                <Field name="rollno">
-                  {(props) => {
-                    const { field, form, meta } = props;
-                    return (
-                      <Input
-                        name="rollno"
-                        {...field}
-                        placeholder="Enter your roll no"
-                        focusBorderColor="tomato"
-                        width={"80%"}
-                      />
-                    );
-                  }}
-                </Field>
-                <ErrorMessage
-                  name="rollno"
-                  component={"div"}
-                  className="error"
-                />
-              </Box>
-              <Box
-                flexDirection={"column"}
-                width={"100%"}
-                display={"flex"}
-                justifyContent={"center"}
-                alignItems={"center"}
-                mb={5}
-              >
-                <FormLabel textAlign={"left"} width={"80%"} color={"grey"}>
-                  Registration Number
-                </FormLabel>
-                <Field name="regestrationNo">
-                  {(props) => {
-                    const { field, form, meta } = props;
-                    return (
-                      <Input
-                        name="regestrationNo"
-                        {...field}
-                        placeholder="Enter your regestration No"
-                        focusBorderColor="tomato"
-                        width={"80%"}
-                      />
-                    );
-                  }}
-                </Field>
-                <ErrorMessage
-                  name="regestrationNo"
-                  component={"div"}
-                  className="error"
-                />
-              </Box>
+
               <Box
                 flexDirection={"column"}
                 width={"100%"}
@@ -416,68 +316,7 @@ const RegistrationForm = () => {
                   className="error"
                 />
               </Box>
-              <Box
-                flexDirection={"column"}
-                width={"100%"}
-                display={"flex"}
-                justifyContent={"center"}
-                alignItems={"center"}
-                mb={5}
-              >
-                <FormLabel textAlign={"left"} width={"80%"} color={"grey"}>
-                  Father's Occupation
-                </FormLabel>
-                <Field name="fatherOccupation">
-                  {(props) => {
-                    const { field, form, meta } = props;
-                    return (
-                      <Input
-                        name="fatherOccupation"
-                        {...field}
-                        placeholder="Enter your father's occupation"
-                        focusBorderColor="tomato"
-                        width={"80%"}
-                      />
-                    );
-                  }}
-                </Field>
-                <ErrorMessage
-                  name="fatherOccupation"
-                  component={"div"}
-                  className="error"
-                />
-              </Box>
-              <Box
-                flexDirection={"column"}
-                width={"100%"}
-                display={"flex"}
-                justifyContent={"center"}
-                alignItems={"center"}
-                mb={5}
-              >
-                <FormLabel textAlign={"left"} width={"80%"} color={"grey"}>
-                  Mother's Name
-                </FormLabel>
-                <Field name="motherName">
-                  {(props) => {
-                    const { field, form, meta } = props;
-                    return (
-                      <Input
-                        name="motherName"
-                        {...field}
-                        placeholder="Enter your mother's Name"
-                        focusBorderColor="tomato"
-                        width={"80%"}
-                      />
-                    );
-                  }}
-                </Field>
-                <ErrorMessage
-                  name="motherName"
-                  component={"div"}
-                  className="error"
-                />
-              </Box>
+
               <Box
                 flexDirection={"column"}
                 width={"100%"}
@@ -557,29 +396,37 @@ const RegistrationForm = () => {
                 mb={5}
               >
                 <FormLabel textAlign={"left"} width={"80%"} color={"grey"}>
-                  Religion
+                  Position
                 </FormLabel>
-                <Field name="relegion">
+                <Field name="position">
                   {(props) => {
-                    // console.log(props);
-                    const { field, form, meta } = props;
+                    const { form, meta, field } = props;
                     return (
-                      <Input
-                        name="relegion"
-                        {...field}
-                        placeholder="Enter your relegion"
-                        focusBorderColor="tomato"
-                        width={"80%"}
-                      />
+                      <>
+                        <Select
+                          placeholder="Select postion"
+                          {...field}
+                          name="position"
+                          width={"80%"}
+                          fontSize={"16px"}
+                        >
+                          {position.map((ele, i) => (
+                            <option key={i} value={ele}>
+                              {ele}
+                            </option>
+                          ))}
+                        </Select>
+                      </>
                     );
                   }}
                 </Field>
                 <ErrorMessage
-                  name="relegion"
+                  name="position"
                   component={"div"}
                   className="error"
                 />
               </Box>
+
               <Box
                 flexDirection={"column"}
                 width={"100%"}
@@ -619,28 +466,31 @@ const RegistrationForm = () => {
                 mb={5}
               >
                 <FormLabel textAlign={"left"} width={"80%"} color={"grey"}>
-                  Last School Attended
+                  Joining Date
                 </FormLabel>
-                <Field name="lastSchool">
+                <Field name="joiningDate">
                   {(props) => {
                     const { field, form, meta } = props;
                     return (
                       <Input
-                        name="lastSchool"
+                        name="joiningDate"
                         {...field}
-                        placeholder="Enter your last attended school"
                         focusBorderColor="tomato"
                         width={"80%"}
+                        type="date"
+                        min="1995-01-01"
+                        max="2025-12-31"
                       />
                     );
                   }}
                 </Field>
                 <ErrorMessage
-                  name="lastSchool"
+                  name="joiningDate"
                   component={"div"}
                   className="error"
                 />
               </Box>
+
               <Box
                 flexDirection={"column"}
                 width={"100%"}
@@ -701,6 +551,37 @@ const RegistrationForm = () => {
                 </Field>
                 <ErrorMessage
                   name="mobileNo"
+                  component={"div"}
+                  className="error"
+                />
+              </Box>
+              <Box
+                flexDirection={"column"}
+                width={"100%"}
+                display={"flex"}
+                justifyContent={"center"}
+                alignItems={"center"}
+                mb={5}
+              >
+                <FormLabel textAlign={"left"} width={"80%"} color={"grey"}>
+                  Qualification
+                </FormLabel>
+                <Field name="qualification">
+                  {(props) => {
+                    const { field, form, meta } = props;
+                    return (
+                      <Input
+                        name="qualification"
+                        {...field}
+                        placeholder="Enter qualification"
+                        focusBorderColor="tomato"
+                        width={"80%"}
+                      />
+                    );
+                  }}
+                </Field>
+                <ErrorMessage
+                  name="qualification"
                   component={"div"}
                   className="error"
                 />
@@ -838,57 +719,6 @@ const RegistrationForm = () => {
                   className="error"
                 />
               </Box>
-              <Box
-                flexDirection={"column"}
-                width={"100%"}
-                display={"flex"}
-                justifyContent={"center"}
-                alignItems={"center"}
-                mb={1}
-              >
-                <FormLabel textAlign={"left"} width={"80%"} color={"grey"}>
-                  Signature
-                </FormLabel>
-                <Stack
-                  flexDir={["column", "row"]}
-                  justifyContent={["center", "space-between"]}
-                  alignItems={"center"}
-                  width={"80%"}
-                >
-                  <Field name="studentSignature">
-                    {(props) => {
-                      // console.log(props);
-                      const { field, form, meta } = props;
-                      const { setFieldValue } = form;
-                      return (
-                        <Input
-                          onChange={(e) => {
-                            const img = e.target.files[0];
-                            if (!img) {
-                              return;
-                            }
-                            setFieldValue("studentSignature", img);
-                            const fileReader = new FileReader();
-                            fileReader.readAsDataURL(img);
-                            fileReader.onload = () => {
-                              setSign(fileReader.result);
-                            };
-                          }}
-                          focusBorderColor="tomato"
-                          width={["100%", "70%"]}
-                          type="file"
-                        />
-                      );
-                    }}
-                  </Field>
-                  <Image src={sign} width={"80px"} rounded={"lg"} />
-                </Stack>
-                <ErrorMessage
-                  name="studentSignature"
-                  component={"div"}
-                  className="error"
-                />
-              </Box>
               {/* button */}
               <Box width={"100%"} display={"flex"} mt={6} mb={8}>
                 <Button
@@ -910,4 +740,4 @@ const RegistrationForm = () => {
   );
 };
 
-export default RegistrationForm;
+export default TeacherRegistrationForm;

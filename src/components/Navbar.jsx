@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { MdMenu } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
+import { MdDashboard } from "react-icons/md";
 import {
   HStack,
   Button,
@@ -17,6 +18,7 @@ import {
   Divider,
   Text,
   useToast,
+  Box,
 } from "@chakra-ui/react";
 import logo from "../assests/logo.jpg";
 import { Link } from "react-router-dom";
@@ -28,6 +30,9 @@ const Navbar = () => {
   const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { token, setToken } = useContext(tokenContext);
+  const dashboardHandler = async () => {
+    onClose();
+  };
   const logOutHandler = async () => {
     setToken("");
     const res = await fetch(`${baseUrl}/api/v1/admin/logout`, {
@@ -36,6 +41,7 @@ const Navbar = () => {
     });
     // console.log(res);
     if (res.ok) {
+      onClose();
       const data = await res.json();
       const statusMsg = data.status;
       toast({
@@ -46,14 +52,13 @@ const Navbar = () => {
         isClosable: true,
         position: "top-right",
       });
-      onClose();
     }
   };
   return (
     <>
       <nav className="mainnav">
-        <HStack padding={2} justifyContent={"space-between"}>
-          <Image src={logo} width={"60px"} height={"60px"} />
+        <HStack justifyContent={"space-between"}>
+          <Image src={logo} width={"50px"} height={"50px"} />
           <Text
             fontSize={["16px", "25px"]}
             color={"tomato"}
@@ -61,7 +66,7 @@ const Navbar = () => {
           >
             RP ADARSH INTER COLLEGE
           </Text>
-          <Button bg={"tomato"} boxSize={50} rounded={"xl"} onClick={onOpen}>
+          <Button bg={"none"} _hover={{background:"none"}} rounded={"xl"} onClick={onOpen} color={"white"}>
             <MdMenu fontSize={"25px"} />
           </Button>
         </HStack>
@@ -71,7 +76,7 @@ const Navbar = () => {
             <DrawerContent>
               <DrawerHeader>
                 <Image src={logo} boxSize={12} />
-                <DrawerCloseButton mt={"14px"} bg={"tomato"}>
+                <DrawerCloseButton mt={"14px"} bg={"tomato"} color={"white"}>
                   <RxCross2 fontSize={"25px"} />
                 </DrawerCloseButton>
               </DrawerHeader>
@@ -82,21 +87,21 @@ const Navbar = () => {
                     Home
                   </Button>
                 </Link>{" "}
-                <Link to={"/student/registration"}>
+                {/* <Link to={"/student/registration"}>
                   <Button variant={"ghost"} onClick={onClose}>
                     Admission
                   </Button>
-                </Link>{" "}
+                </Link>{" "} */}
                 <Link to={"/result"}>
                   <Button variant={"ghost"} onClick={onClose}>
                     Result
                   </Button>
                 </Link>{" "}
-                <Link to={"/student/view-admit-card"}>
+                {/* <Link to={"/student/view-admit-card"}>
                   <Button variant={"ghost"} onClick={onClose}>
                     Admit Card
                   </Button>
-                </Link>{" "}
+                </Link>{" "} */}
                 {/* <Link to={"/id-card"}>
                   <Button variant={"ghost"} onClick={onClose}>
                     Id Card
@@ -118,15 +123,22 @@ const Navbar = () => {
                 width={"100%"}
               >
                 {token ? (
-                  <Link to={"/"}>
-                    <Button bg={"tomato"} onClick={logOutHandler}>
-                      Logout
-                    </Button>
-                  </Link>
+                  <Box display={"flex"} justifyContent={"space-evenly"} width={"100%"}>
+                    <Link to={"/"}>
+                      <Button bg={"tomato"} onClick={logOutHandler} size={"md"}>
+                        Logout
+                      </Button>
+                    </Link>
+                    <Link to={"/dashboard"}>
+                      <Button  onClick={dashboardHandler} size={"md"} color={"blue.600"}>
+                      <MdDashboard />{" "}Dashboard
+                      </Button>
+                    </Link>
+                  </Box>
                 ) : (
                   <Link to={"/admin/login"}>
-                    <Button bg={"tomato"} onClick={onClose}>
-                      Login as Admin
+                    <Button bg={"tomato"} onClick={onClose} size={"sm"}>
+                      Login
                     </Button>
                   </Link>
                 )}

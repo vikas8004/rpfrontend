@@ -94,8 +94,8 @@ const AllResult = () => {
   const [loading, setLoading] = useState(false);
   return (
     <>
-      <VStack>
-        <VStack width={"90%"} marginTop={"95"}>
+      <VStack width={"100%"}>
+        <VStack width={"90%"} marginTop={"70px"} height={"85vh"} overflowY={"auto"} scrollBehavior={"smooth"}>
           <Formik
             initialValues={initialValues}
             onSubmit={onSubmit}

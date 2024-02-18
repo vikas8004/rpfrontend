@@ -21,15 +21,16 @@ import logo from "../../assests/logo.jpg";
 import { BiRightArrow } from "react-icons/bi";
 import { tokenContext } from "../../context.jsx";
 import { doFirstLetterCapital } from "../../utils/doFirstLetterCapital.jsx";
+import { fixDateIssue } from "../../utils/fixDateIssue.jsx";
 
 const AdmitCard = () => {
   const { admitCard, setAdmitCard } = useContext(tokenContext);
-  console.log(admitCard);
+  // console.log(admitCard);
   return (
     <>
-      <VStack>
+      <VStack className="admitCard">
         <VStack
-          mt={"80px"}
+          mt={"55px"}
           width={["100%", "90%"]}
           justifyContent={"center"}
           alignItems={"center"}
@@ -42,6 +43,7 @@ const AdmitCard = () => {
             justifyContent={"center"}
             border={"1px solid black"}
             padding={2}
+            
           >
             <HStack width={"80%"} mb={3}>
               <VStack width={"20%"}>
@@ -100,12 +102,12 @@ const AdmitCard = () => {
                   <Td colSpan={2}>{doFirstLetterCapital(admitCard.fatherName)}</Td>
                 </Tr>
                 <Tr>
-                  <Th>Mobile No</Th>
-                  <Td colSpan={2}>{admitCard.mobileNo}</Td>
+                  <Th>Gender</Th>
+                  <Td colSpan={2}>{doFirstLetterCapital(admitCard.gender)}</Td>
                 </Tr>
                 <Tr>
-                  <Th>Address</Th>
-                  <Td colSpan={2}>{doFirstLetterCapital(admitCard.address)}</Td>
+                  <Th>dob</Th>
+                  <Td colSpan={2}>{doFirstLetterCapital(fixDateIssue(admitCard.dob))}</Td>
                 </Tr>
               </Tbody>
             </Table>
@@ -126,7 +128,7 @@ const AdmitCard = () => {
                 would be thrown out of the exam.
               </ListItem>
             </List>
-            <HStack width={"100%"} justifyContent={"space-between"} mt={7}>
+            <HStack width={"100%"} justifyContent={"space-between"} mt={4}>
               <Box width={"30%"} borderBottom={"1px dotted black"}></Box>
               <Box width={"30%"} borderBottom={"1px dotted black"}></Box>
             </HStack>
@@ -148,7 +150,7 @@ const AdmitCard = () => {
             }}
             className="printResult"
           >
-            Print Admit Card
+            Print
           </Button>
         </VStack>
       </VStack>

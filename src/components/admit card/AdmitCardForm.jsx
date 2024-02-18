@@ -72,9 +72,9 @@ const AdmitCardForm = () => {
     <>
       <VStack>
         <VStack
-          mt={78}
+          mt={"2vh"}
           width={["100%", "60%"]}
-          justifyContent={"center"}
+          
           height={"80vh"}
         >
           <Formik
@@ -221,10 +221,11 @@ const AdmitCardForm = () => {
                 <Button
                   type="submit"
                   width={"50%"}
+                  bg={"tomato"}
                   isLoading={loading}
                   loadingText="Fetching"
                 >
-                  View Admit Card
+                  View
                 </Button>
               </Box>
             </Form>

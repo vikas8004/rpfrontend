@@ -1,7 +1,9 @@
 .mainnav {
-  position: absolute;
+  position: fixed;
   width: 100%;
   top: 0px;
+  background-color: tomato;
+  box-sizing: border-box;
 }
 
 .error {
@@ -45,7 +47,7 @@ td {
     }
   }
 }
-#heart{
+#heart {
   font-size: 20px;
 }
 
@@ -54,6 +56,19 @@ td {
     visibility: hidden;
   }
   .printResult {
+    visibility: hidden;
+  }
+  .admitCard {
+    margin-top: -55px;
+  }
+  .admitCard2 {
+    margin-top: -45px;
+    position: absolute;
+  }
+  .admitcard-fetchDetails {
+    visibility: hidden;
+  }
+  .dashboard-sidebar {
     visibility: hidden;
   }
 }

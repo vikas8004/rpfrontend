@@ -18,28 +18,9 @@ import Footer from "./Footer.jsx";
 const Home = () => {
   return (
     <>
-      <VStack justifyContent={"center"}>
-        <Box
-          display={"flex"}
-          width={"95vw"}
-          mx="auto"
-          justifyContent={"center"}
-          alignItems={"center"}
-          mt={"75"}
-        >
-          <Carousel infiniteLoop autoPlay showThumbs={false} width={"100%"}>
-            <Box>
-              <Image src={img3} alt="img1" height={["40vh", "70vh"]} />
-            </Box>
-            <Box>
-              <Image src={img4} alt="img1" height={["40vh", "70vh"]} />
-            </Box>
-            <Box>
-              <Image src={img5} alt="img1" height={["40vh", "70vh"]} />
-            </Box>
-          </Carousel>
-        </Box>
-        <Text width={"90vw"} fontSize={"18px"} textAlign={"justify"}>
+      <VStack justifyContent={"center"} width={"97vw"} alignItems={"center"} ml={0} pl={3} boxSizing="border-box">
+        
+        <Text width={"100%"} fontSize={"18px"} mt={"50px"}textAlign={"justify"}>
           The aim of the RP ADARSH INTER COLLEGE is to create an ambience
           encouraging learning in a joyous environment and help students attain
           their educational and personal goals by developing their confidence
@@ -53,13 +34,13 @@ const Home = () => {
         <Divider
           borderWidth={"4px"}
           borderColor={"tomato"}
-          width={"90vw"}
+          width={"100%"}
           mt={"20px"}
         />
-        <Heading color={"tomato"} width={"90vw"}>
+        <Heading color={"tomato"} width={"100%"}>
           Principal's Desk
         </Heading>
-        <Text width={"90vw"} fontSize={"18px"} textAlign={"justify"}>
+        <Text width={"100%"} fontSize={"18px"} textAlign={"justify"}>
           “All our dreams can come true, if tee have the encourage to pursue
           them. Always remember, you have within you the strength, the patience
           and the passion to reach for the stars to change the world “ As the
@@ -91,7 +72,7 @@ const Home = () => {
           students,keep up the good work with this motive….
         </Text>
         <Text
-          width={"85vw"}
+          width={"100%"}
           fontWeight={"bolder"}
           fontSize={"23px"}
           color={"tomato"}
@@ -100,13 +81,13 @@ const Home = () => {
         </Text>
         <Text
           textAlign={"right"}
-          width={"90vw"}
+          width={"100%"}
           fontWeight={"bolder"}
           fontSize={20}
         >
           Parmatma Yadav
         </Text>
-        <Text textAlign={"right"} width={"90vw"} fontWeight={"bolder"}>
+        <Text textAlign={"right"} width={"100%"} fontWeight={"bolder"}>
           (Principal)
         </Text>
       </VStack>
