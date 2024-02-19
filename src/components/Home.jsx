@@ -9,13 +9,11 @@ import {
   Heading,
   Divider,
 } from "@chakra-ui/react";
-import img3 from "../assests/img3.jpg";
-import img4 from "../assests/img4.jpg";
-import img5 from "../assests/img5.jpg";
+
 import Footer from "./Footer.jsx";
-import student from "../assests/student.jpg";
 import principal from "../assests/principal.jpg";
 import registrar from "../assests/registrar.jpg";
+import manager from "../assests/managerjpg.jpg"
 import { PiStudentBold } from "react-icons/pi";
 import { GiTeacher } from "react-icons/gi";
 import { GiHumanPyramid } from "react-icons/gi";
@@ -119,7 +117,7 @@ const Home = () => {
             fontSize={"17px"}
             mt={"-10px"}
           >
-            Parmatma Yadav
+            Viveknan
           </Text>
           <Text
             textAlign={"right"}
@@ -156,7 +154,7 @@ const Home = () => {
               boxSize={["250px", "250px", "200px"]}
               rounded={"full"}
             />
-            <Text fontSize={"20px"}>Parmatma Yadav</Text>
+            <Text fontSize={"20px"}>Vivekanand</Text>
             <Text mt={"-10px"}>Principal</Text>
           </VStack>
           <VStack>
@@ -170,11 +168,11 @@ const Home = () => {
           </VStack>
           <VStack>
             <Image
-              src={student}
+              src={manager}
               boxSize={["250px", "250px", "200px"]}
               rounded={"full"}
             />
-            <Text fontSize={"20px"}>xyz</Text>
+            <Text fontSize={"20px"}>Parmatma Yadav</Text>
             <Text mt={"-10px"}>Manager</Text>
           </VStack>
         </HStack>

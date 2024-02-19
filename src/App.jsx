@@ -28,6 +28,7 @@ import TeacherRegistrationForm from "./Teacher/Teacher.jsx";
 import IdCard from "./components/id card/IdCard.jsx";
 import PrintAdmitCard from "./components/admit card/PrintAdmitCard.jsx";
 import AdmissionPdf from "./components/admission/AdmissionPdf.jsx";
+import KnowStu from "./components/KnowStu.jsx";
 
 function App() {
   const [token, setToken] = useState("");
@@ -90,7 +91,8 @@ function App() {
           />
           <Route path="/contact" element={<Contact />} />
           <Route path="/student/admission/pdf" element={<AdmissionPdf />} />
-
+          <Route path="/gallery" />
+          <Route path="/about-student" element={<KnowStu/>}/>
           {/* dashboard */}
           <Route path="/dashboard/" element={<Dashboard />}>
             <Route

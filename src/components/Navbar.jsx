@@ -110,14 +110,17 @@ const Navbar = () => {
                     Id Card
                   </Button>
                 </Link> */}
+                <Link to={"/gallery"}>
+                  <Button variant={"ghost"} onClick={onClose}>Gallery</Button>
+                </Link>{" "}
+                <Link to={"/about-student"}>
+                  <Button variant={"ghost"} onClick={onClose}>Students</Button>
+                </Link>{" "}
                 <Link to={"/contact"}>
                   <Button variant={"ghost"} onClick={onClose}>
                     Contact Us
                   </Button>
                 </Link>{" "}
-                {/* <Link to={"/about"}>
-                  <Button variant={"ghost"} onClick={onClose}>About Us</Button>
-                </Link>{" "} */}
               </VStack>
               <VStack
                 position={"absolute"}

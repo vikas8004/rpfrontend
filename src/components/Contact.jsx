@@ -73,13 +73,12 @@ const Contact = () => {
   const navigate = useNavigate();
   return (
     <>
-      <VStack overflowY={"auto"}>
+      <VStack >
         <VStack
           mt={78}
           width={["100%", "60%"]}
           justifyContent={"center"}
           height={"80vh"}
-          
         >
           <Formik
             initialValues={initialValues}
