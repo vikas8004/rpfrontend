@@ -27,15 +27,26 @@ import StudentDetails from "./components/dashboard/StudentDetails.jsx";
 import TeacherRegistrationForm from "./Teacher/Teacher.jsx";
 import IdCard from "./components/id card/IdCard.jsx";
 import PrintAdmitCard from "./components/admit card/PrintAdmitCard.jsx";
+import AdmissionPdf from "./components/admission/AdmissionPdf.jsx";
 
 function App() {
   const [token, setToken] = useState("");
   const [result, setResult] = useState("");
   const [admitCard, setAdmitCard] = useState("");
+  const [regestrationPdf, setRegestrationPdf] = useState("");
   return (
     <>
       <tokenContext.Provider
-        value={{ token, setToken, result, setResult, admitCard, setAdmitCard }}
+        value={{
+          token,
+          setToken,
+          result,
+          setResult,
+          admitCard,
+          setAdmitCard,
+          regestrationPdf,
+          setRegestrationPdf,
+        }}
       >
         <Navbar />
         <Routes>
@@ -78,6 +89,7 @@ function App() {
             element={<ShowConditionallyAdmitCard Component={AdmitCard} />}
           />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/student/admission/pdf" element={<AdmissionPdf />} />
 
           {/* dashboard */}
           <Route path="/dashboard/" element={<Dashboard />}>

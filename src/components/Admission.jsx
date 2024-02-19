@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   VStack,
   Button,
@@ -22,6 +22,8 @@ import { doFirstLetterCapital } from "../utils/doFirstLetterCapital.jsx";
 import * as Yup from "yup";
 
 import { baseUrl } from "../utils/constnats.jsx";
+import { tokenContext } from "../context.jsx";
+import { useNavigate } from "react-router-dom";
 const RegistrationForm = () => {
   const toast = useToast();
   const initialValues = {
@@ -111,10 +113,12 @@ const RegistrationForm = () => {
       });
       const data = await res.json();
       console.log(data);
+      setRegestrationPdf(data.data);
       setLoading(false);
       opt.resetForm();
       setAvatar(null);
       setSign(null);
+      navigate("/student/admission/pdf");
     } else {
       setLoading(false);
       toast({
@@ -164,9 +168,12 @@ const RegistrationForm = () => {
   const [sign, setSign] = useState();
   const [loading, setLoading] = useState(false);
   const genderOpt = ["male", "female"];
+  const { setRegestrationPdf } = useContext(tokenContext);
+  const [confrm, setConfrm] = useState(false);
+  const navigate = useNavigate();
   return (
     <>
-      <VStack>
+      <VStack overflowY={"auto"}>
         <VStack mt={1} width={["100%", "70%"]} justifyContent={"flex-start"}>
           <Heading fontSize={"20px"} mb={1} color={"grey"} letterSpacing={2}>
             Regestration Form

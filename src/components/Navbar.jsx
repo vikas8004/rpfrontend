@@ -20,7 +20,7 @@ import {
   useToast,
   Box,
 } from "@chakra-ui/react";
-import logo from "../assests/logo.jpg";
+import logo from "../assests/logo.png";
 import { Link } from "react-router-dom";
 
 import axios from "axios";
@@ -60,9 +60,12 @@ const Navbar = () => {
         <HStack justifyContent={"space-between"}>
           <Image src={logo} width={"50px"} height={"50px"} />
           <Text
-            fontSize={["16px", "25px"]}
-            color={"tomato"}
-            fontWeight={"bolder"}
+            fontSize={["16px", "20px"]}
+            color={"white"}
+            fontWeight={"400"}
+            textAlign={"left"}
+            width={"100%"}
+            
           >
             RP ADARSH INTER COLLEGE
           </Text>

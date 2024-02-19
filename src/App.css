@@ -71,4 +71,10 @@ td {
   .dashboard-sidebar {
     visibility: hidden;
   }
+  .admissionPdf{
+    margin-top: -80px;
+  }
+  .noPrint{
+    visibility: hidden;
+  }
 }
