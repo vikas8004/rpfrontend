@@ -9,15 +9,20 @@ import {
   Heading,
   Divider,
 } from "@chakra-ui/react";
-
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
 import Footer from "./Footer.jsx";
 import principal from "../assests/principal.jpg";
 import registrar from "../assests/registrar.jpg";
-import manager from "../assests/managerjpg.jpg"
+import manager from "../assests/managerjpg.jpg";
 import { PiStudentBold } from "react-icons/pi";
 import { GiTeacher } from "react-icons/gi";
 import { GiHumanPyramid } from "react-icons/gi";
-import logo from "../assests/logo.png"
+import logo from "../assests/logo.png";
+import img1 from "../assests/img1.jpg";
+import img2 from "../assests/img2.jpg";
+import img3 from "../assests/img3.jpg";
+import img4 from "../assests/img4.jpg";
 const Home = () => {
   return (
     <>
@@ -26,12 +31,31 @@ const Home = () => {
         width={"95vw"}
         boxSizing="border-box"
         mx={"auto"}
+        p={0}
+        
       >
+        <HStack zIndex={"-6"} mt={["-67px", "-50px","30px", "50px"]} width={["100vw","96.5vw","98","98vw"]} justifyContent={"center"}
+        height={["auto","440px"]}>
+          <Carousel autoPlay={true} width={"100%"} infiniteLoop={true} emulateTouch={true} useKeyboardArrows={true}>
+            <HStack height={"400px"} width={"100%"} objectFit={"contain"}>
+              <Image src={img1} />
+            </HStack>
+            <HStack height={"400px"} width={"100%"} objectFit={"contain"}>
+              <Image src={img2} />
+            </HStack>
+            <HStack height={"400px"} width={"100%"} objectFit={"contain"}>
+              <Image src={img3} />
+            </HStack>
+            <HStack height={"400px"} width={"100%"}>
+              <Image src={img4} />
+            </HStack>
+          </Carousel>
+        </HStack>
         <HStack
-          mt={"60px"}
           width={["100%", "100", "80%"]}
           alignItems={"center"}
           flexDirection={["column", "column", "row"]}
+         mt={["-130px","-70px","-40px","-10px"]}
         >
           <HStack width={["100%", "100%", "50%"]} justifyContent={"center"}>
             <Image
@@ -117,7 +141,7 @@ const Home = () => {
             fontSize={"17px"}
             mt={"-10px"}
           >
-            Viveknan
+            Vivekanand
           </Text>
           <Text
             textAlign={"right"}
@@ -192,10 +216,38 @@ const Home = () => {
           >
             Our Strength
           </Heading>
-          <HStack bg={"tomato"} width={["100%"]} justifyContent={"space-evenly"} color={"white"} fontSize={"20px"} py={5} boxSizing="border-box" rounded={"sm"} flexDir={["column","row","row"]}>
-            <VStack width={["100%","33%","33%"]}><HStack><PiStudentBold style={{fontSize:"30px"}}/> <Text fontSize={["30px","20px","20px"]}>Students</Text></HStack><Text fontSize={"30px"}>1000+</Text></VStack>
-            <VStack width={["100%","33%","33%"]}><HStack><GiTeacher style={{fontSize:"30px"}}/> <Text fontSize={["30px","20px","20px"]}>Teachers</Text></HStack><Text fontSize={"30px"}>20+</Text></VStack>
-            <VStack width={["100%","33%","33%"]}><HStack><GiHumanPyramid style={{fontSize:"30px"}}/><Text fontSize={["30px","20px","20px"]}>Other Staffs</Text></HStack><Text fontSize={"30px"}>10+</Text></VStack>
+          <HStack
+            bg={"tomato"}
+            width={["100%"]}
+            justifyContent={"space-evenly"}
+            color={"white"}
+            fontSize={"20px"}
+            py={5}
+            boxSizing="border-box"
+            rounded={"sm"}
+            flexDir={["column", "row", "row"]}
+          >
+            <VStack width={["100%", "33%", "33%"]}>
+              <HStack>
+                <PiStudentBold style={{ fontSize: "30px" }} />{" "}
+                <Text fontSize={["30px", "20px", "20px"]}>Students</Text>
+              </HStack>
+              <Text fontSize={"30px"}>1000+</Text>
+            </VStack>
+            <VStack width={["100%", "33%", "33%"]}>
+              <HStack>
+                <GiTeacher style={{ fontSize: "30px" }} />{" "}
+                <Text fontSize={["30px", "20px", "20px"]}>Teachers</Text>
+              </HStack>
+              <Text fontSize={"30px"}>20+</Text>
+            </VStack>
+            <VStack width={["100%", "33%", "33%"]}>
+              <HStack>
+                <GiHumanPyramid style={{ fontSize: "30px" }} />
+                <Text fontSize={["30px", "20px", "20px"]}>Other Staffs</Text>
+              </HStack>
+              <Text fontSize={"30px"}>10+</Text>
+            </VStack>
           </HStack>
         </VStack>
       </VStack>
