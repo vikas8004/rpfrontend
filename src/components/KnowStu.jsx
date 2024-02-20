@@ -204,7 +204,7 @@ const KnowStu = () => {
           {data ? (
             <Modal isOpen={isOpen} onClose={onClose} size={"xs"}>
               <ModalOverlay />
-              <ModalContent bg={"cyan"} color={"black"} fontSize={"19px"} boxShadow={"0px 0px 4px 5px cyan"}>
+              <ModalContent bg={"cyan"} color={"black"} fontSize={["19px","16px"]} boxShadow={"0px 0px 4px 5px cyan"}>
                 <ModalHeader>Details</ModalHeader>
                 <ModalCloseButton size={"20px"} mt={"10px"}/>
                 <ModalBody>
