@@ -166,7 +166,7 @@ setLoading(false)
   const genderOpt = ["male", "female"];
   return (
     <>
-      <VStack>
+      <VStack overflowY={"auto"}>
         <VStack mt={1} width={["100%", "70%"]} justifyContent={"flex-start"}>
           <Heading fontSize={"20px"} mb={1} color={"grey"} letterSpacing={2}>
             Add Teacher

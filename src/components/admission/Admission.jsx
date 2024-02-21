@@ -18,11 +18,11 @@ import {
   HStack,
 } from "@chakra-ui/react";
 import { Formik, Field, ErrorMessage, Form } from "formik";
-import { doFirstLetterCapital } from "../utils/doFirstLetterCapital.jsx";
+import { doFirstLetterCapital } from "../../utils/doFirstLetterCapital.jsx";
 import * as Yup from "yup";
 
-import { baseUrl } from "../utils/constnats.jsx";
-import { tokenContext } from "../context.jsx";
+import { baseUrl } from "../../utils/constnats.jsx";
+import { tokenContext } from "../../context.jsx";
 import { useNavigate } from "react-router-dom";
 const RegistrationForm = () => {
   const toast = useToast();

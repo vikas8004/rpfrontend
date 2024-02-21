@@ -19,11 +19,13 @@ import { PiChalkboardTeacherFill } from "react-icons/pi";
 import { Outlet, NavLink } from "react-router-dom";
 import { FaAddressCard } from "react-icons/fa";
 import { FaTable } from "react-icons/fa";
+import { FaClipboardList } from "react-icons/fa6";
+
 const Dashboard = () => {
   return (
     <>
-      <VStack >
-        <HStack mt={"60px"} width={"100%"} justifyContent="space-between" >
+      <VStack>
+        <HStack mt={"60px"} width={"100%"} justifyContent="space-between">
           <VStack
             width={"150px"}
             height={"86vh"}
@@ -65,7 +67,7 @@ const Dashboard = () => {
                   </MenuList>
                 </Menu>
               </Box>
-              <Box mt={4}>
+              <Box mt={2}>
                 <Menu>
                   <MenuButton
                     colorScheme="blue"
@@ -92,7 +94,7 @@ const Dashboard = () => {
                   </MenuList>
                 </Menu>
               </Box>
-              <Box mt={4}>
+              <Box mt={2}>
                 <Menu>
                   <MenuButton
                     colorScheme="blue"
@@ -121,7 +123,7 @@ const Dashboard = () => {
                   </MenuList>
                 </Menu>
               </Box>
-              <Box mt={4}>
+              <Box mt={2}>
                 <Menu>
                   <MenuButton
                     colorScheme="blue"
@@ -148,7 +150,7 @@ const Dashboard = () => {
                   </MenuList>
                 </Menu>
               </Box>
-              <Box mt={4}>
+              <Box mt={2}>
                 <Menu>
                   <MenuButton
                     colorScheme="blue"
@@ -165,6 +167,28 @@ const Dashboard = () => {
                     <MenuItem>
                       <NavLink to={"/dashboard/student/id-card/view-id-card"}>
                         View Card
+                      </NavLink>
+                    </MenuItem>{" "}
+                  </MenuList>
+                </Menu>
+              </Box>
+              <Box mt={2}>
+                <Menu>
+                  <MenuButton
+                    colorScheme="blue"
+                    color={"blue"}
+                    bg={"white"}
+                    as={Button}
+                  >
+                    <Box display={"flex"} alignItems={"center"}>
+                      <FaClipboardList  fontSize={"17px"} />
+                      <Text ml={2}>Notice</Text>
+                    </Box>
+                  </MenuButton>
+                  <MenuList>
+                    <MenuItem>
+                      <NavLink to={"/dashboard/notice"}>
+                        View Notice
                       </NavLink>
                     </MenuItem>{" "}
                   </MenuList>

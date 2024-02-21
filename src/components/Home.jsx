@@ -23,7 +23,7 @@ import img1 from "../assests/img1.jpg";
 import img2 from "../assests/img2.jpg";
 import img3 from "../assests/img3.jpg";
 import img4 from "../assests/img4.jpg";
-import NoticeBoard from "../utils/NoticeBoard.jsx";
+import NoticeBoard from "./notice/NoticeBoard.jsx";
 const Home = () => {
   return (
     <>
@@ -35,10 +35,10 @@ const Home = () => {
         p={0}
         
       >
-        <HStack zIndex={"-6"} mt={["-67px", "-50px","30px", "50px"]} width={["100vw","96.5vw","98","98.5vw"]} justifyContent={"center"}
+        <HStack zIndex={"-6"} mt={["-85px", "-53px","5px", "40px"]} width={["100vw","96.5vw","98","98.5vw"]} justifyContent={"center"}
         height={["auto","440px"]}>
           <Carousel autoPlay={true} width={"100%"} infiniteLoop={true} emulateTouch={true} useKeyboardArrows={true}
-          showIndicators={false}
+          showIndicators={false} showThumbs={false}
           >
             <HStack height={"400px"} width={"100%"} objectFit={"contain"}>
               <Image src={img1} />

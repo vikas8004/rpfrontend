@@ -58,7 +58,7 @@ const Navbar = () => {
     <>
       <nav className="mainnav">
         <HStack justifyContent={"space-between"}>
-          <Image src={logo} width={"50px"} height={"50px"} />
+          <Image src={logo} width={"60px"}  />
           <Text
             fontSize={["16px", "20px"]}
             color={"white"}

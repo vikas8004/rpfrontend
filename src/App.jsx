@@ -15,7 +15,7 @@ import Login from "./components/Login.jsx";
 import { useState } from "react";
 import { tokenContext } from "./context.jsx";
 import ResultDemo from "./components/Results/ResultDemo.jsx";
-import RegistrationForm from "./components/Admission.jsx";
+import RegistrationForm from "./components/admission/Admission.jsx";
 import ProtectedRoute from "./components/auth/ProtectedRoute.jsx";
 import ShowResult from "./components/auth/ShowResult.jsx";
 import AdmitCard from "./components/admit card/AdmitCard.jsx";
@@ -29,6 +29,7 @@ import IdCard from "./components/id card/IdCard.jsx";
 import PrintAdmitCard from "./components/admit card/PrintAdmitCard.jsx";
 import AdmissionPdf from "./components/admission/AdmissionPdf.jsx";
 import KnowStu from "./components/KnowStu.jsx";
+import Notice from "./components/notice/Notice.jsx";
 
 function App() {
   const [token, setToken] = useState("");
@@ -94,7 +95,7 @@ function App() {
           <Route path="/gallery" />
           <Route path="/about-student" element={<KnowStu/>}/>
           {/* dashboard */}
-          <Route path="/dashboard/" element={<Dashboard />}>
+          <Route path="/dashboard/" element={<Dashboard/>}>
             <Route
               path="student/registration"
               element={<ProtectedRoute Component={RegistrationForm} />}
@@ -118,6 +119,7 @@ function App() {
               element={<FinalResult />}
             />
             <Route path="student/id-card/view-id-card" element={<IdCard />} />
+            <Route path="notice" element={<Notice/>} />
           </Route>
         </Routes>
       </tokenContext.Provider>
