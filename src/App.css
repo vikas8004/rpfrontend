@@ -51,6 +51,10 @@ td {
   font-size: 20px;
 }
 
+.finalTable tr,td{
+padding: 0 4px;
+text-align: center;
+}
 @media print {
   .mainnav {
     visibility: hidden;

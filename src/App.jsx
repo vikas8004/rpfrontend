@@ -30,12 +30,14 @@ import PrintAdmitCard from "./components/admit card/PrintAdmitCard.jsx";
 import AdmissionPdf from "./components/admission/AdmissionPdf.jsx";
 import KnowStu from "./components/KnowStu.jsx";
 import Notice from "./components/notice/Notice.jsx";
+import ShowFinalRes from "./components/Results/ShowFinalRes.jsx";
 
 function App() {
   const [token, setToken] = useState("");
   const [result, setResult] = useState("");
   const [admitCard, setAdmitCard] = useState("");
   const [regestrationPdf, setRegestrationPdf] = useState("");
+  const [finalResult, setFinalResult] = useState("");
   return (
     <>
       <tokenContext.Provider
@@ -48,6 +50,8 @@ function App() {
           setAdmitCard,
           regestrationPdf,
           setRegestrationPdf,
+          finalResult,
+          setFinalResult,
         }}
       >
         <Navbar />
@@ -93,9 +97,10 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/student/admission/pdf" element={<AdmissionPdf />} />
           <Route path="/gallery" />
-          <Route path="/about-student" element={<KnowStu/>}/>
+          <Route path="/about-student" element={<KnowStu />} />
+          <Route path="/student/final-result" element={<ShowFinalRes />} />
           {/* dashboard */}
-          <Route path="/dashboard/" element={<Dashboard/>}>
+          <Route path="/dashboard/" element={<Dashboard />}>
             <Route
               path="student/registration"
               element={<ProtectedRoute Component={RegistrationForm} />}
@@ -119,7 +124,7 @@ function App() {
               element={<FinalResult />}
             />
             <Route path="student/id-card/view-id-card" element={<IdCard />} />
-            <Route path="notice" element={<Notice/>} />
+            <Route path="notice" element={<Notice />} />
           </Route>
         </Routes>
       </tokenContext.Provider>
