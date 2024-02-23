@@ -13,7 +13,7 @@ import * as Yup from "yup";
 import { tokenContext } from "../../context.jsx";
 import { baseUrl } from "../../utils/constnats.jsx";
 import { useNavigate } from "react-router-dom";
-
+import axios from "axios"
 const FinalResult = () => {
   const initialValues = {
     year: "",
@@ -28,40 +28,37 @@ const FinalResult = () => {
   const onSubmit = async (values, opt) => {
     console.log(values);
     setLoading(true);
-    const finalResultData = await fetch(
-      `${baseUrl}/api/v1/student/final-result`,
-      {
-        method: "POST",
-        body: JSON.stringify(values),
-        headers: {
-          "Content-type": "application/json",
-        },
-      }
-    );
-    if (finalResultData.ok) {
-      const data = await finalResultData.json();
-      console.log(data);
-      setFinalResult(data.data);
-      toast({
-        description: "Result fetched successfully",
-        duration: 3000,
-        position: "top-right",
-        isClosable: true,
-        status: "success",
-      });
-      setLoading(false);
-      navigate("/student/final-result");
-      opt.resetForm();
-    } else {
-      toast({
-        description: "No result found",
-        duration: 3000,
-        position: "top-right",
-        isClosable: true,
-        status: "error",
-      });
-      setLoading(false);
-    }
+   try {
+     const finalResultData = await axios.post(
+       `${baseUrl}/api/v1/student/final-result`,values);
+     if (finalResultData) {
+       const data =  finalResultData.data;
+       console.log(data);
+       setFinalResult(data.data);
+       toast({
+         description: "Result fetched successfully",
+         duration: 3000,
+         position: "top-right",
+         isClosable: true,
+         status: "success",
+       });
+       setLoading(false);
+       navigate("/student/final-result");
+       opt.resetForm();
+     } else {
+      
+     }
+   } catch (error) {
+    // console.log(error.response.data.data.message);
+    toast({
+      description: error.response.data.data.message,
+      duration: 3000,
+      position: "top-right",
+      isClosable: true,
+      status: "error",
+    });
+    setLoading(false);
+   }
   };
   const { setFinalResult } = useContext(tokenContext);
   const navigate = useNavigate();
