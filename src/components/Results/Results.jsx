@@ -29,7 +29,7 @@ const Results = () => {
             </Link>
           </Box>
           <Box width={"50%"} mb={5}>
-            <Link to={"/result/results/finalresult"}>
+            <Link to={"/dashboard/result/results/finalresult"}>
               <Button width={"100%"} isDisabled={token?false:true}>Final Result</Button>
             </Link>
           </Box>

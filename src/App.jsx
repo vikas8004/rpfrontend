@@ -31,6 +31,10 @@ import AdmissionPdf from "./components/admission/AdmissionPdf.jsx";
 import KnowStu from "./components/KnowStu.jsx";
 import Notice from "./components/notice/Notice.jsx";
 import ShowFinalRes from "./components/Results/ShowFinalRes.jsx";
+import AllResult910 from "./components/Results/add result/AllResult910.jsx";
+import AddUnitTestResult910 from "./components/Results/add result/AddUnitTest910.jsx";
+import AllResult1112 from "./components/Results/add result/AllResult1112.jsx";
+import AddUnitTestResult1112 from "./components/Results/add result/AddUnitTest1112.jsx";
 
 function App() {
   const [token, setToken] = useState("");
@@ -74,8 +78,23 @@ function App() {
             element={<ProtectedRoute Component={UnitTest} />}
           />
           <Route
+            path="/result/addresult/add-unit-test-result9&10"
+            element={<AddUnitTestResult910/>}
+          /> <Route
+            path="/result/addresult/add-unit-test-result11&12"
+            element={<AddUnitTestResult1112/>}
+          />
+          <Route
             path="/result/addresult/add-all-result"
             element={<ProtectedRoute Component={AllResult} />}
+          />
+          <Route
+            path="/result/addresult/add-all-result9&10"
+            element={<AllResult910 />}
+          /> 
+          <Route
+            path="/result/addresult/add-all-result11&12"
+            element={<AllResult1112 />}
           />
           <Route path="/admin/login" element={<Login />} />
           <Route

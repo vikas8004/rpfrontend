@@ -122,7 +122,7 @@ const AllResult = () => {
                       >
                         <option value="quaterly">Quaterly</option>
                         <option value="halfyearly">HalfYearly</option>
-                        <option value="annually">Annual</option>
+                        <option value="annually">Annually</option>
                       </Select>
                     );
                   }}

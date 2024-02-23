@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Formik, Form, ErrorMessage, Field } from "formik";
-import { VStack, Box, Select, Input, Button ,useToast} from "@chakra-ui/react";
+import { VStack, Box, Select, Input, Button, useToast } from "@chakra-ui/react";
 import * as Yup from "yup";
 import axios from "axios";
-import {baseUrl} from "../../../utils/constnats.jsx"
-const UnitTest = () => {
-  const toast=useToast()
+import { baseUrl } from "../../../utils/constnats.jsx";
+const AllResult910 = () => {
+  const toast = useToast();
   const initialValues = {
-    test: "",
+    term: "",
     schoolName: "",
     year: "",
     rollno: "",
@@ -16,87 +16,120 @@ const UnitTest = () => {
     math: "",
     science: "",
     socialStudy: "",
-    sanskrit: "",
-    computer: "",
-    gk: "",
     drawing: "",
-    pt: "",
+    homeScience: "",
+    hinPrac: "",
+    engPrac: "",
+    mathPrac: "",
+    sciPrac: "",
+    sstPrac: "",
+    drawPrac: "",
+    hsPrac: "",
   };
   const validationSchema = Yup.object({
-    test: Yup.string().required("Select unit test"),
-    schoolName: Yup.string().required("select the school"),
+    term: Yup.string().required("Select term"),
+    schoolName: Yup.string().required("Please select school"),
     year: Yup.string().required("Please select year"),
-    rollno: Yup.number().required("roll no is required"),
+    rollno: Yup.string().required("roll no is required"),
     hindi: Yup.number()
       .min(0, "number can not be negative")
-      .max(20, "number can not be greater than 20")
+      .max(70, "number can not be greater than 70")
       .required("hindi number is required"),
     english: Yup.number()
       .min(0, "number can not be negative")
-      .max(20, "number can not be greater than 20")
+      .max(70, "number can not be greater than 70")
       .required("english number is required"),
     math: Yup.number()
       .min(0, "number can not be negative")
-      .max(20, "number can not be greater than 20")
-      .required("math number is required"),
+      .max(70, "number can not be greater than 70"),
     science: Yup.number()
       .min(0, "number can not be negative")
-      .max(20, "number can not be greater than 20")
+      .max(70, "number can not be greater than 70")
       .required("science number is required"),
     socialStudy: Yup.number()
       .min(0, "number can not be negative")
-      .max(20, "number can not be greater than 20")
+      .max(70, "number can not be greater than 70")
       .required("socialStudy number is required"),
-    sanskrit: Yup.number()
-      .min(0, "number can not be negative")
-      .max(20, "number can not be greater than 20")
-      .required("sanskrit number is required"),
-    computer: Yup.number()
-      .min(0, "number can not be negative")
-      .max(20, "number can not be greater than 20")
-      .required("computer number is required"),
-    gk: Yup.number()
-      .min(0, "number can not be negative")
-      .max(20, "number can not be greater than 20")
-      .required("gk number is required"),
     drawing: Yup.number()
       .min(0, "number can not be negative")
-      .max(20, "number can not be greater than 20")
+      .max(70, "number can not be greater than 70")
       .required("drawing number is required"),
-    pt: Yup.number()
+    homeScience: Yup.number()
       .min(0, "number can not be negative")
-      .max(20, "number can not be greater than 20")
-      .required("pt number is required"),
+      .max(70, "number can not be greater than 70"),
+
+    hinPrac: Yup.number()
+      .min(0, "number can not be negative")
+      .max(30, "number can not be greater than 30")
+      ,
+    engPrac: Yup.number()
+      .min(0, "number can not be negative")
+      .max(30, "number can not be greater than 30")
+      ,
+    mathPrac: Yup.number()
+      .min(0, "number can not be negative")
+      .max(30, "number can not be greater than 30"),
+    sciPrac: Yup.number()
+      .min(0, "number can not be negative")
+      .max(30, "number can not be greater than 30")
+      ,
+    sstPrac: Yup.number()
+      .min(0, "number can not be negative")
+      .max(30, "number can not be greater than 30")
+      ,
+    drawPrac: Yup.number()
+      .min(0, "number can not be negative")
+      .max(30, "number can not be greater than 30")
+      ,
+    hsPrac: Yup.number()
+      .min(0, "number can not be negative")
+      .max(30, "number can not be greater than 30"),
   });
   const onSubmit = async (values, opt) => {
-    // console.log(values);
-    setLoading(true)
-    const res = await axios.post(
-      `${baseUrl}/api/v1/result/addresult/add-unit-test-result`,
-      values
-    );
-    if (res) {
-      const status=res.data.status;
-      toast({
-        title: 'Result',
-        description:status,
-        status: 'success',
-        duration: 3000,
-        isClosable: true,
-        position:"top-right"
-      })
-      setLoading(false)
-      setTimeout(() => {
-        opt.resetForm()
-      }, 1000);
-    }
-    // opt.resetForm();
+    console.log(values);
+    setLoading(true);
+   try {
+     const res = await axios.post(
+       `${baseUrl}/api/v1/result/addresult/add-all-result9&10`,
+       values
+     );
+     if (res) {
+      //  console.log(res.data);
+       toast({
+         description: "Result added successfully",
+         status: "success",
+         duration: 3000,
+         isClosable: true,
+         position: "top-right",
+       });
+       setTimeout(() => {
+         opt.resetForm();
+         setLoading(false);
+       }, 1000);
+     }
+   } catch (error) {
+    // console.log(error);
+    toast({
+        status:'error',
+        description:error.response.data.data.message,
+        position:"top-right",
+        duration:3000,
+        isClosable:true
+    })
+    setLoading(false)
+   }
   };
-  const [loading,setLoading]=useState(false)
+  const [loading, setLoading] = useState(false);
   return (
     <>
-      
-        <VStack width={"90%"} marginTop={"70px" } height={"80vh"} overflowY={"auto"}>
+      <VStack width={"100%"}>
+        <VStack
+          width={"90%"}
+          marginTop={"70px"}
+          height={"85vh"}
+          overflowY={"auto"}
+          scrollBehavior={"smooth"}
+        >
           <Formik
             initialValues={initialValues}
             onSubmit={onSubmit}
@@ -111,24 +144,24 @@ const UnitTest = () => {
                 alignItems={"center"}
                 mb={3}
               >
-                <Field name="test">
+                <Field name="term">
                   {(props) => {
                     const { field, form, meta } = props;
                     return (
                       <Select
-                        placeholder="Select test"
+                        placeholder="Select Term"
                         {...field}
-                        name="test"
+                        name="term"
                         width={"80%"}
                       >
-                        <option value="unittest1">Unit test 1</option>
-                        <option value="unittest2">Unit Test 2</option>
-                        <option value="unittest3">Unit Test 3</option>
+                        <option value="quaterly">Quaterly</option>
+                        <option value="halfyearly">HalfYearly</option>
+                        <option value="annually">Annually</option>
                       </Select>
                     );
                   }}
                 </Field>
-                <ErrorMessage name="test" component={"div"} className="error" />
+                <ErrorMessage name="term" component={"div"} className="error" />
               </Box>
               <Box
                 flexDir={"column"}
@@ -188,7 +221,7 @@ const UnitTest = () => {
                           fontSize={"16px"}
                         >
                           <option value="2023-2024">2023-2024</option>
-                          {/* <option value="rbmp convent school">RBMP Convent School</option> */}
+                          <option value="2024-2025">2024-2025</option>
                         </Select>
                       </>
                     );
@@ -374,89 +407,6 @@ const UnitTest = () => {
                 alignItems={"center"}
                 mb={3}
               >
-                <Field name="sanskrit">
-                  {(props) => {
-                    const { field, form, meta } = props;
-                    return (
-                      <Input
-                        name="sanskrit"
-                        {...field}
-                        placeholder="Enter snaskrit no"
-                        focusBorderColor="tomato"
-                        width={"80%"}
-                        type="number"
-                      />
-                    );
-                  }}
-                </Field>
-                <ErrorMessage
-                  name="sanskrit"
-                  component={"div"}
-                  className="error"
-                />
-              </Box>
-              <Box
-                flexDirection={"column"}
-                width={"100%"}
-                display={"flex"}
-                justifyContent={"center"}
-                alignItems={"center"}
-                mb={3}
-              >
-                <Field name="computer">
-                  {(props) => {
-                    const { field, form, meta } = props;
-                    return (
-                      <Input
-                        name="computer"
-                        {...field}
-                        placeholder="Enter computer no"
-                        focusBorderColor="tomato"
-                        width={"80%"}
-                        type="number"
-                      />
-                    );
-                  }}
-                </Field>
-                <ErrorMessage
-                  name="computer"
-                  component={"div"}
-                  className="error"
-                />
-              </Box>
-              <Box
-                flexDirection={"column"}
-                width={"100%"}
-                display={"flex"}
-                justifyContent={"center"}
-                alignItems={"center"}
-                mb={3}
-              >
-                <Field name="gk">
-                  {(props) => {
-                    const { field, form, meta } = props;
-                    return (
-                      <Input
-                        name="gk"
-                        {...field}
-                        placeholder="Enter gk no"
-                        focusBorderColor="tomato"
-                        width={"80%"}
-                        type="number"
-                      />
-                    );
-                  }}
-                </Field>
-                <ErrorMessage name="gk" component={"div"} className="error" />
-              </Box>
-              <Box
-                flexDirection={"column"}
-                width={"100%"}
-                display={"flex"}
-                justifyContent={"center"}
-                alignItems={"center"}
-                mb={3}
-              >
                 <Field name="drawing">
                   {(props) => {
                     const { field, form, meta } = props;
@@ -486,14 +436,14 @@ const UnitTest = () => {
                 alignItems={"center"}
                 mb={3}
               >
-                <Field name="pt">
+                <Field name="homeScience">
                   {(props) => {
                     const { field, form, meta } = props;
                     return (
                       <Input
-                        name="pt"
+                        name="homeScience"
                         {...field}
-                        placeholder="Enter pt no"
+                        placeholder="Enter homeScience no"
                         focusBorderColor="tomato"
                         width={"80%"}
                         type="number"
@@ -501,8 +451,13 @@ const UnitTest = () => {
                     );
                   }}
                 </Field>
-                <ErrorMessage name="pt" component={"div"} className="error" />
-              </Box>
+                <ErrorMessage
+                  name="homeScience"
+                  component={"div"}
+                  className="error"
+                />
+              </Box>{" "}
+              {/* practical number */}
               <Box
                 flexDirection={"column"}
                 width={"100%"}
@@ -511,16 +466,225 @@ const UnitTest = () => {
                 alignItems={"center"}
                 mb={3}
               >
-                <Button width={["80%","50%"]} type="submit" bg={"tomato"} isLoading={loading} loadingText={"Submitting"}>
+                <Field name="hinPrac">
+                  {(props) => {
+                    const { field, form, meta } = props;
+                    return (
+                      <Input
+                        name="hinPrac"
+                        {...field}
+                        placeholder="Enter Hindi Prac no"
+                        focusBorderColor="tomato"
+                        width={"80%"}
+                        type="number"
+                      />
+                    );
+                  }}
+                </Field>
+                <ErrorMessage
+                  name="hinPrac"
+                  component={"div"}
+                  className="error"
+                />
+              </Box>{" "}
+              <Box
+                flexDirection={"column"}
+                width={"100%"}
+                display={"flex"}
+                justifyContent={"center"}
+                alignItems={"center"}
+                mb={3}
+              >
+                <Field name="engPrac">
+                  {(props) => {
+                    const { field, form, meta } = props;
+                    return (
+                      <Input
+                        name="engPrac"
+                        {...field}
+                        placeholder="Enter English Prac no"
+                        focusBorderColor="tomato"
+                        width={"80%"}
+                        type="number"
+                      />
+                    );
+                  }}
+                </Field>
+                <ErrorMessage
+                  name="engPrac"
+                  component={"div"}
+                  className="error"
+                />
+              </Box>{" "}
+              <Box
+                flexDirection={"column"}
+                width={"100%"}
+                display={"flex"}
+                justifyContent={"center"}
+                alignItems={"center"}
+                mb={3}
+              >
+                <Field name="mathPrac">
+                  {(props) => {
+                    const { field, form, meta } = props;
+                    return (
+                      <Input
+                        name="mathPrac"
+                        {...field}
+                        placeholder="Enter Math Prac no"
+                        focusBorderColor="tomato"
+                        width={"80%"}
+                        type="number"
+                      />
+                    );
+                  }}
+                </Field>
+                <ErrorMessage
+                  name="mathPrac"
+                  component={"div"}
+                  className="error"
+                />
+              </Box>{" "}
+              <Box
+                flexDirection={"column"}
+                width={"100%"}
+                display={"flex"}
+                justifyContent={"center"}
+                alignItems={"center"}
+                mb={3}
+              >
+                <Field name="sciPrac">
+                  {(props) => {
+                    const { field, form, meta } = props;
+                    return (
+                      <Input
+                        name="sciPrac"
+                        {...field}
+                        placeholder="Enter Science Prac no"
+                        focusBorderColor="tomato"
+                        width={"80%"}
+                        type="number"
+                      />
+                    );
+                  }}
+                </Field>
+                <ErrorMessage
+                  name="sciPrac"
+                  component={"div"}
+                  className="error"
+                />
+              </Box>{" "}
+              <Box
+                flexDirection={"column"}
+                width={"100%"}
+                display={"flex"}
+                justifyContent={"center"}
+                alignItems={"center"}
+                mb={3}
+              >
+                <Field name="sstPrac">
+                  {(props) => {
+                    const { field, form, meta } = props;
+                    return (
+                      <Input
+                        name="sstPrac"
+                        {...field}
+                        placeholder="Enter Sst Prac no"
+                        focusBorderColor="tomato"
+                        width={"80%"}
+                        type="number"
+                      />
+                    );
+                  }}
+                </Field>
+                <ErrorMessage
+                  name="sstPrac"
+                  component={"div"}
+                  className="error"
+                />
+              </Box>{" "}
+              <Box
+                flexDirection={"column"}
+                width={"100%"}
+                display={"flex"}
+                justifyContent={"center"}
+                alignItems={"center"}
+                mb={3}
+              >
+                <Field name="drawPrac">
+                  {(props) => {
+                    const { field, form, meta } = props;
+                    return (
+                      <Input
+                        name="drawPrac"
+                        {...field}
+                        placeholder="Enter Drawing Prac no"
+                        focusBorderColor="tomato"
+                        width={"80%"}
+                        type="number"
+                      />
+                    );
+                  }}
+                </Field>
+                <ErrorMessage
+                  name="drawPrac"
+                  component={"div"}
+                  className="error"
+                />
+              </Box>{" "}
+              <Box
+                flexDirection={"column"}
+                width={"100%"}
+                display={"flex"}
+                justifyContent={"center"}
+                alignItems={"center"}
+                mb={3}
+              >
+                <Field name="hsPrac">
+                  {(props) => {
+                    const { field, form, meta } = props;
+                    return (
+                      <Input
+                        name="hsPrac"
+                        {...field}
+                        placeholder="Enter HomeScience Prac no"
+                        focusBorderColor="tomato"
+                        width={"80%"}
+                        type="number"
+                      />
+                    );
+                  }}
+                </Field>
+                <ErrorMessage
+                  name="hsPrac"
+                  component={"div"}
+                  className="error"
+                />
+              </Box>
+              {/* button */}
+              <Box
+                flexDirection={"column"}
+                width={"100%"}
+                display={"flex"}
+                justifyContent={"center"}
+                alignItems={"center"}
+                mb={3}
+              >
+                <Button
+                  width={"60%"}
+                  type="submit"
+                  isLoading={loading}
+                  loadingText="Submitting"
+                >
                   Submit Form
                 </Button>
               </Box>
             </Form>
           </Formik>
         </VStack>
-      
+      </VStack>
     </>
   );
 };
 
-export default UnitTest;
+export default AllResult910;

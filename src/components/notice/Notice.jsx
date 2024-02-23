@@ -36,7 +36,7 @@ const Notice = () => {
           }
         })
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           toast({
             description: "Notice added successfully",
             duration: 3000,

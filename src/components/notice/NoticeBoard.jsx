@@ -13,7 +13,7 @@ const NoticeBoard = () => {
         }
       })
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setNotices(res.data);
       });
   }, []);

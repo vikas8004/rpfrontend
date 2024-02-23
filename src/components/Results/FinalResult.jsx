@@ -54,7 +54,7 @@ const FinalResult = () => {
       opt.resetForm();
     } else {
       toast({
-        description: "Something went wrong",
+        description: "No result found",
         duration: 3000,
         position: "top-right",
         isClosable: true,

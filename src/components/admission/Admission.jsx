@@ -144,6 +144,7 @@ const RegistrationForm = () => {
     "Biology",
     "Physics",
     "Chemistry",
+    "HomeScience"
   ];
   const classes = [
     "Nursery",
