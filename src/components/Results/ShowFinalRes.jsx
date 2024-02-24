@@ -114,83 +114,131 @@ const ShowFinalRes = () => {
           )
         )
       );
-    }
-    else if(classes9to10.includes(stuDet.standard)){
-      setTotal(spreadSum(
+    } else if (classes9to10.includes(stuDet.standard)) {
+      setTotal(
         spreadSum(
-        spreadSum(
-          unitTest1.hindi + unitTest2.hindi + unitTest3.hindi
-        ),
-        spreadSum(
-          unitTest1.english +
-            unitTest2.english +
-            unitTest3.english
-        ),
-        spreadSum(
-          unitTest1.math?unitTest1.math:unitTest1.homeScience , unitTest2.math?unitTest2.math:unitTest2.homeScience , unitTest3.math?unitTest3.math:unitTest3.homeScience
-        ),
-        spreadSum(
-          unitTest1.science +
-            unitTest2.science +
-            unitTest3.science
-        ),
-        spreadSum(
-          unitTest1.socialStudy +
-            unitTest2.socialStudy +
-            unitTest3.socialStudy
-        ),
+          spreadSum(
+            spreadSum(unitTest1.hindi + unitTest2.hindi + unitTest3.hindi),
+            spreadSum(
+              unitTest1.english + unitTest2.english + unitTest3.english
+            ),
+            spreadSum(
+              unitTest1.math ? unitTest1.math : unitTest1.homeScience,
+              unitTest2.math ? unitTest2.math : unitTest2.homeScience,
+              unitTest3.math ? unitTest3.math : unitTest3.homeScience
+            ),
+            spreadSum(
+              unitTest1.science + unitTest2.science + unitTest3.science
+            ),
+            spreadSum(
+              unitTest1.socialStudy +
+                unitTest2.socialStudy +
+                unitTest3.socialStudy
+            ),
 
-        spreadSum(
-          unitTest1.drawing +
-            unitTest2.drawing +
-            unitTest3.drawing
+            spreadSum(unitTest1.drawing + unitTest2.drawing + unitTest3.drawing)
+          ),
+          spreadSum(
+            quaterly.hindi,
+            quaterly.hinPrac,
+            quaterly.english,
+            quaterly.engPrac,
+            quaterly.math ? quaterly.math : quaterly.homeScience,
+            quaterly.math ? quaterly.mathPrac : quaterly.hsPrac,
+            quaterly.science,
+            quaterly.sciPrac,
+            quaterly.socialStudy,
+            quaterly.sstPrac,
+            quaterly.drawing,
+            quaterly.drawPrac
+          ),
+          spreadSum(
+            halfyearly.hindi,
+            halfyearly.hinPrac,
+            halfyearly.english,
+            halfyearly.engPrac,
+            halfyearly.math ? halfyearly.math : halfyearly.homeScience,
+            halfyearly.mathPrac ? halfyearly.mathPrac : halfyearly.hsPrac,
+            halfyearly.science,
+            halfyearly.sciPrac,
+            halfyearly.socialStudy,
+            halfyearly.sstPrac,
+            halfyearly.drawing,
+            halfyearly.drawPrac
+          ),
+          spreadSum(
+            annually.hindi,
+            annually.hinPrac,
+            annually.english,
+            annually.engPrac,
+            annually.math ? annually.math : annually.homeScience,
+            annually.mathPrac ? annually.mathPrac : annually.hsPrac,
+            annually.science,
+            annually.sciPrac,
+            annually.socialStudy,
+            annually.sstPrac,
+            annually.drawing,
+            annually.drawPrac
+          )
         )
-      ),
-      spreadSum(
-        quaterly.hindi,
-        quaterly.hinPrac,
-        quaterly.english,
-        quaterly.engPrac,
-        quaterly.math?quaterly.math:quaterly.homeScience,
-        quaterly.math?quaterly.mathPrac:quaterly.hsPrac,
-        quaterly.science,
-        quaterly.sciPrac,
-        quaterly.socialStudy,
-        quaterly.sstPrac,
-        quaterly.drawing,
-        quaterly.drawPrac,
-        
-      ),
-      spreadSum(
-        halfyearly.hindi,
-        halfyearly.hinPrac,
-        halfyearly.english,
-        halfyearly.engPrac,
-        halfyearly.math?halfyearly.math:halfyearly.homeScience,
-        halfyearly.mathPrac?halfyearly.mathPrac:halfyearly.hsPrac,
-        halfyearly.science,
-        halfyearly.sciPrac,
-        halfyearly.socialStudy,
-        halfyearly.sstPrac,
-        halfyearly.drawing,
-        halfyearly.drawPrac,
-        
-      ),
-      spreadSum(
-        annually.hindi,
-        annually.hinPrac,
-        annually.english,
-        annually.engPrac,
-        annually.math?annually.math:annually.homeScience,
-        annually.mathPrac?annually.mathPrac:annually.hsPrac,
-        annually.science,
-        annually.sciPrac,
-        annually.socialStudy,
-        annually.sstPrac,
-        annually.drawing,
-        annually.drawPrac,
-      )
-      ))
+      );
+    } else if (classes11to12.includes(stuDet.standard)) {
+      setTotal(
+        spreadSum(
+          spreadSum(
+            spreadSum(unitTest1.hindi + unitTest2.hindi + unitTest3.hindi),
+            spreadSum(
+              unitTest1.english + unitTest2.english + unitTest3.english
+            ),
+            spreadSum(
+              unitTest1.math ? unitTest1.math : unitTest1.bio,
+              unitTest2.math ? unitTest2.math : unitTest2.bio,
+              unitTest3.math ? unitTest3.math : unitTest3.bio
+            ),
+            spreadSum(
+              unitTest1.chemistry + unitTest2.chemistry + unitTest3.chemistry
+            ),
+
+            spreadSum(unitTest1.physics + unitTest2.physics + unitTest3.physics)
+          ),
+          spreadSum(
+            quaterly.hindi,
+            quaterly.hinPrac,
+            quaterly.english,
+            quaterly.engPrac,
+            quaterly.math ? quaterly.math : quaterly.bio,
+            quaterly.math ? quaterly.mathPrac : quaterly.bioPrac,
+            quaterly.chemistry,
+            quaterly.chemisPrac,
+            quaterly.physics,
+            quaterly.phyPrac
+          ),
+          spreadSum(
+            halfyearly.hindi,
+            halfyearly.hinPrac,
+            halfyearly.english,
+            halfyearly.engPrac,
+            halfyearly.math ? halfyearly.math : halfyearly.bio,
+            halfyearly.mathPrac ? halfyearly.mathPrac : halfyearly.bioPrac,
+            halfyearly.chemistry,
+            halfyearly.chemisPrac,
+            halfyearly.physics,
+            halfyearly.phyPrac
+          ),
+          spreadSum(
+            annually.hindi,
+            annually.hinPrac,
+            annually.english,
+            annually.engPrac,
+            annually.math ? annually.math : annually.bio,
+            annually.mathPrac ? annually.mathPrac : annually.bioPrac,
+            annually.chemistry,
+            annually.chemisPrac,
+            annually.physics,
+            annually.phyPrac
+          )
+        )
+      );
     }
   }, []);
   return (
@@ -1106,7 +1154,9 @@ const ShowFinalRes = () => {
                           : halfyearly.hsPrac
                       )}
                     </td>
-                    <td>{annually.math}</td>
+                    <td>
+                      {annually.math ? annually.math : annually.homeScience}
+                    </td>
                     <td>
                       {annually.mathPrac ? annually.mathPrac : annually.hsPrac}
                     </td>
@@ -1292,7 +1342,15 @@ const ShowFinalRes = () => {
                             unitTest3.english
                         ),
                         spreadSum(
-                          unitTest1.math?unitTest1.math:unitTest1.homeScience , unitTest2.math?unitTest2.math:unitTest2.homeScience , unitTest3.math?unitTest3.math:unitTest3.homeScience
+                          unitTest1.math
+                            ? unitTest1.math
+                            : unitTest1.homeScience,
+                          unitTest2.math
+                            ? unitTest2.math
+                            : unitTest2.homeScience,
+                          unitTest3.math
+                            ? unitTest3.math
+                            : unitTest3.homeScience
                         ),
                         spreadSum(
                           unitTest1.science +
@@ -1321,15 +1379,14 @@ const ShowFinalRes = () => {
                         quaterly.hinPrac,
                         quaterly.english,
                         quaterly.engPrac,
-                        quaterly.math?quaterly.math:quaterly.homeScience,
-                        quaterly.math?quaterly.mathPrac:quaterly.hsPrac,
+                        quaterly.math ? quaterly.math : quaterly.homeScience,
+                        quaterly.math ? quaterly.mathPrac : quaterly.hsPrac,
                         quaterly.science,
                         quaterly.sciPrac,
                         quaterly.socialStudy,
                         quaterly.sstPrac,
                         quaterly.drawing,
-                        quaterly.drawPrac,
-                        
+                        quaterly.drawPrac
                       )}
                     </td>
                     <td style={{ fontWeight: "bold" }}></td>
@@ -1341,15 +1398,18 @@ const ShowFinalRes = () => {
                         halfyearly.hinPrac,
                         halfyearly.english,
                         halfyearly.engPrac,
-                        halfyearly.math?halfyearly.math:halfyearly.homeScience,
-                        halfyearly.mathPrac?halfyearly.mathPrac:halfyearly.hsPrac,
+                        halfyearly.math
+                          ? halfyearly.math
+                          : halfyearly.homeScience,
+                        halfyearly.mathPrac
+                          ? halfyearly.mathPrac
+                          : halfyearly.hsPrac,
                         halfyearly.science,
                         halfyearly.sciPrac,
                         halfyearly.socialStudy,
                         halfyearly.sstPrac,
                         halfyearly.drawing,
-                        halfyearly.drawPrac,
-                        
+                        halfyearly.drawPrac
                       )}
                     </td>
                     <td style={{ fontWeight: "bold" }}></td>
@@ -1361,14 +1421,585 @@ const ShowFinalRes = () => {
                         annually.hinPrac,
                         annually.english,
                         annually.engPrac,
-                        annually.math?annually.math:annually.homeScience,
-                        annually.mathPrac?annually.mathPrac:annually.hsPrac,
+                        annually.math ? annually.math : annually.homeScience,
+                        annually.mathPrac ? annually.mathPrac : annually.hsPrac,
                         annually.science,
                         annually.sciPrac,
                         annually.socialStudy,
                         annually.sstPrac,
                         annually.drawing,
-                        annually.drawPrac,
+                        annually.drawPrac
+                      )}
+                    </td>
+                    <td style={{ fontWeight: "bold" }}>{total}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </VStack>
+            <HStack
+              width={"90%"}
+              border={"1px solid black"}
+              padding={"3px"}
+              paddingX={"20px"}
+              justifyContent={"space-between"}
+              pb={"1"}
+            >
+              <VStack mt={"-5px"}>
+                <HStack>
+                  <Text>Passed</Text>
+                </HStack>
+                <HStack mt={"-10px"}>
+                  <Box
+                    width={"50px"}
+                    height={"20px"}
+                    // border={"1px solid black"}
+                    display="flex"
+                    justifyContent={"center"}
+                  >
+                    <FaCheck />
+                  </Box>
+                </HStack>
+              </VStack>
+              <VStack mt={"-5px"}>
+                <HStack>
+                  <Text>Failed</Text>
+                </HStack>
+                <HStack mt={"-10px"}>
+                  <Box
+                    width={"50px"}
+                    height={"20px"}
+                    // border={"1px solid black"}
+                    justifyContent={"center"}
+                    display={"flex"}
+                  >
+                    <ImCross />
+                  </Box>
+                </HStack>
+              </VStack>
+              <VStack mt={"-5px"}>
+                <HStack>
+                  <Text>Total</Text>
+                </HStack>
+                <HStack mt={"-13px"}>
+                  <Box
+                    width={"50px"}
+                    height={"20px"}
+                    display={"flex"}
+                    justifyContent={"center"}
+                    fontWeight={"bolder"}
+                  >
+                    2300
+                  </Box>
+                </HStack>
+              </VStack>
+              <VStack mt={"-5px"}>
+                <HStack>
+                  <Text>Obtained</Text>
+                </HStack>
+                <HStack mt={"-10px"}>
+                  <Box
+                    width={"50px"}
+                    height={"20px"}
+                    display={"flex"}
+                    justifyContent={"center"}
+                    fontWeight={"bolder"}
+                  >
+                    {total}
+                  </Box>
+                </HStack>
+              </VStack>
+              <VStack mt={"-5px"}>
+                <HStack>
+                  <Text>Grade</Text>
+                </HStack>
+                <HStack mt={"-10px"}>
+                  <Box
+                    width={"50px"}
+                    height={"20px"}
+                    fontWeight={"bolder"}
+                    justifyContent={"center"}
+                    display={"flex"}
+                  >
+                    {Math.round((total * 100) / 2300) >= 75
+                      ? "A"
+                      : Math.round((total * 100) / 2300) >= 50
+                      ? "B"
+                      : "C"}
+                  </Box>
+                </HStack>
+              </VStack>
+            </HStack>
+            <HStack width={"90%"} justifyContent={"space-between"}>
+              <VStack>
+                <HStack width={"100px"} height={"20px"}>
+                  <Text width={"100%"} fontWeight={"600"} py={"4px"}>
+                    Date
+                  </Text>
+                </HStack>
+                <HStack width={"100px"} height={"30px"}>
+                  <Text>{new Date().toLocaleDateString()}</Text>
+                </HStack>
+              </VStack>
+              <VStack>
+                <HStack width={"100px"} height={"20px"}>
+                  <Text
+                    textAlign={"center"}
+                    width={"100%"}
+                    fontWeight={"600"}
+                    py={"4px"}
+                  >
+                    Prepared By
+                  </Text>
+                </HStack>
+                <HStack width={"100px"} height={"30px"}></HStack>
+              </VStack>
+              <VStack>
+                <HStack width={"100px"} height={"20px"}>
+                  <Text
+                    textAlign={"center"}
+                    width={"100%"}
+                    fontWeight={"600"}
+                    py={"4px"}
+                  >
+                    Chekced By
+                  </Text>
+                </HStack>
+                <HStack width={"100px"} height={"30px"}></HStack>
+              </VStack>
+              <VStack>
+                <HStack width={"100px"} height={"20px"}>
+                  <Text
+                    textAlign={"right"}
+                    width={"100%"}
+                    fontWeight={"600"}
+                    py={"4px"}
+                  >
+                    Principal
+                  </Text>
+                </HStack>
+                <HStack width={"100px"} height={"30px"}></HStack>
+              </VStack>
+            </HStack>
+            <HStack>
+              <Button
+                bg={"tomato"}
+                onClick={() => window.print()}
+                className="noPrint"
+              >
+                Print
+              </Button>
+              <Button
+                onClick={() =>
+                  navigate("/dashboard/result/results/finalresult")
+                }
+                bg={"tomato"}
+                className="noPrint"
+              >
+                Go To Result
+              </Button>
+            </HStack>
+          </VStack>
+        ) : classes11to12.includes(stuDet.standard) ? (
+          <VStack width={"100%"}>
+            <HStack width={"90%"} justifyContent={"space-between"}>
+              <Box width={"30%"} display={"flex"} justifyContent={"flex-end"}>
+                <Image src={logo} boxSize={"100px"}></Image>
+              </Box>
+              <Box
+                width={"70%"}
+                display={"flex"}
+                justifyContent={"flex-start"}
+                flexDirection={"column"}
+              >
+                <Heading size={"md"} textAlign={"left"}>
+                  {`PROGRESS REPORT SESSION - ${stuDet.year}`}{" "}
+                </Heading>
+                <Heading size={"md"} textAlign={"left"}>
+                  {stuDet.schoolName === "rp adarsh inter college"
+                    ? "RP ADARSH INTER COLLEGE REHAR BASTI"
+                    : "RAM BELAS MEMORIAL PUBLIC CONVENT SCHOOL BEHDEELA CHAIRKAILA BASTI"}
+                </Heading>
+              </Box>
+            </HStack>
+            <HStack justifyContent={"space-between"} width={"90%"}>
+              <Text ml={"20px"}>
+                Student's Name : {doFirstLetterCapital(stuDet.fullName)}
+              </Text>
+              <Text>Class : {stuDet.standard}</Text>
+              <Text mr={"20px"}>Roll No : {stuDet.rollno}</Text>
+            </HStack>
+            <VStack width={"90%"}>
+              <table
+                border={"1px solid black"}
+                style={{ width: "100%" }}
+                className="finalTable"
+              >
+                <tbody>
+                  <tr>
+                    <td>Subject</td>
+                    <td colSpan={3}>
+                      <tr style={{ border: "none" }}>
+                        <td
+                          colSpan={3}
+                          style={{
+                            border: "none",
+                            borderBottom: "1px solid black",
+                            textAlign: "center",
+                          }}
+                        >
+                          Unit Test
+                        </td>
+                      </tr>
+                      <tr style={{ border: "none" }}>
+                        <td style={{ border: "none" }}>1st</td>
+                        <td style={{ border: "none" }}>2nd</td>
+                        <td style={{ border: "none" }}>3rd</td>
+                      </tr>
+                    </td>
+                    <td>P</td>
+                    <td>MM</td>
+                    <td>Total</td>
+                    <td>Quaterly</td>
+                    <td>I/P</td>
+                    <td>MM</td>
+                    <td>Total</td>
+                    <td>Halfyearly</td>
+                    <td>I/P</td>
+                    <td>MM</td>
+                    <td>Total</td>
+                    <td>Annual</td>
+                    <td>I/P</td>
+                    <td>MM</td>
+                    <td>Total</td>
+                    <td>Grand Total</td>
+                  </tr>
+                  <tr>
+                    <td>Hindi</td>
+                    <td>{unitTest1.hindi}</td>
+                    <td>{unitTest2.hindi}</td>
+                    <td>{unitTest3.hindi}</td>
+                    <td></td>
+                    <td>{50}</td>
+                    <td>
+                      {spreadSum(
+                        unitTest1.hindi + unitTest2.hindi + unitTest3.hindi
+                      )}
+                    </td>
+                    <td>{quaterly.hindi}</td>
+                    <td>{quaterly.hinPrac}</td>
+                    <td>100</td>
+                    <td>{spreadSum(quaterly.hindi, quaterly.hinPrac)}</td>
+                    <td>{halfyearly.hindi}</td>
+                    <td>{halfyearly.hinPrac}</td>
+                    <td>100</td>
+                    <td>{spreadSum(halfyearly.hindi, halfyearly.hinPrac)}</td>
+                    <td>{annually.hindi}</td>
+                    <td>{annually.hinPrac}</td>
+                    <td>100</td>
+                    <td>{spreadSum(annually.hindi, annually.hinPrac)}</td>
+                    <td>
+                      {spreadSum(
+                        spreadSum(quaterly.hindi, quaterly.hinPrac),
+                        spreadSum(halfyearly.hindi, halfyearly.hinPrac),
+                        spreadSum(annually.hindi, annually.hinPrac),
+                        spreadSum(
+                          unitTest1.hindi + unitTest2.hindi + unitTest3.hindi
+                        )
+                      )}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>English</td>
+                    <td>{unitTest1.english}</td>
+                    <td>{unitTest2.english}</td>
+                    <td>{unitTest3.english}</td>
+                    <td></td>
+                    <td>{50}</td>
+                    <td>
+                      {spreadSum(
+                        unitTest1.english +
+                          unitTest2.english +
+                          unitTest3.english
+                      )}
+                    </td>
+                    <td>{quaterly.english}</td>
+                    <td>{quaterly.engPrac}</td>
+                    <td>100</td>
+                    <td>{spreadSum(quaterly.english, quaterly.engPrac)}</td>
+                    <td>{halfyearly.english}</td>
+                    <td>{halfyearly.engPrac}</td>
+                    <td>100</td>
+                    <td>{spreadSum(halfyearly.english, halfyearly.engPrac)}</td>
+                    <td>{annually.english}</td>
+                    <td>{annually.engPrac}</td>
+                    <td>100</td>
+                    <td>{spreadSum(annually.english, annually.engPrac)}</td>
+                    <td>
+                      {spreadSum(
+                        spreadSum(quaterly.english, quaterly.engPrac),
+                        spreadSum(halfyearly.english, halfyearly.engPrac),
+                        spreadSum(annually.english, annually.engPrac),
+                        spreadSum(
+                          unitTest1.english +
+                            unitTest2.english +
+                            unitTest3.english
+                        )
+                      )}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>{unitTest1.math ? "Mathematics" : "Biology"}</td>
+                    <td>{unitTest1.math ? unitTest1.math : unitTest1.bio}</td>
+                    <td>{unitTest2.math ? unitTest2.math : unitTest2.bio}</td>
+                    <td>{unitTest3.math ? unitTest3.math : unitTest3.bio}</td>
+                    <td></td>
+                    <td>50</td>
+                    <td>
+                      {spreadSum(
+                        unitTest1.math ? unitTest1.math : unitTest1.bio,
+                        unitTest2.math ? unitTest2.math : unitTest2.bio,
+                        unitTest3.math ? unitTest3.math : unitTest3.bio
+                      )}
+                    </td>
+                    <td>{quaterly.math ? quaterly.math : quaterly.bio}</td>
+                    <td>
+                      {quaterly.mathPrac ? quaterly.mathPrac : quaterly.bioPrac}
+                    </td>
+                    <td>100</td>
+                    <td>
+                      {spreadSum(
+                        quaterly.math ? quaterly.math : quaterly.bio,
+                        quaterly.mathPrac ? quaterly.mathPrac : quaterly.bioPrac
+                      )}
+                    </td>
+                    <td>
+                      {halfyearly.math ? halfyearly.math : halfyearly.bio}
+                    </td>
+                    <td>
+                      {halfyearly.mathPrac
+                        ? halfyearly.mathPrac
+                        : halfyearly.bioPrac}
+                    </td>
+                    <td>100</td>
+                    <td>
+                      {spreadSum(
+                        halfyearly.math ? halfyearly.math : halfyearly.bio,
+                        halfyearly.mathPrac
+                          ? halfyearly.mathPrac
+                          : halfyearly.bioPrac
+                      )}
+                    </td>
+                    <td>{annually.math ? annually.math : annually.bio}</td>
+                    <td>
+                      {annually.mathPrac ? annually.mathPrac : annually.bioPrac}
+                    </td>
+                    <td>100</td>
+                    <td>
+                      {spreadSum(
+                        annually.math ? annually.math : annually.bio,
+                        annually.mathPrac ? annually.mathPrac : annually.bioPrac
+                      )}
+                    </td>
+                    <td>
+                      {spreadSum(
+                        spreadSum(
+                          quaterly.math ? quaterly.math : quaterly.bio,
+                          quaterly.mathPrac
+                            ? quaterly.mathPrac
+                            : quaterly.bioPrac
+                        ),
+                        spreadSum(
+                          halfyearly.math ? halfyearly.math : halfyearly.bio,
+                          halfyearly.mathPrac
+                            ? halfyearly.mathPrac
+                            : halfyearly.bioPrac
+                        ),
+                        spreadSum(
+                          annually.math ? annually.math : annually.bio,
+                          annually.mathPrac
+                            ? annually.mathPrac
+                            : annually.bioPrac
+                        ),
+                        spreadSum(
+                          unitTest1.math ? unitTest1.math : unitTest1.bio,
+                          unitTest2.math ? unitTest2.math : unitTest2.bio,
+                          unitTest3.math ? unitTest3.math : unitTest3.bio
+                        )
+                      )}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Physics</td>
+                    <td>{unitTest1.physics}</td>
+                    <td>{unitTest2.physics}</td>
+                    <td>{unitTest3.physics}</td>
+                    <td></td>
+                    <td>{50}</td>
+                    <td>
+                      {spreadSum(
+                        unitTest1.physics +
+                          unitTest2.physics +
+                          unitTest3.physics
+                      )}
+                    </td>
+                    <td>{quaterly.physics}</td>
+                    <td>{quaterly.phyPrac}</td>
+                    <td>100</td>
+                    <td>{spreadSum(quaterly.physics, quaterly.phyPrac)}</td>
+                    <td>{halfyearly.physics}</td>
+                    <td>{halfyearly.phyPrac}</td>
+                    <td>100</td>
+                    <td>{spreadSum(halfyearly.physics, halfyearly.phyPrac)}</td>
+                    <td>{annually.physics}</td>
+                    <td>{annually.phyPrac}</td>
+                    <td>100</td>
+                    <td>{spreadSum(annually.physics, annually.phyPrac)}</td>
+                    <td>
+                      {spreadSum(
+                        spreadSum(quaterly.physics, quaterly.phyPrac),
+                        spreadSum(halfyearly.physics, halfyearly.phyPrac),
+                        spreadSum(annually.physics, annually.phyPrac),
+                        spreadSum(
+                          unitTest1.physics +
+                            unitTest2.physics +
+                            unitTest3.physics
+                        )
+                      )}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Chemistry</td>
+                    <td>{unitTest1.chemistry}</td>
+                    <td>{unitTest2.chemistry}</td>
+                    <td>{unitTest3.chemistry}</td>
+                    <td></td>
+                    <td>{50}</td>
+                    <td>
+                      {spreadSum(
+                        unitTest1.chemistry +
+                          unitTest2.chemistry +
+                          unitTest3.chemistry
+                      )}
+                    </td>
+                    <td>{quaterly.chemistry}</td>
+                    <td>{quaterly.chemisPrac}</td>
+                    <td>100</td>
+                    <td>
+                      {spreadSum(quaterly.chemistry, quaterly.chemisPrac)}
+                    </td>
+                    <td>{halfyearly.chemistry}</td>
+                    <td>{halfyearly.chemisPrac}</td>
+                    <td>100</td>
+                    <td>
+                      {spreadSum(halfyearly.chemistry, halfyearly.chemisPrac)}
+                    </td>
+                    <td>{annually.chemistry}</td>
+                    <td>{annually.chemisPrac}</td>
+                    <td>100</td>
+                    <td>
+                      {spreadSum(annually.chemistry, annually.chemisPrac)}
+                    </td>
+                    <td>
+                      {spreadSum(
+                        spreadSum(quaterly.chemistry, quaterly.chemisPrac),
+                        spreadSum(halfyearly.chemistry, halfyearly.chemisPrac),
+                        spreadSum(annually.chemistry, annually.chemisPrac),
+                        spreadSum(
+                          unitTest1.chemistry +
+                            unitTest2.chemistry +
+                            unitTest3.chemistry
+                        )
+                      )}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style={{ fontWeight: "bold" }}>Grand Total</td>
+                    <td style={{ fontWeight: "bold" }}></td>
+                    <td style={{ fontWeight: "bold" }}></td>
+                    <td style={{ fontWeight: "bold" }}></td>
+                    <td style={{ fontWeight: "bold" }}></td>
+                    <td style={{ fontWeight: "bold" }}></td>
+                    <td style={{ fontWeight: "bold" }}>
+                      {spreadSum(
+                        spreadSum(
+                          unitTest1.hindi + unitTest2.hindi + unitTest3.hindi
+                        ),
+                        spreadSum(
+                          unitTest1.english +
+                            unitTest2.english +
+                            unitTest3.english
+                        ),
+                        spreadSum(
+                          unitTest1.math ? unitTest1.math : unitTest1.bio,
+                          unitTest2.math ? unitTest2.math : unitTest2.bio,
+                          unitTest3.math ? unitTest3.math : unitTest3.bio
+                        ),
+                        spreadSum(
+                          unitTest1.chemistry +
+                            unitTest2.chemistry +
+                            unitTest3.chemistry
+                        ),
+
+                        spreadSum(
+                          unitTest1.physics +
+                            unitTest2.physics +
+                            unitTest3.physics
+                        )
+                      )}
+                    </td>
+                    <td style={{ fontWeight: "bold" }}></td>
+                    <td style={{ fontWeight: "bold" }}></td>
+                    <td style={{ fontWeight: "bold" }}></td>
+                    <td style={{ fontWeight: "bold" }}>
+                      {spreadSum(
+                        quaterly.hindi,
+                        quaterly.hinPrac,
+                        quaterly.english,
+                        quaterly.engPrac,
+                        quaterly.math ? quaterly.math : quaterly.bio,
+                        quaterly.math ? quaterly.mathPrac : quaterly.bioPrac,
+                        quaterly.chemistry,
+                        quaterly.chemisPrac,
+                        quaterly.physics,
+                        quaterly.phyPrac
+                      )}
+                    </td>
+                    <td style={{ fontWeight: "bold" }}></td>
+                    <td style={{ fontWeight: "bold" }}></td>
+                    <td style={{ fontWeight: "bold" }}></td>
+                    <td style={{ fontWeight: "bold" }}>
+                      {spreadSum(
+                        halfyearly.hindi,
+                        halfyearly.hinPrac,
+                        halfyearly.english,
+                        halfyearly.engPrac,
+                        halfyearly.math ? halfyearly.math : halfyearly.bio,
+                        halfyearly.mathPrac
+                          ? halfyearly.mathPrac
+                          : halfyearly.bioPrac,
+                        halfyearly.chemistry,
+                        halfyearly.chemisPrac,
+                        halfyearly.physics,
+                        halfyearly.phyPrac
+                      )}
+                    </td>
+                    <td style={{ fontWeight: "bold" }}></td>
+                    <td style={{ fontWeight: "bold" }}></td>
+                    <td style={{ fontWeight: "bold" }}></td>
+                    <td style={{ fontWeight: "bold" }}>
+                      {spreadSum(
+                        annually.hindi,
+                        annually.hinPrac,
+                        annually.english,
+                        annually.engPrac,
+                        annually.math ? annually.math : annually.bio,
+                        annually.mathPrac
+                          ? annually.mathPrac
+                          : annually.bioPrac,
+                        annually.chemistry,
+                        annually.chemisPrac,
+                        annually.physics,
+                        annually.phyPrac
                       )}
                     </td>
                     <td style={{ fontWeight: "bold" }}>{total}</td>
@@ -1540,7 +2171,7 @@ const ShowFinalRes = () => {
             </HStack>
           </VStack>
         ) : (
-          <Text>result does not exist</Text>
+          <Text>No result found</Text>
         )}
       </VStack>
     </>
