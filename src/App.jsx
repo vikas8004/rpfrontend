@@ -35,7 +35,8 @@ import AllResult910 from "./components/Results/add result/AllResult910.jsx";
 import AddUnitTestResult910 from "./components/Results/add result/AddUnitTest910.jsx";
 import AllResult1112 from "./components/Results/add result/AllResult1112.jsx";
 import AddUnitTestResult1112 from "./components/Results/add result/AddUnitTest1112.jsx";
-
+import { IoLogoWhatsapp } from "react-icons/io";
+import { Link } from "react-router-dom";
 function App() {
   const [token, setToken] = useState("");
   const [result, setResult] = useState("");
@@ -59,6 +60,22 @@ function App() {
         }}
       >
         <Navbar />
+        <Link
+          to="https://wa.me/+919919146295"
+          style={{
+            position: "fixed",
+            right: "10px",
+            top: "85%",
+            fontSize: "50px",
+            color: "green",
+            cursor: "pointer",
+            zIndex: "45",
+          }}
+          target="_blank"
+      
+        >
+          <IoLogoWhatsapp />
+        </Link>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/result" element={<Result />} />
@@ -79,10 +96,11 @@ function App() {
           />
           <Route
             path="/result/addresult/add-unit-test-result9&10"
-            element={<AddUnitTestResult910/>}
-          /> <Route
+            element={<AddUnitTestResult910 />}
+          />{" "}
+          <Route
             path="/result/addresult/add-unit-test-result11&12"
-            element={<AddUnitTestResult1112/>}
+            element={<AddUnitTestResult1112 />}
           />
           <Route
             path="/result/addresult/add-all-result"
@@ -91,7 +109,7 @@ function App() {
           <Route
             path="/result/addresult/add-all-result9&10"
             element={<AllResult910 />}
-          /> 
+          />
           <Route
             path="/result/addresult/add-all-result11&12"
             element={<AllResult1112 />}

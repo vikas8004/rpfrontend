@@ -59,13 +59,12 @@ const TeacherRegistrationForm = () => {
       .max(9999999999, "enter a valid mobile number")
       .required("required"),
     image: Yup.mixed().required("required"),
-    subjects: Yup.array().min(1, "atlest one subject is required"),
+    // subjects: Yup.array().min(1, "atlest one subject is required"),
     gender: Yup.string().required("required"),
   });
   const onSubmit = async (values, opt) => {
     console.log(values);
     setLoading(true);
-setLoading(false)
     const formData = new FormData();
     formData.append("schoolName", values.schoolName);
     formData.append("fullName", values.fullName);
@@ -82,42 +81,34 @@ setLoading(false)
     formData.append("joiningDate", values.joiningDate);
     formData.append("qualification", values.qualification);
     formData.append("position", values.position);
-    const res = await fetch(`${baseUrl}/api/v1/teacher/registration`, {
-      method: "POST",
-      // headers:{
-      //   "Content-Type":"application/json"
-      // },
-      // body: JSON.stringify(values),
-      body: formData,
-    });
-    // const res = await axios.post(
-    //   `${baseUrl}/api/v1/teacher/registration`,
-    //   formData
-    // );
-    if (res?.ok) {
+
+    try {
+      const res = await axios.post(
+        `${baseUrl}/api/v1/teacher/registration`,
+        formData
+      );
+      if (res) {
+        console.log(res);
+        setLoading(false);
+        toast({
+          description: "Successfully Registered",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+          position: "top-right",
+        });
+      } 
+    } catch (error) {
+      console.log(error);
+      setLoading("false")
       toast({
-        description: `${values.fullName} is successfully registered`,
-        status: "success",
-        duration: 3000,
-        isClosable: true,
-        position: "top-right",
-      });
-      const data = await res.json();
-      console.log(data);
-      setLoading(false);
-      opt.resetForm();
-      setAvatar(null);
-    } else {
-      setLoading(false);
-      toast({
-        description: `something went wrong`,
-        status: "error",
-        duration: 3000,
-        isClosable: true,
-        position: "top-right",
-      });
+        description:"something went wrong",
+        status:"error",
+        duration:3000,
+        isClosable:true,
+        position:"top-right"
+      })
     }
-    setLoading("false")
   };
   const subjects = [
     "Hindi",
