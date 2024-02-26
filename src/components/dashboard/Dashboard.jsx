@@ -25,7 +25,7 @@ const Dashboard = () => {
   return (
     <>
       <VStack>
-        <HStack mt={"60px"} width={"100%"} justifyContent="space-between">
+        <HStack mt={"70px"} width={"100%"} justifyContent="space-between">
           <VStack
             width={"150px"}
             height={"86vh"}
@@ -197,13 +197,14 @@ const Dashboard = () => {
             </Box>
           </VStack>
           <VStack
-            width={"90%"}
+            width={"100%"}
             // border={"1px solid red"}
             justifyContent={"flex-start"}
-            height={"86vh"}
+            height={"88vh"}
             // overflowY={"auto"}
-            // border={"1px solid grey"}
+            borderLeft={"5px solid grey"}
             overflowX={"none"}
+            pl={"10px"}
           >
             <Outlet />
           </VStack>

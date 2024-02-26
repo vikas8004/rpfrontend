@@ -100,7 +100,7 @@ const TeacherRegistrationForm = () => {
       } 
     } catch (error) {
       console.log(error);
-      setLoading("false")
+      setLoading(false)
       toast({
         description:"something went wrong",
         status:"error",

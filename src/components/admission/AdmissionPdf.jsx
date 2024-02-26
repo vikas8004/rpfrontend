@@ -25,7 +25,7 @@ import { doFirstLetterCapital } from "../../utils/doFirstLetterCapital.jsx";
 import {useNavigate} from "react-router-dom"
 const AdmissionPdf = () => {
   const { regestrationPdf } = useContext(tokenContext);
-//   console.log(regestrationPdf);
+  console.log(regestrationPdf);
   const navigate=useNavigate()
   return (
     <>
@@ -74,7 +74,7 @@ const AdmissionPdf = () => {
               textAlign={"center"}
               mt={"-25px"}
             >
-              Admission Form {"2023-2024"}
+              Admission Form {`${regestrationPdf.year}`}
             </Heading>
           </VStack>
         </HStack>

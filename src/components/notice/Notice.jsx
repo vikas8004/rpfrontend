@@ -90,23 +90,25 @@ const Notice = () => {
     }
   };
   return (
-    <VStack width={"100%"} mt={"10px"} justifyContent={"center"}>
+            
+    <VStack width={"100%"} mt={"0px"} justifyContent={"center"} overflowY={"scroll"}>
       <Formik
         onSubmit={onSubmit}
         initialValues={initialValues}
         validationSchema={validationSchema}
       >
-        <Form style={{ width: "100%" }}>
+        <Form style={{ width: "100%",}}>
           <HStack
             width={"100%"}
-            flexDirection={["column", "row", "row"]}
+            flexDirection={["column", "column", "row"]}
             justifyContent={"center"}
+            mt={["15%","4%","1%",".5%"]}
+            
           >
             <Box
               width={"100%"}
               display={"flex"}
-              ml={["10px", "20%"]}
-              justifyContent={"flex-end"}
+              justifyContent={["center" ,"center","flex-end"]}
               flexDirection={"column"}
             >
               <Field name="notice">
@@ -131,7 +133,7 @@ const Notice = () => {
             >
               <Button
                 type="submit"
-                width={["80%", "70%", "50%"]}
+                width={["80%", "70%", "80%"]}
                 bg={"tomato"}
                 isLoading={loading}
               >
@@ -151,7 +153,7 @@ const Notice = () => {
             </Text>
             {notices.map((el, i) => {
               return (
-                <Text key={i} width={"100%"} paddingLeft={"10px"}>
+                <Text key={i} width={"100%"} padding={"10px"} textAlign={"justify"}>
                   {`${i + 1}. ${el.notice}`}
 
                   <Button

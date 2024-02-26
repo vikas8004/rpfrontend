@@ -24,6 +24,7 @@ import img2 from "../assests/img2.jpg";
 import img3 from "../assests/img3.jpg";
 import img4 from "../assests/img4.jpg";
 import NoticeBoard from "./notice/NoticeBoard.jsx";
+import home1 from "../assests/home1.jpg"
 const Home = () => {
   return (
     <>
@@ -65,7 +66,7 @@ const Home = () => {
         >
           <HStack width={["100%", "100%", "50%"]} justifyContent={"center"}>
             <Image
-              src={logo}
+              src={home1}
               width={["200px", "160px", "250px"]}
               height={["200px", "160px", "250px"]}
               rounded={"full"}

@@ -65,10 +65,7 @@ text-align: center;
   .admitCard {
     margin-top: -55px;
   }
-  .admitCard2 {
-    margin-top: -45px;
-    position: absolute;
-  }
+
   .admitcard-fetchDetails {
     visibility: hidden;
   }

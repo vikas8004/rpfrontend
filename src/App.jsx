@@ -37,6 +37,7 @@ import AllResult1112 from "./components/Results/add result/AllResult1112.jsx";
 import AddUnitTestResult1112 from "./components/Results/add result/AddUnitTest1112.jsx";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { Link } from "react-router-dom";
+import PrintAllAdmitCard from "./components/admit card/PrintAllAdmitCard.jsx";
 function App() {
   const [token, setToken] = useState("");
   const [result, setResult] = useState("");
@@ -72,7 +73,7 @@ function App() {
             zIndex: "45",
           }}
           target="_blank"
-      
+      className="noPrint"
         >
           <IoLogoWhatsapp />
         </Link>
@@ -119,6 +120,7 @@ function App() {
             path="/showresult"
             element={<ShowResult Component={ResultDemo} />}
           />
+          <Route path="/student/print-all-admit-card" element={<PrintAllAdmitCard/>}/>
           {/* <Route
             path="/student/registration"
             element={<ProtectedRoute Component={RegistrationForm} />}

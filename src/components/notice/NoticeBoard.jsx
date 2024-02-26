@@ -70,13 +70,14 @@ const NoticeBoard = () => {
               return (
                 <motion.div
                   key={i}
-                  animate={{ y: [20, -200] }}
+                  animate={{ y: [400, -250] }}
                   transition={{
-                    duration: 7,
+                    duration: notices.length<=3?17:30,
                     loop: Infinity,
                     ease: "linear",
                     repeatDelay: 1,
                     repeat: Infinity,
+                    
                   }}
                   style={{
                     width: "100%",
