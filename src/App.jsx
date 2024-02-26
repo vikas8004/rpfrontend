@@ -142,7 +142,7 @@ function App() {
           <Route path="/dashboard/" element={<Dashboard />}>
             <Route
               path="student/registration"
-              element={<ProtectedRoute Component={RegistrationForm} />}
+              element={<RegistrationForm />}
             />
             <Route path="student/details" element={<StudentDetails />} />
             <Route
