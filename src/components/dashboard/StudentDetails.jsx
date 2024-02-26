@@ -89,7 +89,7 @@ const StudentDetails = () => {
         setLoading(false);
       });
 
-    setLoading(false);
+    
   };
   const classes = [
     "Nursery",
@@ -132,7 +132,7 @@ const StudentDetails = () => {
   }, []);
   return (
     <>
-      <VStack width={"100%"} height={"100%"}>
+      <VStack width={"100%"} height={"100%"} mt={"10px"}>
         <VStack width={"95%"} paddingX={"0"}>
           <HStack justifyContent={"space-between"} width={"100%"}>
             <Box letterSpacing={"2px"}>RBYMPCS</Box>
@@ -257,7 +257,7 @@ const StudentDetails = () => {
             </Form>
           </Formik>
         </HStack>
-        <HStack width={"100%"} justifyContent="center">
+        <HStack width={"100%"} justifyContent="center" overflowY={"scroll"}>
           {data ? (
             <TableContainer width={"100%"}>
               <Table variant="simple" width={"100%"} size={"sm"}>

@@ -24,8 +24,8 @@ import { FaClipboardList } from "react-icons/fa6";
 const Dashboard = () => {
   return (
     <>
-      <VStack>
-        <HStack mt={"70px"} width={"100%"} justifyContent="space-between">
+      
+        <HStack mt={"70px"} width={"100%"} justifyContent="space-between" overflowX={"none"}>
           <VStack
             width={"150px"}
             height={"86vh"}
@@ -181,15 +181,13 @@ const Dashboard = () => {
                     as={Button}
                   >
                     <Box display={"flex"} alignItems={"center"}>
-                      <FaClipboardList  fontSize={"17px"} />
+                      <FaClipboardList fontSize={"17px"} />
                       <Text ml={2}>Notice</Text>
                     </Box>
                   </MenuButton>
                   <MenuList>
                     <MenuItem>
-                      <NavLink to={"/dashboard/notice"}>
-                        View Notice
-                      </NavLink>
+                      <NavLink to={"/dashboard/notice"}>View Notice</NavLink>
                     </MenuItem>{" "}
                   </MenuList>
                 </Menu>
@@ -202,14 +200,14 @@ const Dashboard = () => {
             justifyContent={"flex-start"}
             height={"88vh"}
             // overflowY={"auto"}
-            borderLeft={"5px solid grey"}
+            // borderLeft={"5px solid grey"}
             overflowX={"none"}
             pl={"10px"}
           >
             <Outlet />
           </VStack>
         </HStack>
-      </VStack>
+      
     </>
   );
 };

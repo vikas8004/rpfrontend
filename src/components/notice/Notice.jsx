@@ -102,7 +102,7 @@ const Notice = () => {
             width={"100%"}
             flexDirection={["column", "column", "row"]}
             justifyContent={"center"}
-            mt={["15%","4%","1%",".5%"]}
+            mt={["15%","5%","1%",".5%"]}
             
           >
             <Box

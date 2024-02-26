@@ -179,7 +179,7 @@ const Contact = () => {
               >
                 <Button
                   type="submit"
-                  width={"30%"}
+                  width={["60%","60%","30%"]}
                   isLoading={loading}
                   loadingText="Submitting"
                   bg={"tomato"}
