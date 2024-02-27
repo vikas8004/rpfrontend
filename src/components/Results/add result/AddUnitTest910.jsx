@@ -4,6 +4,7 @@ import { VStack, Box, Select, Input, Button, useToast } from "@chakra-ui/react";
 import * as Yup from "yup";
 import axios from "axios";
 import { baseUrl } from "../../../utils/constnats.jsx";
+import { years } from "../../../utils/constnats.jsx";
 const AddUnitTestResult910 = () => {
   const toast = useToast();
   const initialValues = {
@@ -183,8 +184,7 @@ const AddUnitTestResult910 = () => {
                         width={"80%"}
                         fontSize={"16px"}
                       >
-                        <option value="2023-2024">2023-2024</option>
-                        {/* <option value="rbmp convent school">RBMP Convent School</option> */}
+                       {years.map((el,i)=><option value={el} key={i}>{el}</option>)}
                       </Select>
                     </>
                   );

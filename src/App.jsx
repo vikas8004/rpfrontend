@@ -38,12 +38,16 @@ import AddUnitTestResult1112 from "./components/Results/add result/AddUnitTest11
 import { IoLogoWhatsapp } from "react-icons/io";
 import { Link } from "react-router-dom";
 import PrintAllAdmitCard from "./components/admit card/PrintAllAdmitCard.jsx";
+import SubmitFee from "./components/fees/SubmitFee.jsx";
+import ShowFeeReceipt from "./components/fees/ShowFeeReceipt.jsx";
+import DashBoaredDetails from "./components/dashboard/DashBoaredDetails.jsx";
 function App() {
   const [token, setToken] = useState("");
   const [result, setResult] = useState("");
   const [admitCard, setAdmitCard] = useState("");
   const [regestrationPdf, setRegestrationPdf] = useState("");
   const [finalResult, setFinalResult] = useState("");
+  const [feeReceipt, setFeeReceipt] = useState("");
   return (
     <>
       <tokenContext.Provider
@@ -58,6 +62,8 @@ function App() {
           setRegestrationPdf,
           finalResult,
           setFinalResult,
+          feeReceipt,
+          setFeeReceipt,
         }}
       >
         <Navbar />
@@ -73,7 +79,7 @@ function App() {
             zIndex: "45",
           }}
           target="_blank"
-      className="noPrint"
+          className="noPrint"
         >
           <IoLogoWhatsapp />
         </Link>
@@ -120,7 +126,10 @@ function App() {
             path="/showresult"
             element={<ShowResult Component={ResultDemo} />}
           />
-          <Route path="/student/print-all-admit-card" element={<PrintAllAdmitCard/>}/>
+          <Route
+            path="/student/print-all-admit-card"
+            element={<PrintAllAdmitCard />}
+          />
           {/* <Route
             path="/student/registration"
             element={<ProtectedRoute Component={RegistrationForm} />}
@@ -138,12 +147,11 @@ function App() {
           <Route path="/gallery" />
           <Route path="/about-student" element={<KnowStu />} />
           <Route path="/student/final-result" element={<ShowFinalRes />} />
+          {/* fee */}
+          <Route path="/student/fee-receipt" element={<ShowFeeReceipt />} />
           {/* dashboard */}
           <Route path="/dashboard/" element={<Dashboard />}>
-            <Route
-              path="student/registration"
-              element={<RegistrationForm />}
-            />
+            <Route path="student/registration" element={<RegistrationForm />} />
             <Route path="student/details" element={<StudentDetails />} />
             <Route
               path="teacher/registration"
@@ -164,6 +172,8 @@ function App() {
             />
             <Route path="student/id-card/view-id-card" element={<IdCard />} />
             <Route path="notice" element={<Notice />} />
+            <Route path="submit-fee" element={<SubmitFee />} />
+            <Route path="view-dashboard" element={<DashBoaredDetails />} />
           </Route>
         </Routes>
       </tokenContext.Provider>

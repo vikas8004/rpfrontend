@@ -13,6 +13,7 @@ import * as Yup from "yup";
 import { tokenContext } from "../../context.jsx";
 import { useNavigate } from "react-router-dom";
 import { baseUrl } from "../../utils/constnats.jsx";
+import { years } from "../../utils/constnats.jsx";
 import axios from "axios"
 const Annually = () => {
   const initialValues = {
@@ -103,8 +104,8 @@ const Annually = () => {
                           width={"80%"}
                           fontSize={"16px"}
                         >
-                          <option value="2023-2024">2023-2024</option>
-                          {/* <option value="rbmp convent school">RBMP Convent School</option> */}
+                          
+                          {years.map((el,i)=><option value={el} key={i}>{el}</option>)}
                         </Select>
                       </>
                     );

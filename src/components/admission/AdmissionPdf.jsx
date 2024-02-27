@@ -56,7 +56,7 @@ const AdmissionPdf = () => {
             color={"blue"}
             v
           >
-            {regestrationPdf === "rp adarsh inter college"
+            {regestrationPdf.schoolName === "rp adarsh inter college"
               ? "RP Adarsh Inter College Rehar Basti"
               : "RBMP Convent School Charkaila Bahdeela Basti"}
           </Heading>
@@ -102,7 +102,7 @@ const AdmissionPdf = () => {
               {doFirstLetterCapital(regestrationPdf.regestrationNo)}
             </Text>
             <Text width={"100%"} fontWeight={"500"}>
-              Class : {doFirstLetterCapital(regestrationPdf.regestrationNo)}
+              Class : {doFirstLetterCapital(regestrationPdf.standard)}
             </Text>
             <Text width={"100%"} fontWeight={"500"}>
               Father's Name : {doFirstLetterCapital(regestrationPdf.fatherName)}

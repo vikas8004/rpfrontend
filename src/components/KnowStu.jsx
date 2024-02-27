@@ -24,6 +24,7 @@ import * as Yup from "yup";
 import { baseUrl } from "../utils/constnats.jsx";
 import { fixDateIssue } from "../utils/fixDateIssue.jsx";
 import { doFirstLetterCapital } from "../utils/doFirstLetterCapital.jsx";
+import { years } from "../utils/constnats.jsx";
 const KnowStu = () => {
   const initialValues = {
     year: "",
@@ -72,7 +73,7 @@ const KnowStu = () => {
       }
     }
   };
-  const year = ["2023-2024", "2024-2025"];
+  
   const [loading, setLoading] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [data, setData] = useState(false);
@@ -168,7 +169,7 @@ const KnowStu = () => {
                             width={"100%"}
                             fontSize={"16px"}
                           >
-                            {year.map((ele, i) => (
+                            {years.map((ele, i) => (
                               <option key={i} value={ele}>
                                 {ele}
                               </option>

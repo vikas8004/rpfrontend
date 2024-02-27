@@ -3,7 +3,7 @@ import { Formik, Form, ErrorMessage, Field } from "formik";
 import { VStack, Box, Select, Input, Button, useToast } from "@chakra-ui/react";
 import * as Yup from "yup";
 import axios from "axios";
-import { baseUrl } from "../../../utils/constnats.jsx";
+import { baseUrl, years } from "../../../utils/constnats.jsx";
 const AllResult910 = () => {
   const toast = useToast();
   const initialValues = {
@@ -220,8 +220,7 @@ const AllResult910 = () => {
                           width={"80%"}
                           fontSize={"16px"}
                         >
-                          <option value="2023-2024">2023-2024</option>
-                          <option value="2024-2025">2024-2025</option>
+                          {years.map((el,i)=><option value={el} key={i}>{el}</option>)}
                         </Select>
                       </>
                     );

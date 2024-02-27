@@ -72,7 +72,7 @@ const NoticeBoard = () => {
                   key={i}
                   animate={{ y: [400, -250] }}
                   transition={{
-                    duration: notices.length<=3?17:30,
+                    duration: notices.length<=3?17:25,
                     loop: Infinity,
                     ease: "linear",
                     repeatDelay: 1,

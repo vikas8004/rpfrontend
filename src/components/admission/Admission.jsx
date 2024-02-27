@@ -21,7 +21,7 @@ import { Formik, Field, ErrorMessage, Form } from "formik";
 import { doFirstLetterCapital } from "../../utils/doFirstLetterCapital.jsx";
 import * as Yup from "yup";
 
-import { baseUrl } from "../../utils/constnats.jsx";
+import { baseUrl ,years} from "../../utils/constnats.jsx";
 import { tokenContext } from "../../context.jsx";
 import { useNavigate } from "react-router-dom";
 const RegistrationForm = () => {
@@ -163,7 +163,7 @@ const RegistrationForm = () => {
     11,
     12,
   ];
-  const year = ["2023-2024", "2024-2025"];
+  
   const category = ["SC", "GEN", "OBC", "ST"];
   const [avatar, setAvatar] = useState();
   const [sign, setSign] = useState();
@@ -249,7 +249,7 @@ const RegistrationForm = () => {
                           width={"80%"}
                           fontSize={"16px"}
                         >
-                          {year.map((ele, i) => (
+                          {years.map((ele, i) => (
                             <option key={i} value={ele}>
                               {ele}
                             </option>
