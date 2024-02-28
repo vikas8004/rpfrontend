@@ -32,7 +32,7 @@ import {
   Heading,
   Divider,
   Image,
-  useToast 
+  useToast,
 } from "@chakra-ui/react";
 import { Formik, Field, ErrorMessage, Form } from "formik";
 import * as Yup from "yup";
@@ -60,14 +60,13 @@ const StudentDetails = () => {
         // console.log(stu);
         if (stu.status === 200) {
           toast({
-            
             description: "Data fetched successfully",
-            status: 'success',
+            status: "success",
             duration: 3000,
             isClosable: true,
-            position:"top-right"
-          })
-        
+            position: "top-right",
+          });
+
           // console.log(stu.data);
           setData(stu.data.data);
           // console.log(data);
@@ -78,18 +77,15 @@ const StudentDetails = () => {
         console.log(err.response.data);
         setData("");
         toast({
-          
           description: "No record found",
-          status: 'error',
+          status: "error",
           duration: 3000,
           isClosable: true,
-          position:"top-right"
-        })
-      
+          position: "top-right",
+        });
+
         setLoading(false);
       });
-
-    
   };
   const classes = [
     "Nursery",
@@ -111,38 +107,13 @@ const StudentDetails = () => {
   const year = ["2023-2024", "2024-2025"];
   const [data, setData] = useState("");
   const [loading, setLoading] = useState(false);
-  const [totalStudentRPAIC, setTotalStudentRPAIC] = useState(0);
-  const [totalStudentRBMP, setTotalStudentRBMP] = useState(0);
+  
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const toast=useToast()
+  const toast = useToast();
 
-  useEffect(() => {
-    fetch(`${baseUrl}/api/v1/student/totalstudent`)
-      .then((res) => res.json())
-      .then((res) => {
-        // console.log(res.data);
-        res.data.map((el) => {
-          if (el._id === "rp adarsh inter college") {
-            setTotalStudentRPAIC(el.count);
-          } else {
-            setTotalStudentRBMP(el.count);
-          }
-        });
-      });
-  }, []);
   return (
     <>
-      <VStack width={"100%"} height={"100%"} mt={"10px"}>
-        <VStack width={"95%"} paddingX={"0"}>
-          <HStack justifyContent={"space-between"} width={"100%"}>
-            <Box letterSpacing={"2px"}>RBYMPCS</Box>
-            <Box>{totalStudentRBMP}</Box>
-          </HStack>
-          <HStack width={"100%"} justifyContent={"space-between"}>
-            <Box letterSpacing={"2px"}>RPAIC</Box>
-            <Box>{totalStudentRPAIC}</Box>
-          </HStack>
-        </VStack>
+      <VStack width={"100%"} mt={"10px"} overflowY={"scroll"}>
         <HStack width={"100%"}>
           <Formik
             initialValues={initialValues}
@@ -151,7 +122,7 @@ const StudentDetails = () => {
           >
             <Form style={{ width: "100%" }}>
               <HStack justifyContent={"space-between"}>
-                <Box width={["80%","33%"]}>
+                <Box width={["80%", "33%"]}>
                   <Field name="schoolName">
                     {(props) => {
                       const { from, field, meta } = props;
@@ -183,7 +154,7 @@ const StudentDetails = () => {
                   />
                 </Box>
 
-                <Box width={["80%","20%"]}>
+                <Box width={["80%", "20%"]}>
                   <Field name="standard">
                     {(props) => {
                       const { form, meta, field } = props;
@@ -212,7 +183,7 @@ const StudentDetails = () => {
                     name="standard"
                   />
                 </Box>
-                <Box width={["80%","33%"]}>
+                <Box width={["80%", "33%"]}>
                   <Field name="year">
                     {(props) => {
                       const { form, meta, field } = props;
@@ -241,7 +212,7 @@ const StudentDetails = () => {
                     name="year"
                   />
                 </Box>
-                <Box width={["80%","20%"]} mr={2}>
+                <Box width={["80%", "20%"]} mr={2}>
                   <Button
                     type={"submit"}
                     width={"100%"}
@@ -257,10 +228,15 @@ const StudentDetails = () => {
             </Form>
           </Formik>
         </HStack>
-        <HStack width={"100%"} justifyContent="center" overflowY={"scroll"}>
+        <HStack width={"100%"} justifyContent="center">
           {data ? (
             <TableContainer width={"100%"}>
-              <Table variant="simple" width={"100%"} size={"sm"}>
+              <Table
+                variant="simple"
+                width={"100%"}
+                size={"sm"}
+                overflowY={"hidden"}
+              >
                 <TableCaption placement="top">Student's List</TableCaption>
                 <Thead width={"100%"}>
                   <Tr width={"100%"}>
@@ -285,7 +261,7 @@ const StudentDetails = () => {
                 <Tbody width={"100%"}>
                   {data?.map((ele, i) => {
                     return (
-                      <Tr width={"100%"} key={i}>
+                      <Tr width={"80%"} key={i}>
                         <Td
                           textAlign={"center"}
                           border={"none"}

@@ -135,7 +135,7 @@ const Navbar = () => {
                         Logout
                       </Button>
                     </Link>
-                    <Link to={"/dashboard"}>
+                    <Link to={"/dashboard/view-dashboard"}>
                       <Button  onClick={dashboardHandler} size={"md"} color={"blue.600"}>
                       <MdDashboard />{" "}Dashboard
                       </Button>

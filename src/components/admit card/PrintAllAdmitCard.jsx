@@ -31,12 +31,12 @@ const PrintAllAdmitCard = () => {
   console.log(admitCard);
   const navigate = useNavigate();
   return (
-    <HStack width={"100%"} flexDir={"column"} className="admitcard2" mt={"63px"} >
+    <HStack width={"100%"} flexDir={"column"} className="admitcard2"height={"100vh"}>
       {admitCard ? (
         admitCard.foundedRes.map((el, i) => {
           // console.log(el);
           return (
-            <VStack key={i} zIndex={"-67"}>
+            <VStack key={i} zIndex={"-67"} width={"100%"} height={"50%"}>
               <VStack
                 
                 width={["100%", "90%"]}

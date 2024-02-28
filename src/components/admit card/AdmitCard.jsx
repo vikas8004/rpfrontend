@@ -30,7 +30,7 @@ const AdmitCard = () => {
     <>
       <VStack className="admitCard">
         <VStack
-          mt={"55px"}
+          mt={"65px"}
           width={["100%", "90%"]}
           justifyContent={"center"}
           alignItems={"center"}

@@ -92,7 +92,7 @@ const IdCard = () => {
   return (
     <>
       <VStack width={"100%"} height={"100%"}>
-        <HStack width={"90%"} justifyContent={"flex-end"}>
+        <HStack width={"90%"} justifyContent={"flex-end"} className="noPrint">
           <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
@@ -239,23 +239,23 @@ const IdCard = () => {
                 </Box>
               </VStack>
               <HStack justifyContent={"space-between"} width={"100%"} px={3}>
-                <VStack width={"30%"}>
-                  <Text width={"100%"}>Name </Text>
+                <VStack width={"30%"} alignItems={"center"}>
+                  <Text width={"100%"} mb={"-7px"}>Name </Text >
                   <Text width={"100%"}>Gender</Text>
-                  <Text width={"100%"}>Roll No</Text>
-                  <Text width={"100%"}>Class</Text>
-                  <Text width={"100%"}>Guardian</Text>
-                  <Text width={"100%"}>Phone</Text>
-                  <Text width={"100%"}>Signature</Text>
+                  <Text width={"100%"}mb={"-7px"}>Roll No</Text>
+                  <Text width={"100%"}mb={"-7px"}>Class</Text>
+                  <Text width={"100%"}mb={"-7px"}>Guardian</Text>
+                  <Text width={"100%"}mb={"-7px"}>Phone</Text>
+                  <Text width={"100%"}mb={"-7px"}>Signature</Text>
                 </VStack>
-                <VStack width={"60%"}>
-                  <Text width={"100%"}>{doFirstLetterCapital(data.fullName)}</Text>
-                  <Text width={"100%"}>{doFirstLetterCapital(data.gender)}</Text>
-                  <Text width={"100%"}> {data.rollno}</Text>
-                  <Text width={"100%"}> {data.standard}</Text>
-                  <Text width={"100%"}>{doFirstLetterCapital(data.fatherName)}</Text>
-                  <Text width={"100%"}> {data.mobileNo}</Text>
-                  <Text width={"100%"} >........................</Text>
+                <VStack width={"60%"} alignItems={"center"} justifyContent={"center"}>
+                  <Text width={"100%"} mb={"-7px"}>{doFirstLetterCapital(data.fullName)}</Text>
+                  <Text width={"100%"} mb={"-7px"}>{doFirstLetterCapital(data.gender)}</Text>
+                  <Text width={"100%"} mb={"-7px"}> {data.rollno}</Text>
+                  <Text width={"100%"} mb={"-7px"}> {data.standard}</Text>
+                  <Text width={"100%"} mb={"-7px"}>{doFirstLetterCapital(data.fatherName)}</Text>
+                  <Text width={"100%"} mb={"-7px"}> {data.mobileNo}</Text>
+                  <Text width={"100%"} mb={"-7px"} >........................</Text>
                 </VStack>
               </HStack>
               <HStack width={"100%"} bg={"tomato"}>
