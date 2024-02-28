@@ -10,7 +10,7 @@ import {
   Divider,
 } from "@chakra-ui/react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from "react-responsive-carousel";
+// import { Carousel } from "react-responsive-carousel";
 import Footer from "./Footer.jsx";
 import principal from "../assests/principal.jpg";
 import registrar from "../assests/registrar.jpg";
@@ -18,13 +18,14 @@ import manager from "../assests/managerjpg.jpg";
 import { PiStudentBold } from "react-icons/pi";
 import { GiTeacher } from "react-icons/gi";
 import { GiHumanPyramid } from "react-icons/gi";
-import logo from "../assests/logo.png";
-import img1 from "../assests/img1.jpg";
-import img2 from "../assests/img2.jpg";
-import img3 from "../assests/img3.jpg";
-import img4 from "../assests/img4.jpg";
+// import logo from "../assests/logo.png";
+import rp1 from "../assests/rp1.jpg";
+import rp2 from "../assests/rp2.jpg";
+import rp4 from "../assests/rp4.jpg";
+// import img4 from "../assests/img4.jpg";
 import NoticeBoard from "./notice/NoticeBoard.jsx";
-import home1 from "../assests/home1.jpg"
+import home1 from "../assests/home1.jpg";
+import Carousel from "react-bootstrap/Carousel";
 const Home = () => {
   return (
     <>
@@ -34,35 +35,33 @@ const Home = () => {
         boxSizing="border-box"
         mx={"auto"}
         p={0}
-        
       >
-        <HStack zIndex={"-6"} mt={["-85px", "-53px","5px", "40px"]} width={["100vw","96.5vw","98","98.5vw"]} justifyContent={"center"}
-        height={["auto","440px"]}>
-          <Carousel autoPlay={true} width={"100%"} infiniteLoop={true} emulateTouch={true} useKeyboardArrows={true}
-          showIndicators={false} showThumbs={false}
-          >
-            <HStack height={"400px"} width={"100%"} objectFit={"contain"}>
-              <Image src={img1} />
-            </HStack>
-            <HStack height={"400px"} width={"100%"} objectFit={"contain"}>
-              <Image src={img2} />
-            </HStack>
-            <HStack height={"400px"} width={"100%"} objectFit={"contain"}>
-              <Image src={img3} />
-            </HStack>
-            <HStack height={"400px"} width={"100%"}>
-              <Image src={img4} />
-            </HStack>
+        <HStack
+          zIndex={"-6"}
+          width={["100vw", "97vw", "100", "98.5vw"]}
+          // height={["auto","auto","auto","400px"]}
+          justifyContent={"center"}
+          mt={"60px"}
+        >
+          <Carousel controls={false} keyboard={false}>
+            <Carousel.Item>
+              <Image src={rp1} />
+            </Carousel.Item>
+            <Carousel.Item>
+              <Image src={rp2} />
+            </Carousel.Item>
+            <Carousel.Item>
+              <Image src={rp4} />
+            </Carousel.Item>
           </Carousel>
         </HStack>
         <HStack>
-          <NoticeBoard/>
+          <NoticeBoard />
         </HStack>
         <HStack
           width={["100%", "100", "80%"]}
           alignItems={"center"}
           flexDirection={["column", "column", "row"]}
-         
         >
           <HStack width={["100%", "100%", "50%"]} justifyContent={"center"}>
             <Image
@@ -181,6 +180,15 @@ const Home = () => {
         >
           <VStack>
             <Image
+              src={manager}
+              boxSize={["250px", "250px", "200px"]}
+              rounded={"full"}
+            />
+            <Text fontSize={"20px"}>Parmatma Yadav</Text>
+            <Text mt={"-10px"}>Manager</Text>
+          </VStack>
+          <VStack>
+            <Image
               src={principal}
               boxSize={["250px", "250px", "200px"]}
               rounded={"full"}
@@ -196,15 +204,6 @@ const Home = () => {
             />
             <Text fontSize={"20px"}>Shani Yadav</Text>
             <Text mt={"-10px"}>Registrar</Text>
-          </VStack>
-          <VStack>
-            <Image
-              src={manager}
-              boxSize={["250px", "250px", "200px"]}
-              rounded={"full"}
-            />
-            <Text fontSize={"20px"}>Parmatma Yadav</Text>
-            <Text mt={"-10px"}>Manager</Text>
           </VStack>
         </HStack>
         <Divider

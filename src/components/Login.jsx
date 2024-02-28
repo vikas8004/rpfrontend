@@ -19,7 +19,6 @@ const Login = () => {
   });
   const onSubmit = async (values, opt) => {
     setLoading(true);
-    console.log(history.back());
     const res = await fetch(`${baseUrl}/api/v1/admin/login`, {
       method: "POST",
       headers: {

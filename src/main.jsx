@@ -4,7 +4,7 @@ import App from "./App.jsx";
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import { ChakraProvider } from "@chakra-ui/react";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 const router = createHashRouter([
   {
     path: "/*",

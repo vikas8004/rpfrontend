@@ -21,7 +21,7 @@ const NoticeBoard = () => {
     <HStack
       width={"95vw"}
       justifyContent={"center"}
-      mt={["-110px", "-60px", "-20px", "-20px"]}
+      // mt={["-110px", "-60px", "-20px", "-20px"]}
       zIndex={"-34"}
     >
       <VStack
