@@ -41,8 +41,7 @@ const Login = () => {
         isClosable: true,
         position: "top-right",
       });
-      // navigate("/");
-      history.back()
+      navigate("/");
       setLoading(false);
     } else {
       toast({
