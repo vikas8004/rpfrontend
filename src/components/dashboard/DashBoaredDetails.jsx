@@ -31,7 +31,9 @@ const ChartComponent = (props) => {
             // fill: true,
             backgroundColor: ["red","tomato"],
             // borderColor: "white",
-            // barThickness:40
+            barThickness:20,
+            barPercentage:3,
+          
           },
         ],
       },
@@ -43,6 +45,7 @@ const ChartComponent = (props) => {
         legend:{
           display:true,
           position:"top"
+        
         }
       }
 
@@ -76,7 +79,7 @@ const ChartComponent2 = (props) => {
     const ctx = chartRef.current.getContext("2d");
 
     chartInstance.current = new Chart(ctx, {
-      type: "pie",
+      type: "bar",
       data: {
         labels: [
           "RPAIC","RBMP"
@@ -84,11 +87,12 @@ const ChartComponent2 = (props) => {
 
         datasets: [
           {
-            label: "Total Students",
+            label: "Students",
             data: [totalStudentRPAIC,totalStudentRBMP,],
             fill: true,
             backgroundColor: ["red","tomato"],
-            borderColor: "white",
+            // borderColor: "white",
+            barThickness:20
             
 
           },
@@ -210,11 +214,11 @@ const DashBoaredDetails = () => {
         </VStack>
         
       </HStack>
-      <HStack width={"100%"} justifyContent={["center","flex-start","space-between","space-evenly"]} flexDirection={["column","column","column","row"]} mt={[9,9,0,0]} alignItems={"center"}>
-      <HStack width={["100px","280px","380px"]} height={"280px"}>
+      <HStack width={"100%"} justifyContent={["flex-start","flex-start","space-evenly","space-evenly"]} flexDirection={["column","column","column","row"]}  alignItems={"center"} py={4} height={"auto"}>
+      <HStack width={["200px","300px","380px","400px"]} height={["auto","auto"]} >
       {totalStudentRBMP&&setTotalStudentRPAIC?<ChartComponent info={{totalStudentRBMP,totalStudentRPAIC}}/>:null}
       </HStack>
-      <HStack width={"280px"}  height={"280px"}>
+      <HStack width={["200px","300px","380px","400px"]} height={["auto","auto"]}  >
       {totalStudentRBMP&&setTotalStudentRPAIC?<ChartComponent2 info={{totalStudentRBMP,totalStudentRPAIC}}/>:null}
       </HStack>
       </HStack>
