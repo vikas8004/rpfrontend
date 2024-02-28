@@ -10,7 +10,7 @@ import {
   Divider,
 } from "@chakra-ui/react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-// import { Carousel } from "react-responsive-carousel";
+import { Carousel } from "react-responsive-carousel";
 import Footer from "./Footer.jsx";
 import principal from "../assests/principal.jpg";
 import registrar from "../assests/registrar.jpg";
@@ -25,7 +25,7 @@ import rp4 from "../assests/rp4.jpg";
 // import img4 from "../assests/img4.jpg";
 import NoticeBoard from "./notice/NoticeBoard.jsx";
 import home1 from "../assests/home1.jpg";
-import Carousel from "react-bootstrap/Carousel";
+
 const Home = () => {
   return (
     <>
@@ -43,16 +43,21 @@ const Home = () => {
           justifyContent={"center"}
           mt={"60px"}
         >
-          <Carousel controls={false} keyboard={false}>
-            <Carousel.Item>
-              <Image src={rp1} />
-            </Carousel.Item>
-            <Carousel.Item>
-              <Image src={rp2} />
-            </Carousel.Item>
-            <Carousel.Item>
-              <Image src={rp4} />
-            </Carousel.Item>
+          <Carousel
+            autoPlay={true}
+            
+            infiniteLoop={true}
+            emulateTouch={true}
+            useKeyboardArrows={true}
+            showIndicators={false}
+            showThumbs={false}
+          >
+            <div><Image src={rp1} /></div>
+            <div><Image src={rp2} /></div>
+            <div><Image src={rp4} /></div>
+            {/* <Image src={rp2} /> */}
+            {/* <Image src={rp3} /> */}
+            {/* <Image src={rp4} /> */}
           </Carousel>
         </HStack>
         <HStack>

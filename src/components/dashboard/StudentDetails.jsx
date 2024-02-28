@@ -121,8 +121,8 @@ const StudentDetails = () => {
             onSubmit={onSubmit}
           >
             <Form style={{ width: "100%" }}>
-              <HStack justifyContent={"space-between"}>
-                <Box width={["80%", "33%"]}>
+              <HStack justifyContent={["center","space-between"]} flexDirection={["column","column","row"]} width={"100%"} gap={["15px","15px","0px"]}>
+                <Box width={["80%","80%", "33%"]}>
                   <Field name="schoolName">
                     {(props) => {
                       const { from, field, meta } = props;
@@ -154,7 +154,7 @@ const StudentDetails = () => {
                   />
                 </Box>
 
-                <Box width={["80%", "20%"]}>
+                <Box width={["80%", "80%", "20%"]}>
                   <Field name="standard">
                     {(props) => {
                       const { form, meta, field } = props;
@@ -183,7 +183,7 @@ const StudentDetails = () => {
                     name="standard"
                   />
                 </Box>
-                <Box width={["80%", "33%"]}>
+                <Box width={["80%", "80%" ,"33%"]}>
                   <Field name="year">
                     {(props) => {
                       const { form, meta, field } = props;
@@ -212,12 +212,11 @@ const StudentDetails = () => {
                     name="year"
                   />
                 </Box>
-                <Box width={["80%", "20%"]} mr={2}>
+                <Box width={["80%","60%", "20%"]} mr={[0,2]}>
                   <Button
                     type={"submit"}
                     width={"100%"}
-                    variant={"outline"}
-                    colorScheme="blue"
+                   bg={"tomato"}
                     isLoading={loading}
                     loadingText="Fetching..."
                   >
