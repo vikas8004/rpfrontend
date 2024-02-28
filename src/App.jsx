@@ -12,7 +12,7 @@ import AddResult from "./components/Results/add result/AddResult.jsx";
 import UnitTest from "./components/Results/add result/UnitTest.jsx";
 import AllResult from "./components/Results/add result/AllResult.jsx";
 import Login from "./components/Login.jsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { tokenContext } from "./context.jsx";
 import ResultDemo from "./components/Results/ResultDemo.jsx";
 import RegistrationForm from "./components/admission/Admission.jsx";
@@ -48,6 +48,7 @@ function App() {
   const [regestrationPdf, setRegestrationPdf] = useState("");
   const [finalResult, setFinalResult] = useState("");
   const [feeReceipt, setFeeReceipt] = useState("");
+
   return (
     <>
       <tokenContext.Provider
@@ -150,7 +151,10 @@ function App() {
           {/* fee */}
           <Route path="/student/fee-receipt" element={<ShowFeeReceipt />} />
           {/* dashboard */}
-          <Route path="/dashboard/" element={<Dashboard />}>
+          <Route
+            path="/dashboard/"
+            element={<ProtectedRoute Component={Dashboard} />}
+          >
             <Route path="student/registration" element={<RegistrationForm />} />
             <Route path="student/details" element={<StudentDetails />} />
             <Route

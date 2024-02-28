@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { VStack, Button, Text, Input, Box, useToast } from "@chakra-ui/react";
 import { Field, ErrorMessage, Form, Formik } from "formik";
 import * as Yup from "yup";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation} from "react-router-dom";
 import { tokenContext } from "../context";
 import { baseUrl } from "../utils/constnats.jsx";
 const Login = () => {
@@ -19,11 +19,11 @@ const Login = () => {
   });
   const onSubmit = async (values, opt) => {
     setLoading(true);
+    console.log(history.back());
     const res = await fetch(`${baseUrl}/api/v1/admin/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-      
       },
       body: JSON.stringify(values),
     });
@@ -41,7 +41,8 @@ const Login = () => {
         isClosable: true,
         position: "top-right",
       });
-      navigate("/");
+      // navigate("/");
+      history.back()
       setLoading(false);
     } else {
       toast({

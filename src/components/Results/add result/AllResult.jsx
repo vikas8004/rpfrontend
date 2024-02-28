@@ -3,7 +3,7 @@ import { Formik, Form, ErrorMessage, Field } from "formik";
 import { VStack, Box, Select, Input, Button, useToast } from "@chakra-ui/react";
 import * as Yup from "yup";
 import axios from "axios";
-import {baseUrl, years} from "../../../utils/constnats.jsx"
+import { baseUrl, years } from "../../../utils/constnats.jsx";
 const AllResult = () => {
   const toast = useToast();
   const initialValues = {
@@ -71,31 +71,44 @@ const AllResult = () => {
   const onSubmit = async (values, opt) => {
     // console.log(values);
     setLoading(true);
-    const res = await axios.post(
-      `${baseUrl}/api/v1/result/addresult/add-all-result`,
-      values
-    );
-    if (res) {
-      const status = res.data.status;
+    try {
+      const res = await axios.post(
+        `${baseUrl}/api/v1/result/addresult/add-all-result`,
+        values
+      );
+      if (res) {
+        toast({
+          description: "Result added successfully",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+          position: "top-right",
+        });
+        opt.resetForm();
+        setLoading(false);
+      }
+    } catch (error) {
+      setLoading(false);
       toast({
-        title: "Result",
-        description: status,
-        status: "success",
+        description: error.response.data.data.message,
         duration: 3000,
         isClosable: true,
         position: "top-right",
+        status:"error"
       });
-      setTimeout(() => {
-        opt.resetForm();
-        setLoading(false);
-      }, 1000);
     }
   };
   const [loading, setLoading] = useState(false);
   return (
     <>
       <VStack width={"100%"}>
-        <VStack width={"90%"} marginTop={"70px"} height={"85vh"} overflowY={"auto"} scrollBehavior={"smooth"}>
+        <VStack
+          width={"90%"}
+          marginTop={"70px"}
+          height={"85vh"}
+          overflowY={"auto"}
+          scrollBehavior={"smooth"}
+        >
           <Formik
             initialValues={initialValues}
             onSubmit={onSubmit}
@@ -186,7 +199,11 @@ const AllResult = () => {
                           width={"80%"}
                           fontSize={"16px"}
                         >
-                          {years.map((el,i)=><option value={el} key={i}>{el}</option>)}
+                          {years.map((el, i) => (
+                            <option value={el} key={i}>
+                              {el}
+                            </option>
+                          ))}
                         </Select>
                       </>
                     );
@@ -509,7 +526,12 @@ const AllResult = () => {
                 alignItems={"center"}
                 mb={3}
               >
-                <Button width={"60%"} type="submit" isLoading={loading} loadingText="Submitting">
+                <Button
+                  width={"60%"}
+                  type="submit"
+                  isLoading={loading}
+                  loadingText="Submitting"
+                >
                   Submit Form
                 </Button>
               </Box>
