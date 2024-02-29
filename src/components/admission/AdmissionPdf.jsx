@@ -157,20 +157,16 @@ const AdmissionPdf = () => {
             and be in discipline.
           </Text>
           <Text width={"90%"} textAlign={"justify"} fontWeight={"400"}mt={"-8px"}>
-            2. Students are not allowed to bring the mobile phones in the
-            school.
-          </Text>
-          <Text width={"90%"} textAlign={"justify"} fontWeight={"400"}mt={"-8px"}>
-            3. All the rules and regulation of the school must be followed by
+            2. All the rules and regulation of the school must be followed by
             each students.
           </Text>
           <Text width={"90%"} textAlign={"justify"} fontWeight={"400"}mt={"-8px"}>
-            4. Admission of the child without TC form & other documents shall be
+            3. Admission of the child without TC form & other documents shall be
             deemed as Provisional Admission and is liable to be cancelled unless
             al mandatory documents are sumitted within 10 days of admission.
           </Text> 
           <Text width={"90%"} textAlign={"justify"} fontWeight={"400"}mt={"-8px"}>
-            5. Assessment test is compulsory for all candidates seeking fresh admission to school. No candidate will be admitted unless he/she has appeared in the test.
+            4. Assessment test is compulsory for all candidates seeking fresh admission to school. No candidate will be admitted unless he/she has appeared in the test.
           </Text>
           <Text textAlign={"right"} width={"100%"} fontWeight={"700"} mt={"5px"}>Principal</Text>
         </VStack>
