@@ -41,6 +41,7 @@ import PrintAllAdmitCard from "./components/admit card/PrintAllAdmitCard.jsx";
 import SubmitFee from "./components/fees/SubmitFee.jsx";
 import ShowFeeReceipt from "./components/fees/ShowFeeReceipt.jsx";
 import DashBoaredDetails from "./components/dashboard/DashBoaredDetails.jsx";
+import AdmissionPdfForm from "./components/admission/AdmissionPdfForm.jsx";
 function App() {
   const [token, setToken] = useState("");
   const [result, setResult] = useState("");
@@ -178,6 +179,7 @@ function App() {
             <Route path="notice" element={<Notice />} />
             <Route path="submit-fee" element={<SubmitFee />} />
             <Route path="view-dashboard" element={<DashBoaredDetails />} />
+            <Route path="student/registrationpdf" element={<AdmissionPdfForm />} />
           </Route>
         </Routes>
       </tokenContext.Provider>

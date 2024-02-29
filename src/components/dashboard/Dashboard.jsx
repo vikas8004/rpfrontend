@@ -54,7 +54,7 @@ const Dashboard = () => {
                   as={Button}
                 >
                   <Box display={"flex"} alignItems={"center"}>
-                    <MdDashboard  fontSize={"17px"}/>
+                    <MdDashboard fontSize={"17px"} />
                     <Text ml={2}>Dashboard</Text>
                   </Box>
                 </MenuButton>
@@ -77,7 +77,7 @@ const Dashboard = () => {
                 >
                   <Box display={"flex"} alignItems={"center"}>
                     <PiStudent fontSize={"17px"} />
-                    <Text ml={2} >Student</Text>
+                    <Text ml={2}>Student</Text>
                   </Box>
                 </MenuButton>
                 <MenuList>
@@ -88,6 +88,9 @@ const Dashboard = () => {
                   </MenuItem>{" "}
                   <MenuItem>
                     <NavLink to={"/dashboard/student/details"}>Details</NavLink>
+                  </MenuItem>{" "}
+                  <MenuItem>
+                    <NavLink to={"/dashboard/student/registrationpdf"}>Reg Pdf</NavLink>
                   </MenuItem>
                 </MenuList>
               </Menu>

@@ -36,7 +36,7 @@ import {
 } from "@chakra-ui/react";
 import { Formik, Field, ErrorMessage, Form } from "formik";
 import * as Yup from "yup";
-import { baseUrl } from "../../utils/constnats.jsx";
+import { baseUrl, years } from "../../utils/constnats.jsx";
 import axios from "axios";
 
 import { MdEditNote } from "react-icons/md";
@@ -104,10 +104,10 @@ const StudentDetails = () => {
     11,
     12,
   ];
-  const year = ["2023-2024", "2024-2025"];
+
   const [data, setData] = useState("");
   const [loading, setLoading] = useState(false);
-  
+
   const { isOpen, onOpen, onClose } = useDisclosure();
   const toast = useToast();
 
@@ -121,8 +121,13 @@ const StudentDetails = () => {
             onSubmit={onSubmit}
           >
             <Form style={{ width: "100%" }}>
-              <HStack justifyContent={["center","space-between"]} flexDirection={["column","column","row"]} width={"100%"} gap={["15px","15px","0px"]}>
-                <Box width={["80%","80%", "33%"]}>
+              <HStack
+                justifyContent={["center", "space-between"]}
+                flexDirection={["column", "column", "row"]}
+                width={"100%"}
+                gap={["15px", "15px", "0px"]}
+              >
+                <Box width={["80%", "80%", "33%"]}>
                   <Field name="schoolName">
                     {(props) => {
                       const { from, field, meta } = props;
@@ -183,7 +188,7 @@ const StudentDetails = () => {
                     name="standard"
                   />
                 </Box>
-                <Box width={["80%", "80%" ,"33%"]}>
+                <Box width={["80%", "80%", "33%"]}>
                   <Field name="year">
                     {(props) => {
                       const { form, meta, field } = props;
@@ -196,7 +201,7 @@ const StudentDetails = () => {
                             width={"100%"}
                             fontSize={"16px"}
                           >
-                            {year.map((ele, i) => (
+                            {years.map((ele, i) => (
                               <option key={i} value={ele}>
                                 {ele}
                               </option>
@@ -212,11 +217,11 @@ const StudentDetails = () => {
                     name="year"
                   />
                 </Box>
-                <Box width={["80%","60%", "20%"]} mr={[0,2]}>
+                <Box width={["80%", "60%", "20%"]} mr={[0, 2]}>
                   <Button
                     type={"submit"}
                     width={"100%"}
-                   bg={"tomato"}
+                    bg={"tomato"}
                     isLoading={loading}
                     loadingText="Fetching..."
                   >

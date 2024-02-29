@@ -40,6 +40,7 @@ const TeacherRegistrationForm = () => {
     qualification: "",
     position: "",
     joiningDate: "",
+    tid: "",
   };
   const validationSchema = Yup.object({
     schoolName: Yup.string().required("required"),
@@ -61,9 +62,10 @@ const TeacherRegistrationForm = () => {
     image: Yup.mixed().required("required"),
     // subjects: Yup.array().min(1, "atlest one subject is required"),
     gender: Yup.string().required("required"),
+    tid: Yup.string().required("required"),
   });
   const onSubmit = async (values, opt) => {
-    console.log(values);
+    // console.log(values);
     setLoading(true);
     const formData = new FormData();
     formData.append("schoolName", values.schoolName);
@@ -81,6 +83,7 @@ const TeacherRegistrationForm = () => {
     formData.append("joiningDate", values.joiningDate);
     formData.append("qualification", values.qualification);
     formData.append("position", values.position);
+    formData.append("tid", values.tid);
 
     try {
       const res = await axios.post(
@@ -88,8 +91,9 @@ const TeacherRegistrationForm = () => {
         formData
       );
       if (res) {
-        console.log(res);
+        // console.log(res);
         setLoading(false);
+        opt.resetForm();
         toast({
           description: "Successfully Registered",
           status: "success",
@@ -97,17 +101,17 @@ const TeacherRegistrationForm = () => {
           isClosable: true,
           position: "top-right",
         });
-      } 
+      }
     } catch (error) {
       console.log(error);
-      setLoading(false)
+      setLoading(false);
       toast({
-        description:"something went wrong",
-        status:"error",
-        duration:3000,
-        isClosable:true,
-        position:"top-right"
-      })
+        description: "something went wrong",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+        position: "top-right",
+      });
     }
   };
   const subjects = [
@@ -253,6 +257,33 @@ const TeacherRegistrationForm = () => {
                 mb={5}
               >
                 <FormLabel textAlign={"left"} width={"80%"} color={"grey"}>
+                  Teacher's id
+                </FormLabel>
+                <Field name="tid">
+                  {(props) => {
+                    const { field, form, meta } = props;
+                    return (
+                      <Input
+                        name="tid"
+                        {...field}
+                        placeholder="Enter teacher id"
+                        focusBorderColor="tomato"
+                        width={"80%"}
+                      />
+                    );
+                  }}
+                </Field>
+                <ErrorMessage name="tid" component={"div"} className="error" />
+              </Box>
+              <Box
+                flexDirection={"column"}
+                width={"100%"}
+                display={"flex"}
+                justifyContent={"center"}
+                alignItems={"center"}
+                mb={5}
+              >
+                <FormLabel textAlign={"left"} width={"80%"} color={"grey"}>
                   Teacher Name
                 </FormLabel>
                 <Field name="fullName">
@@ -262,7 +293,7 @@ const TeacherRegistrationForm = () => {
                       <Input
                         name="fullName"
                         {...field}
-                        placeholder="Enter your Full Name"
+                        placeholder="Enter Full Name"
                         focusBorderColor="tomato"
                         width={"80%"}
                       />
