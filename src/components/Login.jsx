@@ -2,9 +2,10 @@ import React, { useContext, useState } from "react";
 import { VStack, Button, Text, Input, Box, useToast } from "@chakra-ui/react";
 import { Field, ErrorMessage, Form, Formik } from "formik";
 import * as Yup from "yup";
-import { useNavigate, useLocation} from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { tokenContext } from "../context";
 import { baseUrl } from "../utils/constnats.jsx";
+import axios from "axios";
 const Login = () => {
   const { token, setToken } = useContext(tokenContext);
   const toast = useToast();
@@ -18,31 +19,30 @@ const Login = () => {
     password: Yup.string().required("password is required"),
   });
   const onSubmit = async (values, opt) => {
+    // console.log(values);
     setLoading(true);
-    const res = await fetch(`${baseUrl}/api/v1/admin/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(values),
-    });
-    if (res.ok) {
-      const data = await res.json();
-      // console.log(data);
-      opt.resetForm();
-      setToken(data.data.accessToken);
-      const msg = data.data.message;
-      toast({
-        title: "Logged In",
-        description: msg,
-        status: "success",
-        duration: 3000,
-        isClosable: true,
-        position: "top-right",
-      });
-      navigate("/");
+    try {
+      const res = await axios.post(`${baseUrl}/api/v1/admin/login`, values);
+      if (res) {
+        
+        // console.log(res);
+        opt.resetForm();
+        setToken(res.data.data.accessToken);
+        const msg = res.data.data.message;
+        toast({
+          title: "Logged In",
+          description: msg,
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+          position: "top-right",
+        });
+        navigate("/");
+        setLoading(false);
+      }
+    } catch (error) {
+      console.log(error);
       setLoading(false);
-    } else {
       toast({
         title: "Log In",
         description: "invalid credentials",
@@ -51,7 +51,6 @@ const Login = () => {
         isClosable: true,
         position: "top-right",
       });
-      setLoading(false);
     }
   };
   const [loading, setLoading] = useState(false);
