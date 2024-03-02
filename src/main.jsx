@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import "./index.css";
 import { ChakraProvider } from "@chakra-ui/react";
+import ShowAdmissionModel from "./utils/ShowAdmissionModel.jsx";
 // const router = createHashRouter([
 //   {
 //     path: "/*",
@@ -25,6 +26,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <BrowserRouter>
     
         <ChakraProvider>
+          <ShowAdmissionModel/>
           <App />
         </ChakraProvider>
      

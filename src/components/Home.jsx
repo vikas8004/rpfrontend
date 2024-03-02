@@ -26,22 +26,23 @@ import rp4 from "../assests/rp4.jpg";
 import NoticeBoard from "./notice/NoticeBoard.jsx";
 import home1 from "../assests/home1.jpg";
 
+
 const Home = () => {
   return (
     <>
       <VStack
         justifyContent={"center"}
-        width={"95vw"}
+        width={"full"}
         boxSizing="border-box"
         mx={"auto"}
         p={0}
       >
         <HStack
           zIndex={"-6"}
-          width={["100vw", "97vw", "100", "98.5vw"]}
+          width={"full"}
           // height={["auto","auto","auto","400px"]}
           justifyContent={"center"}
-          mt={"60px"}
+          mt={["60px","60px","0"]}
         >
           <Carousel
             autoPlay={true}

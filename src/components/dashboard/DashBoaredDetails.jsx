@@ -214,7 +214,7 @@ const DashBoaredDetails = () => {
         </VStack>
         
       </HStack>
-      <HStack width={"100%"} justifyContent={["flex-start","flex-start","space-evenly","space-evenly"]} flexDirection={["column","column","column","row"]}  alignItems={"center"} py={4} height={"auto"}>
+      <HStack width={"100%"} justifyContent={["flex-start","flex-start","space-evenly","space-evenly"]} flexDirection={["column","column","column","row"]}  alignItems={"center"} py={4} height={"auto"} mt={["10px"]}>
       <HStack width={["200px","300px","380px","400px"]} height={["auto","auto"]} >
       {totalStudentRBMP&&setTotalStudentRPAIC?<ChartComponent info={{totalStudentRBMP,totalStudentRPAIC}}/>:null}
       </HStack>
