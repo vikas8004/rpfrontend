@@ -23,7 +23,7 @@ const ResultDemo = () => {
   const { result } = useContext(tokenContext);
   const resultData = result.data[0];
   const StudentInfo = resultData.StudentInfo[0];
-  console.log(StudentInfo, resultData);
+  console.log(resultData);
   const classes1to8 = ["1", "2", "3", "4", "5", "6", "7", "8"];
   const classes9to10 = ["9", "10"];
   const classes11to12 = ["11", "12"];
@@ -428,7 +428,7 @@ const ResultDemo = () => {
                     </Td>
                     <Td textAlign={"center"}>70</Td>
                     <Td textAlign={"center"}>
-                      {resultData.math ? result.math : resultData.bio}
+                      {resultData.math ? resultData.math : resultData.bio}
                     </Td>
                   </Tr>
                   <Tr>

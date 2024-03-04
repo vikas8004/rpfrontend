@@ -1488,7 +1488,7 @@ const ShowFinalRes = () => {
                     justifyContent={"center"}
                     fontWeight={"bolder"}
                   >
-                    2300
+                    2100
                   </Box>
                 </HStack>
               </VStack>
@@ -1520,9 +1520,9 @@ const ShowFinalRes = () => {
                     justifyContent={"center"}
                     display={"flex"}
                   >
-                    {Math.round((total * 100) / 2300) >= 75
+                    {Math.round((total * 100) / 2100) >= 75
                       ? "A"
-                      : Math.round((total * 100) / 2300) >= 50
+                      : Math.round((total * 100) / 2100) >= 50
                       ? "B"
                       : "C"}
                   </Box>
@@ -2059,7 +2059,7 @@ const ShowFinalRes = () => {
                     justifyContent={"center"}
                     fontWeight={"bolder"}
                   >
-                    2300
+                    1750
                   </Box>
                 </HStack>
               </VStack>
@@ -2091,9 +2091,9 @@ const ShowFinalRes = () => {
                     justifyContent={"center"}
                     display={"flex"}
                   >
-                    {Math.round((total * 100) / 2300) >= 75
+                    {Math.round((total * 100) / 1750) >= 75
                       ? "A"
-                      : Math.round((total * 100) / 2300) >= 50
+                      : Math.round((total * 100) / 1750) >= 50
                       ? "B"
                       : "C"}
                   </Box>
