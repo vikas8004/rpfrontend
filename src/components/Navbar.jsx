@@ -110,6 +110,9 @@ const Navbar = () => {
                     Id Card
                   </Button>
                 </Link> */}
+                 <Link to={"/teachers"}>
+                  <Button variant={"ghost"} onClick={onClose}>Teachers</Button>
+                </Link>{" "}
                 <Link to={"/gallery"}>
                   <Button variant={"ghost"} onClick={onClose}>Gallery</Button>
                 </Link>{" "}

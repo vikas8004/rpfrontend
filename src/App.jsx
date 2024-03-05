@@ -42,6 +42,11 @@ import SubmitFee from "./components/fees/SubmitFee.jsx";
 import ShowFeeReceipt from "./components/fees/ShowFeeReceipt.jsx";
 import DashBoaredDetails from "./components/dashboard/DashBoaredDetails.jsx";
 import AdmissionPdfForm from "./components/admission/AdmissionPdfForm.jsx";
+import ShowHomeTeacher from "./Teacher/ShowHomeTeacher.jsx";
+import ShowDashboardTeacher from "./Teacher/ShowDashboardTeacher.jsx";
+
+import UnitTestResult from "./components/Results/UnitTestResult.jsx";
+import ShowUnitTestResult from "./components/Results/ShowUnitTestResult.jsx";
 function App() {
   const [token, setToken] = useState("");
   const [result, setResult] = useState("");
@@ -49,7 +54,7 @@ function App() {
   const [regestrationPdf, setRegestrationPdf] = useState("");
   const [finalResult, setFinalResult] = useState("");
   const [feeReceipt, setFeeReceipt] = useState("");
-
+  const [utResult, setUtResult] = useState("");
   return (
     <>
       <tokenContext.Provider
@@ -66,6 +71,8 @@ function App() {
           setFinalResult,
           feeReceipt,
           setFeeReceipt,
+          utResult,
+          setUtResult,
         }}
       >
         <Navbar />
@@ -89,6 +96,13 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/result" element={<Result />} />
           <Route path="/result/results" element={<Results />} />
+          <Route
+            path="/result/unit-test-results"
+            element={<UnitTestResult />}
+          /><Route
+            path="/show-unit-test-result"
+            element={<ShowUnitTestResult />}
+          />
           <Route
             path="/result/results/quaterlyresult"
             element={<QuaterlyResult />}
@@ -132,14 +146,6 @@ function App() {
             path="/student/print-all-admit-card"
             element={<PrintAllAdmitCard />}
           />
-          {/* <Route
-            path="/student/registration"
-            element={<ProtectedRoute Component={RegistrationForm} />}
-          /> */}
-          {/* <Route
-            path="/student/view-admit-card"
-            element={<ProtectedRoute Component={AdmitCardForm} />}
-          /> */}
           <Route
             path="/student/show-admit-card"
             element={<ShowConditionallyAdmitCard Component={AdmitCard} />}
@@ -151,6 +157,8 @@ function App() {
           <Route path="/student/final-result" element={<ShowFinalRes />} />
           {/* fee */}
           <Route path="/student/fee-receipt" element={<ShowFeeReceipt />} />
+          {/* teacher */}
+          <Route path="/teachers" element={<ShowHomeTeacher />} />
           {/* dashboard */}
           <Route
             path="/dashboard/"
@@ -161,6 +169,10 @@ function App() {
             <Route
               path="teacher/registration"
               element={<TeacherRegistrationForm />}
+            />
+            <Route
+              path="teacher/viewteacher"
+              element={<ShowDashboardTeacher />}
             />
             <Route
               path="admitcard/view-admit-card"
@@ -179,7 +191,10 @@ function App() {
             <Route path="notice" element={<Notice />} />
             <Route path="submit-fee" element={<SubmitFee />} />
             <Route path="view-dashboard" element={<DashBoaredDetails />} />
-            <Route path="student/registrationpdf" element={<AdmissionPdfForm />} />
+            <Route
+              path="student/registrationpdf"
+              element={<AdmissionPdfForm />}
+            />
           </Route>
         </Routes>
       </tokenContext.Provider>

@@ -38,7 +38,7 @@ const QuaterlyResult = () => {
       );
       if (res) {
         const resultData = await res.data;
-        console.log(resultData);
+        // console.log(resultData);
         setResult(resultData);
         toast({
           description: "Result fetched successfully",

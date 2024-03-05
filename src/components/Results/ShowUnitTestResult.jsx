@@ -19,17 +19,16 @@ import { sum } from "../../utils/sum.jsx";
 import { tokenContext } from "../../context.jsx";
 import { doFirstLetterCapital } from "../../utils/doFirstLetterCapital.jsx";
 
-const ResultDemo = () => {
-  const { result } = useContext(tokenContext);
-  const resultData = result.data[0];
-  const StudentInfo = resultData.StudentInfo[0];
-  // console.log(resultData);
+const ShowUnitTestResult = () => {
+  const { utResult } = useContext(tokenContext);
+  const { foundStu, result } = utResult;
+  console.log(foundStu,result);
   const classes1to8 = ["1", "2", "3", "4", "5", "6", "7", "8"];
   const classes9to10 = ["9", "10"];
   const classes11to12 = ["11", "12"];
   const [sub, setSub] = useState([]);
   useEffect(() => {
-    if (classes1to8.includes(StudentInfo.standard)) {
+    if (classes1to8.includes(foundStu.standard)) {
       const {
         hindi,
         english,
@@ -41,7 +40,7 @@ const ResultDemo = () => {
         socialStudy,
         computer,
         pt,
-      } = resultData;
+      } = result;
       setSub([
         hindi,
         english,
@@ -54,7 +53,7 @@ const ResultDemo = () => {
         computer,
         pt,
       ]);
-    } else if (classes9to10.includes(StudentInfo.standard)) {
+    } else if (classes9to10.includes(foundStu.standard)) {
       const {
         hindi,
         english,
@@ -63,7 +62,7 @@ const ResultDemo = () => {
         drawing,
         socialStudy,
         homeScience,
-      } = resultData;
+      } = result;
       setSub([
         hindi,
         english,
@@ -73,8 +72,8 @@ const ResultDemo = () => {
         socialStudy,
         homeScience,
       ]);
-    } else if (classes11to12.includes(StudentInfo.standard)) {
-      const { hindi, english, math, bio, physics, chemistry } = resultData;
+    } else if (classes11to12.includes(foundStu.standard)) {
+      const { hindi, english, math, bio, physics, chemistry } = result;
       setSub([hindi, english, math, bio, physics, chemistry]);
     }
   }, []);
@@ -95,7 +94,7 @@ const ResultDemo = () => {
             justifyContent={"center"}
             mb={4}
           >
-            {classes1to8.includes(StudentInfo.standard) ? (
+            {classes1to8.includes(foundStu.standard) ? (
               <Table
                 variant="simple"
                 colorScheme="black"
@@ -105,8 +104,8 @@ const ResultDemo = () => {
                 textAlign={"center"}
               >
                 <TableCaption placement="top" fontSize={"20px"}>
-                  {`${doFirstLetterCapital(resultData.term)} Result ${
-                    resultData.year
+                  {`${doFirstLetterCapital(result.test)} Result ${
+                    result.year
                   }`}
                 </TableCaption>
                 <Thead>
@@ -115,7 +114,7 @@ const ResultDemo = () => {
                       Name
                     </Th>
                     <Td textAlign={"center"}>
-                      {doFirstLetterCapital(StudentInfo.fullName)}
+                      {doFirstLetterCapital(foundStu.fullName)}
                     </Td>
                     <Td rowSpan={2} justifyContent={"center"}>
                       <Box
@@ -125,7 +124,7 @@ const ResultDemo = () => {
                       >
                         <Image
                           display={"flex"}
-                          src={StudentInfo.image.secure_url}
+                          src={foundStu.image.secure_url}
                           boxSize={20}
                         />
                       </Box>
@@ -135,7 +134,7 @@ const ResultDemo = () => {
                     <Th textAlign={"center"} color={"black"}>
                       ROLL No
                     </Th>
-                    <Td textAlign={"center"}>{resultData.rollno}</Td>
+                    <Td textAlign={"center"}>{result.rollno}</Td>
                   </Tr>
                   <Tr>
                     <Th color={"black"} textAlign={"center"}>
@@ -154,71 +153,71 @@ const ResultDemo = () => {
                     <Td color={"black"} textAlign={"center"} fontWeight={400}>
                       Hindi
                     </Td>
-                    <Td textAlign={"center"}>{resultData.max}</Td>
-                    <Td textAlign={"center"}>{resultData.hindi}</Td>
+                    <Td textAlign={"center"}>{result.test==="unittest1"?10:20}</Td>
+                    <Td textAlign={"center"}>{result.hindi}</Td>
                   </Tr>
                   <Tr>
                     <Td color={"black"} textAlign={"center"} fontWeight={400}>
                       English
                     </Td>
-                    <Td textAlign={"center"}>{resultData.max} </Td>
-                    <Td textAlign={"center"}>{resultData.english}</Td>
+                    <Td textAlign={"center"}>{result.test==="unittest1"?10:20} </Td>
+                    <Td textAlign={"center"}>{result.english}</Td>
                   </Tr>
                   <Tr>
                     <Td color={"black"} textAlign={"center"} fontWeight={400}>
                       Math
                     </Td>
-                    <Td textAlign={"center"}>{resultData.max} </Td>
-                    <Td textAlign={"center"}>{resultData.math}</Td>
+                    <Td textAlign={"center"}>{result.test==="unittest1"?10:20} </Td>
+                    <Td textAlign={"center"}>{result.math}</Td>
                   </Tr>
                   <Tr>
                     <Td color={"black"} textAlign={"center"} fontWeight={400}>
                       Science
                     </Td>
-                    <Td textAlign={"center"}>{resultData.max}</Td>
-                    <Td textAlign={"center"}>{resultData.science}</Td>
+                    <Td textAlign={"center"}>{result.test==="unittest1"?10:20}</Td>
+                    <Td textAlign={"center"}>{result.science}</Td>
                   </Tr>
                   <Tr>
                     <Td color={"black"} textAlign={"center"} fontWeight={400}>
                       Social Studies
                     </Td>
-                    <Td textAlign={"center"}>{resultData.max} </Td>
-                    <Td textAlign={"center"}>{resultData.socialStudy}</Td>
+                    <Td textAlign={"center"}>{result.test==="unittest1"?10:20} </Td>
+                    <Td textAlign={"center"}>{result.socialStudy}</Td>
                   </Tr>
                   <Tr>
                     <Td color={"black"} textAlign={"center"} fontWeight={400}>
                       Sanskrit
                     </Td>
-                    <Td textAlign={"center"}>{resultData.max}</Td>
-                    <Td textAlign={"center"}>{resultData.sanskrit}</Td>
+                    <Td textAlign={"center"}>{result.test==="unittest1"?10:20}</Td>
+                    <Td textAlign={"center"}>{result.sanskrit}</Td>
                   </Tr>
                   <Tr>
                     <Td color={"black"} textAlign={"center"} fontWeight={400}>
                       Computer
                     </Td>
-                    <Td textAlign={"center"}>{resultData.max}</Td>
-                    <Td textAlign={"center"}>{resultData.computer}</Td>
+                    <Td textAlign={"center"}>{result.test==="unittest1"?10:20}</Td>
+                    <Td textAlign={"center"}>{result.computer}</Td>
                   </Tr>
                   <Tr>
                     <Td color={"black"} textAlign={"center"} fontWeight={400}>
                       G.K.
                     </Td>
-                    <Td textAlign={"center"}>{resultData.max}</Td>
-                    <Td textAlign={"center"}>{resultData.gk}</Td>
+                    <Td textAlign={"center"}>{result.test==="unittest1"?10:20}</Td>
+                    <Td textAlign={"center"}>{result.gk}</Td>
                   </Tr>
                   <Tr>
                     <Td color={"black"} textAlign={"center"} fontWeight={400}>
                       Drawing
                     </Td>
-                    <Td textAlign={"center"}>{resultData.max}</Td>
-                    <Td textAlign={"center"}>{resultData.drawing}</Td>
+                    <Td textAlign={"center"}>{result.test==="unittest1"?10:20}</Td>
+                    <Td textAlign={"center"}>{result.drawing}</Td>
                   </Tr>
                   <Tr>
                     <Td color={"black"} textAlign={"center"} fontWeight={400}>
                       P.T.
                     </Td>
-                    <Td textAlign={"center"}>{resultData.max} </Td>
-                    <Td textAlign={"center"}>{resultData.pt}</Td>
+                    <Td textAlign={"center"}>{result.test==="unittest1"?10:20} </Td>
+                    <Td textAlign={"center"}>{result.pt}</Td>
                   </Tr>
                 </Tbody>
 
@@ -228,7 +227,7 @@ const ResultDemo = () => {
                       Total
                     </Th>
                     <Th textAlign={"center"} color={"black"}>
-                      500
+                    {result.test==="unittest1"?100:200}
                     </Th>
                     <Th textAlign={"center"} color={"black"}>
                       {sum(sub)}
@@ -236,7 +235,7 @@ const ResultDemo = () => {
                   </Tr>
                 </Tfoot>
               </Table>
-            ) : classes9to10.includes(StudentInfo.standard) ? (
+            ) : classes9to10.includes(foundStu.standard) ? (
               <Table
                 variant="simple"
                 colorScheme="black"
@@ -246,8 +245,8 @@ const ResultDemo = () => {
                 textAlign={"center"}
               >
                 <TableCaption placement="top" fontSize={"20px"}>
-                  {`${doFirstLetterCapital(resultData.term)} Result ${
-                    resultData.year
+                  {`${doFirstLetterCapital(result.test)} Result ${
+                    result.year
                   }`}
                 </TableCaption>
                 <Thead>
@@ -256,7 +255,7 @@ const ResultDemo = () => {
                       Name
                     </Th>
                     <Td textAlign={"center"}>
-                      {doFirstLetterCapital(StudentInfo.fullName)}
+                      {doFirstLetterCapital(foundStu.fullName)}
                     </Td>
                     <Td rowSpan={2} justifyContent={"center"}>
                       <Box
@@ -266,7 +265,7 @@ const ResultDemo = () => {
                       >
                         <Image
                           display={"flex"}
-                          src={StudentInfo.image.secure_url}
+                          src={foundStu.image.secure_url}
                           boxSize={20}
                         />
                       </Box>
@@ -276,7 +275,7 @@ const ResultDemo = () => {
                     <Th textAlign={"center"} color={"black"}>
                       ROLL No
                     </Th>
-                    <Td textAlign={"center"}>{resultData.rollno}</Td>
+                    <Td textAlign={"center"}>{result.rollno}</Td>
                   </Tr>
                   <Tr>
                     <Th color={"black"} textAlign={"center"}>
@@ -295,47 +294,47 @@ const ResultDemo = () => {
                     <Td color={"black"} textAlign={"center"} fontWeight={400}>
                       Hindi
                     </Td>
-                    <Td textAlign={"center"}>70</Td>
-                    <Td textAlign={"center"}>{resultData.hindi}</Td>
+                    <Td textAlign={"center"}>{result.test==="unittest1"?10:20}</Td>
+                    <Td textAlign={"center"}>{result.hindi}</Td>
                   </Tr>
                   <Tr>
                     <Td color={"black"} textAlign={"center"} fontWeight={400}>
                       English
                     </Td>
-                    <Td textAlign={"center"}>70 </Td>
-                    <Td textAlign={"center"}>{resultData.english}</Td>
+                    <Td textAlign={"center"}>{result.test==="unittest1"?10:20} </Td>
+                    <Td textAlign={"center"}>{result.english}</Td>
                   </Tr>
                   <Tr>
                     <Td color={"black"} textAlign={"center"} fontWeight={400}>
-                      {resultData.math ? "Math" : "HomeScience"}
+                      {result.math ? "Math" : "HomeScience"}
                     </Td>
-                    <Td textAlign={"center"}>70 </Td>
+                    <Td textAlign={"center"}>{result.test==="unittest1"?10:20} </Td>
                     <Td textAlign={"center"}>
-                      {resultData.math
-                        ? resultData.math
-                        : resultData.homeScience}
+                      {result.math
+                        ? result.math
+                        : result.homeScience}
                     </Td>
                   </Tr>
                   <Tr>
                     <Td color={"black"} textAlign={"center"} fontWeight={400}>
                       Science
                     </Td>
-                    <Td textAlign={"center"}>70</Td>
-                    <Td textAlign={"center"}>{resultData.science}</Td>
+                    <Td textAlign={"center"}>{result.test==="unittest1"?10:20}</Td>
+                    <Td textAlign={"center"}>{result.science}</Td>
                   </Tr>
                   <Tr>
                     <Td color={"black"} textAlign={"center"} fontWeight={400}>
                       Social Studies
                     </Td>
-                    <Td textAlign={"center"}>70</Td>
-                    <Td textAlign={"center"}>{resultData.socialStudy}</Td>
+                    <Td textAlign={"center"}>{result.test==="unittest1"?10:20}</Td>
+                    <Td textAlign={"center"}>{result.socialStudy}</Td>
                   </Tr>
                   <Tr>
                     <Td color={"black"} textAlign={"center"} fontWeight={400}>
                       Drawing
                     </Td>
-                    <Td textAlign={"center"}>70</Td>
-                    <Td textAlign={"center"}>{resultData.drawing}</Td>
+                    <Td textAlign={"center"}>{result.test==="unittest1"?10:20}</Td>
+                    <Td textAlign={"center"}>{result.drawing}</Td>
                   </Tr>
                 </Tbody>
 
@@ -345,7 +344,7 @@ const ResultDemo = () => {
                       Total
                     </Th>
                     <Th textAlign={"center"} color={"black"}>
-                      420
+                    {result.test==="unittest1"?60:120}
                     </Th>
                     <Th textAlign={"center"} color={"black"}>
                       {sum(sub)}
@@ -353,7 +352,7 @@ const ResultDemo = () => {
                   </Tr>
                 </Tfoot>
               </Table>
-            ) : classes11to12.includes(StudentInfo.standard) ? (
+            ) : classes11to12.includes(foundStu.standard) ? (
               <Table
                 variant="simple"
                 colorScheme="black"
@@ -363,8 +362,8 @@ const ResultDemo = () => {
                 textAlign={"center"}
               >
                 <TableCaption placement="top" fontSize={"20px"}>
-                  {`${doFirstLetterCapital(resultData.term)} Result ${
-                    resultData.year
+                  {`${doFirstLetterCapital(result.test)} Result ${
+                    result.year
                   }`}
                 </TableCaption>
                 <Thead>
@@ -373,7 +372,7 @@ const ResultDemo = () => {
                       Name
                     </Th>
                     <Td textAlign={"center"}>
-                      {doFirstLetterCapital(StudentInfo.fullName)}
+                      {doFirstLetterCapital(foundStu.fullName)}
                     </Td>
                     <Td rowSpan={2} justifyContent={"center"}>
                       <Box
@@ -383,7 +382,7 @@ const ResultDemo = () => {
                       >
                         <Image
                           display={"flex"}
-                          src={StudentInfo.image.secure_url}
+                          src={foundStu.image.secure_url}
                           boxSize={20}
                         />
                       </Box>
@@ -393,7 +392,7 @@ const ResultDemo = () => {
                     <Th textAlign={"center"} color={"black"}>
                       ROLL No
                     </Th>
-                    <Td textAlign={"center"}>{resultData.rollno}</Td>
+                    <Td textAlign={"center"}>{result.rollno}</Td>
                   </Tr>
                   <Tr>
                     <Th color={"black"} textAlign={"center"}>
@@ -412,38 +411,38 @@ const ResultDemo = () => {
                     <Td color={"black"} textAlign={"center"} fontWeight={400}>
                       Hindi
                     </Td>
-                    <Td textAlign={"center"}>70</Td>
-                    <Td textAlign={"center"}>{resultData.hindi}</Td>
+                    <Td textAlign={"center"}>{result.test==="unittest1"?10:20}</Td>
+                    <Td textAlign={"center"}>{result.hindi}</Td>
                   </Tr>
                   <Tr>
                     <Td color={"black"} textAlign={"center"} fontWeight={400}>
                       English
                     </Td>
-                    <Td textAlign={"center"}>70</Td>
-                    <Td textAlign={"center"}>{resultData.english}</Td>
+                    <Td textAlign={"center"}>{result.test==="unittest1"?10:20}</Td>
+                    <Td textAlign={"center"}>{result.english}</Td>
                   </Tr>
                   <Tr>
                     <Td color={"black"} textAlign={"center"} fontWeight={400}>
-                      {resultData.math ? "Math" : "Biology"}
+                      {result.math ? "Math" : "Biology"}
                     </Td>
-                    <Td textAlign={"center"}>70</Td>
+                    <Td textAlign={"center"}>{result.test==="unittest1"?10:20}</Td>
                     <Td textAlign={"center"}>
-                      {resultData.math ? resultData.math : resultData.bio}
+                      {result.math ? result.math : result.bio}
                     </Td>
                   </Tr>
                   <Tr>
                     <Td color={"black"} textAlign={"center"} fontWeight={400}>
                      Physics
                     </Td>
-                    <Td textAlign={"center"}>70</Td>
-                    <Td textAlign={"center"}>{resultData.physics}</Td>
+                    <Td textAlign={"center"}>{result.test==="unittest1"?10:20}</Td>
+                    <Td textAlign={"center"}>{result.physics}</Td>
                   </Tr>
                   <Tr>
                     <Td color={"black"} textAlign={"center"} fontWeight={400}>
                       Chemistry
                     </Td>
-                    <Td textAlign={"center"}>70</Td>
-                    <Td textAlign={"center"}>{resultData.chemistry}</Td>
+                    <Td textAlign={"center"}>{result.test==="unittest1"?10:20}</Td>
+                    <Td textAlign={"center"}>{result.chemistry}</Td>
                   </Tr>
                 </Tbody>
 
@@ -453,7 +452,7 @@ const ResultDemo = () => {
                       Total
                     </Th>
                     <Th textAlign={"center"} color={"black"}>
-                      350
+                    {result.test==="unittest1"?50:100}
                     </Th>
                     <Th textAlign={"center"} color={"black"}>
                       {sum(sub)}
@@ -482,4 +481,4 @@ const ResultDemo = () => {
   );
 };
 
-export default ResultDemo;
+export default ShowUnitTestResult;
