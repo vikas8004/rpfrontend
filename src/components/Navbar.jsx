@@ -34,33 +34,31 @@ const Navbar = () => {
     onClose();
   };
   const logOutHandler = async () => {
-   try {
-    const res = await axios.post(
-      `${baseUrl}/api/v1/admin/logout`,
-      {},
-      { headers: { Authorization: `Bearer ${token}` }, withCredentials: true }
-    );
-    // console.log(res);
-    if (res) {
-      // console.log(res.data);
-      if(res.data.data.status){
-        setToken("")
+    try {
+      const res = await axios.post(
+        `${baseUrl}/api/v1/admin/logout`,
+        {},
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      // console.log(res);
+      if (res) {
+        // console.log(res.data);
+        if (res.data.data.status) {
+          setToken("");
+        }
+        onClose();
+        const data = res.data.status;
+
+        toast({
+          title: "Logout",
+          description: data,
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+          position: "top-right",
+        });
       }
-      onClose();
-      const data = res.data.status;
-      
-      toast({
-        title: "Logout",
-        description: data,
-        status: "success",
-        duration: 3000,
-        isClosable: true,
-        position: "top-right",
-      });
-    }
-   } catch (error) {
-    
-   }
+    } catch (error) {}
   };
   return (
     <>
