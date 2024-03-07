@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   VStack,
   Container,
@@ -25,9 +25,25 @@ import rp4 from "../assests/rp4.jpg";
 // import img4 from "../assests/img4.jpg";
 import NoticeBoard from "./notice/NoticeBoard.jsx";
 import home1 from "../assests/home1.jpg";
-
+import { tokenContext } from "../context.jsx";
+import axios from "axios";
+import { baseUrl } from "../utils/constnats.jsx";
 
 const Home = () => {
+  const { token, setToken } = useContext(tokenContext);
+  window.onload = async () => {
+    axios
+      .get(`${baseUrl}/api/v1/admin/verify-login`, { withCredentials: true })
+      .then((res) => {
+        // console.log(res.data);
+        if (res.data.data.status) {
+          setToken(res.data.data.token);
+        }
+      })
+      .catch((err) => {
+        setToken("");
+      });
+  };
   return (
     <>
       <VStack
@@ -42,20 +58,25 @@ const Home = () => {
           width={"full"}
           // height={["auto","auto","auto","400px"]}
           justifyContent={"center"}
-          mt={["60px","60px","0"]}
+          mt={["60px", "60px", "0"]}
         >
           <Carousel
             autoPlay={true}
-            
             infiniteLoop={true}
             emulateTouch={true}
             useKeyboardArrows={true}
             showIndicators={false}
             showThumbs={false}
           >
-            <div><Image src={rp1} /></div>
-            <div><Image src={rp2} /></div>
-            <div><Image src={rp4} /></div>
+            <div>
+              <Image src={rp1} />
+            </div>
+            <div>
+              <Image src={rp2} />
+            </div>
+            <div>
+              <Image src={rp4} />
+            </div>
             {/* <Image src={rp2} /> */}
             {/* <Image src={rp3} /> */}
             {/* <Image src={rp4} /> */}

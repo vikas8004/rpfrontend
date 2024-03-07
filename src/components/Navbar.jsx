@@ -34,42 +34,55 @@ const Navbar = () => {
     onClose();
   };
   const logOutHandler = async () => {
-    setToken("");
-    const res = await fetch(`${baseUrl}/api/v1/admin/logout`, {
-      method: "POST",
-      headers: { Authorization: `Bearer ${token}` },
-    });
+   try {
+    const res = await axios.post(
+      `${baseUrl}/api/v1/admin/logout`,
+      {},
+      { headers: { Authorization: `Bearer ${token}` }, withCredentials: true }
+    );
     // console.log(res);
-    if (res.ok) {
+    if (res) {
+      // console.log(res.data);
+      if(res.data.data.status){
+        setToken("")
+      }
       onClose();
-      const data = await res.json();
-      const statusMsg = data.status;
+      const data = res.data.status;
+      
       toast({
         title: "Logout",
-        description: statusMsg,
+        description: data,
         status: "success",
         duration: 3000,
         isClosable: true,
         position: "top-right",
       });
     }
+   } catch (error) {
+    
+   }
   };
   return (
     <>
       <nav className="mainnav">
         <HStack justifyContent={"space-between"}>
-          <Image src={logo} width={"60px"}  />
+          <Image src={logo} width={"60px"} />
           <Text
             fontSize={["16px", "20px"]}
             color={"white"}
             fontWeight={"400"}
             textAlign={"left"}
             width={"100%"}
-            
           >
             RP ADARSH INTER COLLEGE
           </Text>
-          <Button bg={"none"} _hover={{background:"none"}} rounded={"xl"} onClick={onOpen} color={"white"}>
+          <Button
+            bg={"none"}
+            _hover={{ background: "none" }}
+            rounded={"xl"}
+            onClick={onOpen}
+            color={"white"}
+          >
             <MdMenu fontSize={"25px"} />
           </Button>
         </HStack>
@@ -110,14 +123,20 @@ const Navbar = () => {
                     Id Card
                   </Button>
                 </Link> */}
-                 <Link to={"/teachers"}>
-                  <Button variant={"ghost"} onClick={onClose}>Teachers</Button>
+                <Link to={"/teachers"}>
+                  <Button variant={"ghost"} onClick={onClose}>
+                    Teachers
+                  </Button>
                 </Link>{" "}
                 <Link to={"/gallery"}>
-                  <Button variant={"ghost"} onClick={onClose}>Gallery</Button>
+                  <Button variant={"ghost"} onClick={onClose}>
+                    Gallery
+                  </Button>
                 </Link>{" "}
                 <Link to={"/about-student"}>
-                  <Button variant={"ghost"} onClick={onClose}>Students</Button>
+                  <Button variant={"ghost"} onClick={onClose}>
+                    Students
+                  </Button>
                 </Link>{" "}
                 <Link to={"/contact"}>
                   <Button variant={"ghost"} onClick={onClose}>
@@ -132,15 +151,23 @@ const Navbar = () => {
                 width={"100%"}
               >
                 {token ? (
-                  <Box display={"flex"} justifyContent={"space-evenly"} width={"100%"}>
+                  <Box
+                    display={"flex"}
+                    justifyContent={"space-evenly"}
+                    width={"100%"}
+                  >
                     <Link to={"/"}>
                       <Button bg={"tomato"} onClick={logOutHandler} size={"md"}>
                         Logout
                       </Button>
                     </Link>
                     <Link to={"/dashboard/view-dashboard"}>
-                      <Button  onClick={dashboardHandler} size={"md"} color={"blue.600"}>
-                      <MdDashboard />{" "}Dashboard
+                      <Button
+                        onClick={dashboardHandler}
+                        size={"md"}
+                        color={"blue.600"}
+                      >
+                        <MdDashboard /> Dashboard
                       </Button>
                     </Link>
                   </Box>
