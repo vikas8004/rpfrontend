@@ -25,25 +25,10 @@ import rp4 from "../assests/rp4.jpg";
 // import img4 from "../assests/img4.jpg";
 import NoticeBoard from "./notice/NoticeBoard.jsx";
 import home1 from "../assests/home1.jpg";
-import { tokenContext } from "../context.jsx";
-import axios from "axios";
-import { baseUrl } from "../utils/constnats.jsx";
+
 
 const Home = () => {
-  const { token, setToken } = useContext(tokenContext);
-  window.onload = async () => {
-    axios
-      .get(`${baseUrl}/api/v1/admin/verify-login`, { withCredentials: true })
-      .then((res) => {
-        // console.log(res.data);
-        if (res.data.data.status) {
-          setToken(res.data.data.token);
-        }
-      })
-      .catch((err) => {
-        setToken("");
-      });
-  };
+
   return (
     <>
       <VStack
