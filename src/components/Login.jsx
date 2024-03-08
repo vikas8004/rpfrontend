@@ -11,19 +11,7 @@ const Login = () => {
   const toast = useToast();
   const location=useLocation()
   const [loading, setLoading] = useState(false);
-  window.onload = async () => {
-    axios
-      .get(`${baseUrl}/api/v1/admin/verify-login`, { withCredentials: true })
-      .then((res) => {
-        // console.log(res.data);
-        if (res.data.data.status) {
-          setToken(res.data.data.token);
-        }
-      })
-      .catch((err) => {
-        setToken("");
-      });
-  };
+
   const navigate = useNavigate();
   const initialValues = {
     userName: "",
