@@ -42,9 +42,12 @@ const Navbar = () => {
       );
       // console.log(res);
       if (res) {
-        setToken("");
-        // console.log(res.data);
-       
+        // setToken("");
+        console.log(res.data);
+        if (res.data.data.status) {
+          setToken("");
+        }
+
         onClose();
         const data = res.data.status;
 
