@@ -30,6 +30,7 @@ const Dashboard = () => {
         width={"100%"}
         justifyContent="space-between"
         overflowX={"none"}
+        
       >
         <VStack
           width={"150px"}
@@ -91,6 +92,9 @@ const Dashboard = () => {
                   </MenuItem>{" "}
                   <MenuItem>
                     <NavLink to={"/dashboard/student/registrationpdf"}>Reg Pdf</NavLink>
+                  </MenuItem>
+                  <MenuItem>
+                    <NavLink to={"/dashboard/student/update-student"}>Update</NavLink>
                   </MenuItem>
                 </MenuList>
               </Menu>

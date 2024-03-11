@@ -141,6 +141,7 @@ const RegistrationForm = () => {
     "Computer",
     "Drawing",
     "Pt",
+    "Gk",
     "Biology",
     "Physics",
     "Chemistry",

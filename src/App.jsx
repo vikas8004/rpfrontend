@@ -47,6 +47,7 @@ import ShowDashboardTeacher from "./Teacher/ShowDashboardTeacher.jsx";
 
 import UnitTestResult from "./components/Results/UnitTestResult.jsx";
 import ShowUnitTestResult from "./components/Results/ShowUnitTestResult.jsx";
+import UpdateAndForward from "./components/admission/UpdateAndForward.jsx";
 function App() {
   const [token, setToken] = useState("");
   const [result, setResult] = useState("");
@@ -99,7 +100,8 @@ function App() {
           <Route
             path="/result/unit-test-results"
             element={<UnitTestResult />}
-          /><Route
+          />
+          <Route
             path="/show-unit-test-result"
             element={<ShowUnitTestResult />}
           />
@@ -194,6 +196,10 @@ function App() {
             <Route
               path="student/registrationpdf"
               element={<AdmissionPdfForm />}
+            />
+            <Route
+              path="student/update-student"
+              element={<UpdateAndForward />}
             />
           </Route>
         </Routes>

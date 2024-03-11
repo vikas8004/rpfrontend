@@ -106,7 +106,7 @@ const DashBoaredDetails = () => {
     fetch(`${baseUrl}/api/v1/student/totalstudent`)
       .then((res) => res.json())
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         res.data.groupedData.map((el) => {
           if (el._id === "rp adarsh inter college") {
             setTotalStudentRPAIC(el.count);

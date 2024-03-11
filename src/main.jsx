@@ -21,7 +21,7 @@ import ShowAdmissionModel from "./utils/ShowAdmissionModel.jsx";
 //   },
 // ]);
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+  <>
     {/* <RouterProvider router={router} /> */}
     <BrowserRouter>
     
@@ -31,5 +31,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         </ChakraProvider>
      
     </BrowserRouter>
-  </React.StrictMode>
+  </>
 );
