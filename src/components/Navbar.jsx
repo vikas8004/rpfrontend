@@ -128,11 +128,11 @@ const Navbar = () => {
                     Teachers
                   </Button>
                 </Link>{" "}
-                <Link to={"/gallery"}>
+                {/* <Link to={"/gallery"}>
                   <Button variant={"ghost"} onClick={onClose}>
                     Gallery
                   </Button>
-                </Link>{" "}
+                </Link>{" "} */}
                 <Link to={"/about-student"}>
                   <Button variant={"ghost"} onClick={onClose}>
                     Students

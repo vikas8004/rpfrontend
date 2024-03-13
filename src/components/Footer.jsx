@@ -8,9 +8,9 @@ const Footer = () => {
   return (
     <>
       <HStack
-        bgColor={"lightseagreen"}
+        bgColor={"grey"}
         mt={"10px"}
-        minH={"30vh"}
+        height={["150px","150px"]}
         justifyContent={"space-evenly"}
         alignItems={"flex-start"}
         position={"relative"}
@@ -34,8 +34,8 @@ const Footer = () => {
           <Link to={"tel:9919146295"}><Button colorScheme="whatsapp"><MdAddCall /> <Text ml={2}>Call us</Text></Button></Link>
           <Link to={"mailto:mail@rpadarsh.com"}><Button colorScheme="whatsapp"><MdOutlineEmail /><Text ml={3}>Mail Us</Text></Button></Link>
         </HStack>
-        <HStack position={"absolute"} bottom={3} fontSize={"20px"}>
-        <Text fontSize={"17px"}>Made With Passion and <span id="heart">💗</span> by <Link style={{color:"tomato"}} to={"https://github.com/vikas8004"} target="_blank">Vikas Kumar</Link></Text>
+        <HStack position={"absolute"} mt={"20px"} bottom={1} fontSize={"20px"}>
+        <Text fontSize={"17px"}>Made With Passion and <span id="heart">💗</span> by <Link style={{color:"tomato"}} to={"https://vikaschaudhary.netlify.app"} target="_blank">Vikas Kumar</Link></Text>
       </HStack>
       </HStack>
       

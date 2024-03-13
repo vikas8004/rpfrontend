@@ -470,7 +470,7 @@ const UpdateAndForward = () => {
                 </FormLabel>
                 <Select
                   placeholder="Select class"
-                  name="year"
+                  name="standard"
                   width={"100%"}
                   fontSize={"16px"}
                   value={stValues.standard}
