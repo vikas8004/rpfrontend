@@ -157,7 +157,7 @@ const PrintAllAdmitCard = () => {
                   justifyContent={"space-between"}
                   >
                     <Box width={"30%"} textAlign={"center"}>
-                      Class Teacher
+                      Exam Controller
                     </Box>
                     <Box width={"30%"} textAlign={"center"} >
                       Principal
