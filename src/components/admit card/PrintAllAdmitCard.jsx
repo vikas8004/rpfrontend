@@ -175,7 +175,7 @@ const PrintAllAdmitCard = () => {
               navigate("/dashboard/student/admitcard/print-admit-card")
             }
             bg={"tomato"}
-            mt={"10"}
+            mt={"40"}
           >
             Go To AdmitCard
           </Button>

@@ -10,7 +10,7 @@ const Footer = () => {
       <HStack
         bgColor={"grey"}
         mt={"10px"}
-        height={["150px","150px"]}
+        minHeight={["200px","150px"]}
         justifyContent={"space-evenly"}
         alignItems={"flex-start"}
         position={"relative"}
