@@ -43,7 +43,7 @@ const Navbar = () => {
       // console.log(res);
       if (res) {
         // setToken("");
-        console.log(res.data);
+        // console.log(res.data);
         if (res.data.data.status) {
           setToken("");
         }
@@ -128,11 +128,11 @@ const Navbar = () => {
                     Teachers
                   </Button>
                 </Link>{" "}
-                {/* <Link to={"/gallery"}>
+                <Link to={"/resources"}>
                   <Button variant={"ghost"} onClick={onClose}>
-                    Gallery
+                    Resources
                   </Button>
-                </Link>{" "} */}
+                </Link>{" "}
                 <Link to={"/about-student"}>
                   <Button variant={"ghost"} onClick={onClose}>
                     Students

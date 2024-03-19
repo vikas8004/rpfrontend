@@ -34,7 +34,7 @@ const UpdateAndForward = () => {
   const [sign1, setSign1] = useState("");
   const [sign, setSign] = useState();
   const [id, setId] = useState("");
-  console.log(sub);
+  // console.log(sub);
   // console.log(stValues);
   const [stValues, setStValues] = useState({
     schoolName: "",

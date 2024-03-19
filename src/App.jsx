@@ -48,6 +48,8 @@ import ShowDashboardTeacher from "./Teacher/ShowDashboardTeacher.jsx";
 import UnitTestResult from "./components/Results/UnitTestResult.jsx";
 import ShowUnitTestResult from "./components/Results/ShowUnitTestResult.jsx";
 import UpdateAndForward from "./components/admission/UpdateAndForward.jsx";
+import Resource from "./components/resources/Resource.jsx";
+import UpdateResource from "./components/resources/UpdateResource.jsx";
 function App() {
   const [token, setToken] = useState("");
   const [result, setResult] = useState("");
@@ -161,6 +163,8 @@ function App() {
           <Route path="/student/fee-receipt" element={<ShowFeeReceipt />} />
           {/* teacher */}
           <Route path="/teachers" element={<ShowHomeTeacher />} />
+          {/* Resource */}
+          <Route path="/resources" element={<Resource />} />
           {/* dashboard */}
           <Route
             path="/dashboard/"
@@ -201,6 +205,7 @@ function App() {
               path="student/update-student"
               element={<UpdateAndForward />}
             />
+            <Route path="update-resource" element={<UpdateResource />} />
           </Route>
         </Routes>
       </tokenContext.Provider>

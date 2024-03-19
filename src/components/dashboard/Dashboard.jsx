@@ -22,6 +22,7 @@ import { FaTable } from "react-icons/fa";
 import { FaClipboardList } from "react-icons/fa6";
 import { FaMoneyCheckDollar } from "react-icons/fa6";
 import { MdDashboard } from "react-icons/md";
+import { GrResources } from "react-icons/gr";
 const Dashboard = () => {
   return (
     <>
@@ -240,6 +241,27 @@ const Dashboard = () => {
                 <MenuList>
                   <MenuItem>
                     <NavLink to={"/dashboard/submit-fee"}>Submit Fee</NavLink>
+                  </MenuItem>{" "}
+                </MenuList>
+              </Menu>
+            </Box>
+            <Box mt={2}>
+              <Menu>
+                <MenuButton
+                  colorScheme="blue"
+                  color={"blue"}
+                  bg={"white"}
+                  as={Button}
+                >
+                  
+                  <Box display={"flex"} alignItems={"center"}>
+                    <GrResources fontSize={"17px"} />
+                    <Text ml={2}>Resource</Text>
+                  </Box>
+                </MenuButton>
+                <MenuList>
+                  <MenuItem>
+                    <NavLink to={"/dashboard/update-resource"}>Update Resource</NavLink>
                   </MenuItem>{" "}
                 </MenuList>
               </Menu>

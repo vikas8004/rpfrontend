@@ -41,7 +41,7 @@ const Login = () => {
           isClosable: true,
           position: "top-right",
         });
-        navigate("/");
+        navigate("/dashboard/view-dashboard");
         setLoading(false);
       }
     } catch (error) {
