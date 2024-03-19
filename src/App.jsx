@@ -168,7 +168,7 @@ function App() {
           {/* dashboard */}
           <Route
             path="/dashboard/"
-            element={<ProtectedRoute Component={Dashboard} />}
+            element={<Dashboard />}
           >
             <Route path="student/registration" element={<RegistrationForm />} />
             <Route path="student/details" element={<StudentDetails />} />

@@ -3,23 +3,27 @@ import {
   HStack,
   Box,
   Button,
-  Select,
   useToast,
   VStack,
   Input,
-  Stack,
-  Avatar,
+  Text,
+  Table,
+  Tbody,
+  Tr,
+  Td,
+  TableCaption,
 } from "@chakra-ui/react";
 import { Formik, Field, ErrorMessage, Form } from "formik";
 import * as Yup from "yup";
 import { baseUrl } from "../../utils/constnats.jsx";
 import axios from "axios";
-
-import { tokenContext } from "../../context.jsx";
 import { doFirstLetterCapital } from "../../utils/doFirstLetterCapital.jsx";
-
-import { useNavigate } from "react-router-dom";
+import { MdDownload } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
 const UpdateResource = () => {
+  const [loading, setLoading] = useState(false);
+  const toast = useToast();
+  const [resourceData, setResourceData] = useState([]);
   const initialValues = {
     fileName: "",
     title: "",
@@ -45,7 +49,13 @@ const UpdateResource = () => {
       if (res) {
         // console.log(res.data);
         setLoading(false);
-        opt.resetForm(initialValues);
+        opt.resetForm();
+        (async () => {
+          const res = await axios.get(
+            `${baseUrl}/api/v1/resource/get-resource`
+          );
+          setResourceData(res.data.data.foundResources);
+        })();
         toast({
           description: res.data.data.message,
           status: "success",
@@ -56,7 +66,7 @@ const UpdateResource = () => {
       }
     } catch (error) {
       setLoading(false);
-      console.log(error);
+      // console.log(error);
       toast({
         description: error.response.data.data.message,
         status: "error",
@@ -66,9 +76,52 @@ const UpdateResource = () => {
       });
     }
   };
+  const clickHandler = async (e, id, public_id) => {
+    e.preventDefault();
 
-  const [loading, setLoading] = useState(false);
-  const toast = useToast();
+    try {
+      const res = await axios.delete(
+        `${baseUrl}/api/v1/resource/delete-resource`,
+        {
+          params: {
+            _id: id,
+            public_id,
+          },
+        }
+      );
+      if (res) {
+        (async () => {
+          const res = await axios.get(
+            `${baseUrl}/api/v1/resource/get-resource`
+          );
+          setResourceData(res.data.data.foundResources);
+        })();
+        toast({
+          description: res.data.data.message,
+          position: "top-right",
+          status: "info",
+          isClosable: true,
+          duration: 3000,
+        });
+      }
+    } catch (error) {
+      console.log(error);
+      toast({
+        description: "something went wrong",
+        position: "top-right",
+        status: "info",
+        isClosable: true,
+        duration: 3000,
+      });
+    }
+  };
+  useEffect(() => {
+    (async () => {
+      const res = await axios.get(`${baseUrl}/api/v1/resource/get-resource`);
+      console.log(res.data.data.foundResources);
+      setResourceData(res.data.data.foundResources);
+    })();
+  }, []);
 
   return (
     <>
@@ -177,6 +230,36 @@ const UpdateResource = () => {
               </HStack>
             </Form>
           </Formik>
+        </HStack>
+        <HStack width={"100%"}>
+          {resourceData.length != 0 ? (
+            <Table width={["95%", "85%", "70%", "80%"]} size={"sm"} mx={"auto"}>
+              <TableCaption placement="top" fontSize={"20px"}>
+                Resources
+              </TableCaption>
+              <Tbody>
+                {resourceData.map((el, i) => {
+                  return (
+                    <Tr key={i} width={"100%"}>
+                      <Td width={"90%"}>{doFirstLetterCapital(el.title)}</Td>
+                      <Td width={"10%"}>
+                        <Button
+                          _hover={{ bg: "transparent" }}
+                          onClick={(e) =>
+                            clickHandler(e, el._id, el.file.public_id)
+                          }
+                        >
+                          <MdDelete />
+                        </Button>
+                      </Td>
+                    </Tr>
+                  );
+                })}
+              </Tbody>
+            </Table>
+          ) : (
+            <Text>No Resources Found</Text>
+          )}
         </HStack>
       </VStack>
     </>
