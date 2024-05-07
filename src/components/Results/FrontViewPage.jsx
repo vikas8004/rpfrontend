@@ -13,7 +13,7 @@ import { fixDateIssue } from "../../utils/fixDateIssue";
 
 const FrontViewPage = () => {
   const { frontPageData } = useContext(tokenContext);
-  console.log(frontPageData);
+  // console.log(frontPageData);
   return (
     <>
       <HStack mt={"65px"} width={"full"} className="frontpage">
@@ -152,7 +152,7 @@ const FrontViewPage = () => {
               PROGRESS REPORT
             </Text>
             <Text fontSize={"20px"} className="session">
-              Session :{" "}
+              Session : {frontPageData.year}
             </Text>
             <Box
               width={"90%"}

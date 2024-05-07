@@ -187,7 +187,7 @@ const FrontPage = () => {
                 loadingText={"Fetching"}
                 bg={"tomato"}
               >
-                View Result
+                Fetch Data
               </Button>
             </Box>
           </Form>
