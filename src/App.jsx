@@ -50,6 +50,8 @@ import ShowUnitTestResult from "./components/Results/ShowUnitTestResult.jsx";
 import UpdateAndForward from "./components/admission/UpdateAndForward.jsx";
 import Resource from "./components/resources/Resource.jsx";
 import UpdateResource from "./components/resources/UpdateResource.jsx";
+import FrontPage from "./components/Results/FrontPage.jsx";
+import FrontViewPage from "./components/Results/FrontViewPage.jsx";
 function App() {
   const [token, setToken] = useState("");
   const [result, setResult] = useState("");
@@ -58,6 +60,7 @@ function App() {
   const [finalResult, setFinalResult] = useState("");
   const [feeReceipt, setFeeReceipt] = useState("");
   const [utResult, setUtResult] = useState("");
+  const [frontPageData, setFrontPageData] = useState("");
   return (
     <>
       <tokenContext.Provider
@@ -76,6 +79,8 @@ function App() {
           setFeeReceipt,
           utResult,
           setUtResult,
+          frontPageData,
+          setFrontPageData,
         }}
       >
         <Navbar />
@@ -146,6 +151,7 @@ function App() {
             path="/showresult"
             element={<ShowResult Component={ResultDemo} />}
           />
+          <Route path="/result/frontpageview" element={<FrontViewPage />} />
           <Route
             path="/student/print-all-admit-card"
             element={<PrintAllAdmitCard />}
@@ -166,10 +172,7 @@ function App() {
           {/* Resource */}
           <Route path="/resources" element={<Resource />} />
           {/* dashboard */}
-          <Route
-            path="/dashboard/"
-            element={<Dashboard />}
-          >
+          <Route path="/dashboard/" element={<Dashboard />}>
             <Route path="student/registration" element={<RegistrationForm />} />
             <Route path="student/details" element={<StudentDetails />} />
             <Route
@@ -193,6 +196,7 @@ function App() {
               path="result/results/finalresult"
               element={<FinalResult />}
             />
+            <Route path="result/results/frontpage" element={<FrontPage />} />
             <Route path="student/id-card/view-id-card" element={<IdCard />} />
             <Route path="notice" element={<Notice />} />
             <Route path="submit-fee" element={<SubmitFee />} />

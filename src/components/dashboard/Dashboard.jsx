@@ -180,6 +180,11 @@ const Dashboard = () => {
                       Final Result
                     </NavLink>
                   </MenuItem>{" "}
+                  <MenuItem>
+                    <NavLink to={"/dashboard/result/results/frontpage"}>
+                      Front Page
+                    </NavLink>
+                  </MenuItem>{" "}
                 </MenuList>
               </Menu>
             </Box>

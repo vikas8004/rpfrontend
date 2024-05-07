@@ -82,4 +82,20 @@ text-align: center;
   .fee{
     margin-top: -56px;
   }
+  .frontpage{
+line-height: 22px;
+  }
+  .rehar{
+    margin-top: 30px;
+    
+  }
+  .detimage{
+    margin-top: 30px;
+  }
+  .session{
+    margin-top: 20px;
+  }
+  .detailbox{
+    margin-top: 60px;
+  }
 }
