@@ -2043,7 +2043,7 @@ const ShowFinalRes = () => {
                     justifyContent={"center"}
                     display={"flex"}
                   >
-                    <ImCross />
+                    
                   </Box>
                 </HStack>
               </VStack>
