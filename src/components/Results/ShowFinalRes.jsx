@@ -259,10 +259,13 @@ const ShowFinalRes = () => {
                 <Heading size={"md"} textAlign={"left"}>
                   {`PROGRESS REPORT SESSION - ${stuDet.year}`}{" "}
                 </Heading>
-                <Heading size={"md"} textAlign={"left"}>
+                {/* <Heading size={"md"} textAlign={"left"}>
                   {stuDet.schoolName === "rp adarsh inter college"
                     ? "RP ADARSH INTER COLLEGE REHAR BASTI"
                     : "RAM BELAS MEMORIAL PUBLIC CONVENT SCHOOL BEHDEELA CHAIRKAILA BASTI"}
+                </Heading> */}
+                <Heading size={"md"} textAlign={"left"}>
+                  RP ADARSH INTER COLLEGE REHAR BASTI
                 </Heading>
               </Box>
             </HStack>
@@ -824,9 +827,7 @@ const ShowFinalRes = () => {
                     // border={"1px solid black"}
                     justifyContent={"center"}
                     display={"flex"}
-                  >
-                    
-                  </Box>
+                  ></Box>
                 </HStack>
               </VStack>
               <VStack mt={"-5px"}>
@@ -1471,9 +1472,7 @@ const ShowFinalRes = () => {
                     // border={"1px solid black"}
                     justifyContent={"center"}
                     display={"flex"}
-                  >
-                    
-                  </Box>
+                  ></Box>
                 </HStack>
               </VStack>
               <VStack mt={"-5px"}>
@@ -2042,9 +2041,7 @@ const ShowFinalRes = () => {
                     // border={"1px solid black"}
                     justifyContent={"center"}
                     display={"flex"}
-                  >
-                    
-                  </Box>
+                  ></Box>
                 </HStack>
               </VStack>
               <VStack mt={"-5px"}>
