@@ -8,12 +8,13 @@ import {
 } from "@chakra-ui/react";
 import React, { useContext } from "react";
 import logo from "../../assests/logo.jpg";
+import rbmp from "../../assests/rbmp.png"
 import { tokenContext } from "../../context";
 import { fixDateIssue } from "../../utils/fixDateIssue";
 
 const FrontViewPage = () => {
   const { frontPageData } = useContext(tokenContext);
-  // console.log(frontPageData);
+  
   return (
     <>
       <HStack mt={"65px"} width={"full"} className="frontpage">
@@ -126,8 +127,11 @@ const FrontViewPage = () => {
               textAlign={"center"}
               fontWeight={"900"}
               fontSize={"30px"}
+              lineHeight={"30px"}
             >
-              R.P.ADARSH INTER COLLEGE
+              {frontPageData.schoolName === "rp adarsh inter college"
+                    ? "RP ADARSH INTER COLLEGE"
+                    : "RAM BELAS MEMORIAL PUBLIC CONVENT SCHOOL "}
             </Text>
             <Text
               fontWeight={"700"}
@@ -135,10 +139,12 @@ const FrontViewPage = () => {
               //   my={"15px"}
               className="rehar"
             >
-              REHAR-BASTI
+             {frontPageData.schoolName === "rp adarsh inter college"
+                    ? "REHAR BASTI"
+                    : "BEHDEELA CHAIRKAILA BASTI"}
             </Text>
 
-            <Image src={logo} boxSize={"150px"} className="detimage" />
+            <Image src={FrontViewPage.schoolName === "rp adarsh inter college"?logo:rbmp} boxSize={"150px"} className="detimage" />
             <Text
               bgColor={"black"}
               color={"white"}

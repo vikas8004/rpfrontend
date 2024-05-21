@@ -31,7 +31,7 @@ const FrontPage = () => {
     setLoading(true);
     try {
       const finalResultData = await axios.post(
-        `${baseUrl}/api/v1//result/results/frontpage`,
+        `${baseUrl}/api/v1/result/results/frontpage`,
         values
       );
       if (finalResultData) {
