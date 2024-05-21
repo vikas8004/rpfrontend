@@ -14,7 +14,7 @@ import { doFirstLetterCapital } from "../../utils/doFirstLetterCapital.jsx";
 import { spreadSum } from "../../utils/sum.jsx";
 import { useNavigate } from "react-router-dom";
 import { FaCheck } from "react-icons/fa";
-import { ImCross } from "react-icons/im";
+import rbmp from "../../assests/rbmp.png"
 const ShowFinalRes = () => {
   const { finalResult } = useContext(tokenContext);
   const navigate = useNavigate();
@@ -248,7 +248,7 @@ const ShowFinalRes = () => {
           <VStack width={"100%"}>
             <HStack width={"90%"} justifyContent={"space-between"}>
               <Box width={"30%"} display={"flex"} justifyContent={"flex-end"}>
-                <Image src={logo} boxSize={"100px"}></Image>
+                <Image src={stuDet.schoolName === "rp adarsh inter college"?logo:rbmp} boxSize={"100px"}></Image>
               </Box>
               <Box
                 width={"70%"}
@@ -259,14 +259,14 @@ const ShowFinalRes = () => {
                 <Heading size={"md"} textAlign={"left"}>
                   {`PROGRESS REPORT SESSION - ${stuDet.year}`}{" "}
                 </Heading>
-                {/* <Heading size={"md"} textAlign={"left"}>
+                <Heading size={"md"} textAlign={"left"}>
                   {stuDet.schoolName === "rp adarsh inter college"
                     ? "RP ADARSH INTER COLLEGE REHAR BASTI"
                     : "RAM BELAS MEMORIAL PUBLIC CONVENT SCHOOL BEHDEELA CHAIRKAILA BASTI"}
-                </Heading> */}
-                <Heading size={"md"} textAlign={"left"}>
-                  RP ADARSH INTER COLLEGE REHAR BASTI
                 </Heading>
+                {/* <Heading size={"md"} textAlign={"left"}>
+                  RP ADARSH INTER COLLEGE REHAR BASTI
+                </Heading> */}
               </Box>
             </HStack>
             <HStack justifyContent={"space-between"} width={"90%"}>
@@ -957,7 +957,7 @@ const ShowFinalRes = () => {
           <VStack width={"100%"}>
             <HStack width={"90%"} justifyContent={"space-between"}>
               <Box width={"30%"} display={"flex"} justifyContent={"flex-end"}>
-                <Image src={logo} boxSize={"100px"}></Image>
+                <Image src={stuDet.schoolName === "rp adarsh inter college"?logo:rbmp} boxSize={"100px"} ></Image>
               </Box>
               <Box
                 width={"70%"}
@@ -968,14 +968,14 @@ const ShowFinalRes = () => {
                 <Heading size={"md"} textAlign={"left"}>
                   {`PROGRESS REPORT SESSION - ${stuDet.year}`}{" "}
                 </Heading>
-                {/* <Heading size={"md"} textAlign={"left"}>
+                <Heading size={"md"} textAlign={"left"}>
                   {stuDet.schoolName === "rp adarsh inter college"
                     ? "RP ADARSH INTER COLLEGE REHAR BASTI"
                     : "RAM BELAS MEMORIAL PUBLIC CONVENT SCHOOL BEHDEELA CHAIRKAILA BASTI"}
-                </Heading> */}
-                <Heading size={"md"} textAlign={"left"}>
-                  RP ADARSH INTER COLLEGE REHAR BASTI
                 </Heading>
+                {/* <Heading size={"md"} textAlign={"left"}>
+                  RP ADARSH INTER COLLEGE REHAR BASTI
+                </Heading> */}
               </Box>
             </HStack>
             <HStack justifyContent={"space-between"} width={"90%"}>
@@ -1605,7 +1605,7 @@ const ShowFinalRes = () => {
           <VStack width={"100%"}>
             <HStack width={"90%"} justifyContent={"space-between"}>
               <Box width={"30%"} display={"flex"} justifyContent={"flex-end"}>
-                <Image src={logo} boxSize={"100px"}></Image>
+                <Image src={stuDet.schoolName === "rp adarsh inter college"?logo:rbmp} boxSize={"100px"} ></Image>
               </Box>
               <Box
                 width={"70%"}
@@ -1616,14 +1616,14 @@ const ShowFinalRes = () => {
                 <Heading size={"md"} textAlign={"left"}>
                   {`PROGRESS REPORT SESSION - ${stuDet.year}`}{" "}
                 </Heading>
-                {/* <Heading size={"md"} textAlign={"left"}>
+                <Heading size={"md"} textAlign={"left"}>
                   {stuDet.schoolName === "rp adarsh inter college"
                     ? "RP ADARSH INTER COLLEGE REHAR BASTI"
                     : "RAM BELAS MEMORIAL PUBLIC CONVENT SCHOOL BEHDEELA CHAIRKAILA BASTI"}
-                </Heading> */}
-                <Heading size={"md"} textAlign={"left"}>
-                  RP ADARSH INTER COLLEGE REHAR BASTI
                 </Heading>
+                {/* <Heading size={"md"} textAlign={"left"}>
+                  RP ADARSH INTER COLLEGE REHAR BASTI
+                </Heading> */}
               </Box>
             </HStack>
             <HStack justifyContent={"space-between"} width={"90%"}>
