@@ -36,7 +36,7 @@ const FrontPage = () => {
       );
       if (finalResultData) {
         const data = finalResultData.data;
-        console.log(data);
+        // console.log(data);
         setFrontPageData(data.data);
         toast({
           description: "Student fetched successfully",

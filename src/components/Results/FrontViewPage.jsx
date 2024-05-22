@@ -14,7 +14,7 @@ import { fixDateIssue } from "../../utils/fixDateIssue";
 
 const FrontViewPage = () => {
   const { frontPageData } = useContext(tokenContext);
-  
+  console.log(frontPageData);
   return (
     <>
       <HStack mt={"65px"} width={"full"} className="frontpage">
@@ -144,7 +144,7 @@ const FrontViewPage = () => {
                     : "BEHDEELA CHAIRKAILA BASTI"}
             </Text>
 
-            <Image src={FrontViewPage.schoolName === "rp adarsh inter college"?logo:rbmp} boxSize={"150px"} className="detimage" />
+            <Image src={frontPageData.schoolName === "rp adarsh inter college"?logo:rbmp} boxSize={"150px"} className="detimage" />
             <Text
               bgColor={"black"}
               color={"white"}
